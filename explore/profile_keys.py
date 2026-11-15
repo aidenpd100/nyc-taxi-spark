@@ -7,8 +7,8 @@ spark = (SparkSession.builder
          .config("spark.sql.shuffle.partitions", "16")
          .getOrCreate())
 
-YELLOW = "/Users/aidendeffner/Downloads/yellow_tripdata_2026-01.parquet"
-HVFHV  = "/Users/aidendeffner/Downloads/fhvhv_tripdata_2026-01.parquet"   # set after you download it
+YELLOW = "" # set file path
+HVFHV  = ""   # set file path
 
 SHUFFLE_PARTS = 16
 
@@ -57,7 +57,7 @@ def profile(df, cols, total):
 # profile(y, ["PULocationID", "DOLocationID"], y_total)    # zone pair
 # profile(y, ["payment_type"], y_total)                    # tiny key space, for contrast
 
-# ---------- HVFHV (uncomment once downloaded) ----------
+# ---------- HVFHV ----------
 h = spark.read.parquet(HVFHV).select("hvfhs_license_num", "PULocationID", "DOLocationID").cache()
 h_total = h.count()
 print(f"hvfhv rows: {h_total:,}")
