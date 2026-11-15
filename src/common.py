@@ -2,10 +2,42 @@
 import json, os, statistics, time
 from contextlib import redirect_stdout
 from io import StringIO
-from pyspark.sql import SparkSession
+import glob
+from functools import reduce
+from pyspark.sql import SparkSession, functions as F
 
 RAW = "data/raw"
 OUT = "data/out"
+
+YELLOW_COLS = {
+    "VendorID": "int", "tpep_pickup_datetime": "timestamp",
+    "tpep_dropoff_datetime": "timestamp", "passenger_count": "int",
+    "trip_distance": "double", "PULocationID": "int", "DOLocationID": "int",
+    "payment_type": "int", "fare_amount": "double", "tip_amount": "double",
+    "total_amount": "double", "congestion_surcharge": "double",
+    "cbd_congestion_fee": "double",
+}
+HVFHV_COLS = {
+    "hvfhs_license_num": "string", "pickup_datetime": "timestamp",
+    "dropoff_datetime": "timestamp", "PULocationID": "int", "DOLocationID": "int",
+    "trip_miles": "double", "trip_time": "long", "base_passenger_fare": "double",
+    "tips": "double", "driver_pay": "double", "congestion_surcharge": "double",
+    "cbd_congestion_fee": "double",
+}
+
+def read_service(spark, service, cols):
+    """Per-file read + cast to a canonical schema + union. Missing columns become null."""
+    files = sorted(glob.glob(f"{RAW}/{service}/*.parquet"))
+    dfs = []
+    for f in files:
+        d = spark.read.parquet(f)
+        lower = {c.lower(): c for c in d.columns} 
+        sel = []
+        for name, typ in cols.items():
+            src = lower.get(name.lower())
+            sel.append((F.col(src) if src else F.lit(None)).cast(typ).alias(name))
+        dfs.append(d.select(*sel))
+    return reduce(lambda a, b: a.unionByName(b), dfs)
 
 def get_spark(name):
     return (SparkSession.builder
@@ -39,3 +71,4 @@ def run_baseline(name, build_and_write, plan_df_fn, hold_s=300, trials=1):
               open(f"{d}/timing.json", "w"), indent=2)
     print(f"Spark UI open at http://localhost:4040 for {hold_s}s")
     time.sleep(hold_s)
+
