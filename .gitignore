@@ -1,0 +1,35 @@
+# Data
+data/
+*.parquet
+*.csv
+*.zst
+*.gz
+
+# Spark artifacts
+spark-warehouse/
+metastore_db/
+derby.log
+checkpoints/
+chk/
+*.crc
+_SUCCESS
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+.ipynb_checkpoints/
+.pytest_cache/
+
+# Environment/secrets
+.env
+*.env
+
+# OS / editor
+.DS_Store
+.idea/
+.vscode/
+
+# Logs
+*.log
