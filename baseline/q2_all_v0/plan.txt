@@ -1,0 +1,897 @@
+== Physical Plan ==
+AdaptiveSparkPlan (149)
++- HashAggregate (148)
+   +- Exchange (147)
+      +- HashAggregate (146)
+         +- Union (145)
+            :- Project (3)
+            :  +- Filter (2)
+            :     +- Scan parquet  (1)
+            :- Project (6)
+            :  +- Filter (5)
+            :     +- Scan parquet  (4)
+            :- Project (9)
+            :  +- Filter (8)
+            :     +- Scan parquet  (7)
+            :- Project (12)
+            :  +- Filter (11)
+            :     +- Scan parquet  (10)
+            :- Project (15)
+            :  +- Filter (14)
+            :     +- Scan parquet  (13)
+            :- Project (18)
+            :  +- Filter (17)
+            :     +- Scan parquet  (16)
+            :- Project (21)
+            :  +- Filter (20)
+            :     +- Scan parquet  (19)
+            :- Project (24)
+            :  +- Filter (23)
+            :     +- Scan parquet  (22)
+            :- Project (27)
+            :  +- Filter (26)
+            :     +- Scan parquet  (25)
+            :- Project (30)
+            :  +- Filter (29)
+            :     +- Scan parquet  (28)
+            :- Project (33)
+            :  +- Filter (32)
+            :     +- Scan parquet  (31)
+            :- Project (36)
+            :  +- Filter (35)
+            :     +- Scan parquet  (34)
+            :- Project (39)
+            :  +- Filter (38)
+            :     +- Scan parquet  (37)
+            :- Project (42)
+            :  +- Filter (41)
+            :     +- Scan parquet  (40)
+            :- Project (45)
+            :  +- Filter (44)
+            :     +- Scan parquet  (43)
+            :- Project (48)
+            :  +- Filter (47)
+            :     +- Scan parquet  (46)
+            :- Project (51)
+            :  +- Filter (50)
+            :     +- Scan parquet  (49)
+            :- Project (54)
+            :  +- Filter (53)
+            :     +- Scan parquet  (52)
+            :- Project (57)
+            :  +- Filter (56)
+            :     +- Scan parquet  (55)
+            :- Project (60)
+            :  +- Filter (59)
+            :     +- Scan parquet  (58)
+            :- Project (63)
+            :  +- Filter (62)
+            :     +- Scan parquet  (61)
+            :- Project (66)
+            :  +- Filter (65)
+            :     +- Scan parquet  (64)
+            :- Project (69)
+            :  +- Filter (68)
+            :     +- Scan parquet  (67)
+            :- Project (72)
+            :  +- Filter (71)
+            :     +- Scan parquet  (70)
+            :- Project (75)
+            :  +- Filter (74)
+            :     +- Scan parquet  (73)
+            :- Project (78)
+            :  +- Filter (77)
+            :     +- Scan parquet  (76)
+            :- Project (81)
+            :  +- Filter (80)
+            :     +- Scan parquet  (79)
+            :- Project (84)
+            :  +- Filter (83)
+            :     +- Scan parquet  (82)
+            :- Project (87)
+            :  +- Filter (86)
+            :     +- Scan parquet  (85)
+            :- Project (90)
+            :  +- Filter (89)
+            :     +- Scan parquet  (88)
+            :- Project (93)
+            :  +- Filter (92)
+            :     +- Scan parquet  (91)
+            :- Project (96)
+            :  +- Filter (95)
+            :     +- Scan parquet  (94)
+            :- Project (99)
+            :  +- Filter (98)
+            :     +- Scan parquet  (97)
+            :- Project (102)
+            :  +- Filter (101)
+            :     +- Scan parquet  (100)
+            :- Project (105)
+            :  +- Filter (104)
+            :     +- Scan parquet  (103)
+            :- Project (108)
+            :  +- Filter (107)
+            :     +- Scan parquet  (106)
+            :- Project (111)
+            :  +- Filter (110)
+            :     +- Scan parquet  (109)
+            :- Project (114)
+            :  +- Filter (113)
+            :     +- Scan parquet  (112)
+            :- Project (117)
+            :  +- Filter (116)
+            :     +- Scan parquet  (115)
+            :- Project (120)
+            :  +- Filter (119)
+            :     +- Scan parquet  (118)
+            :- Project (123)
+            :  +- Filter (122)
+            :     +- Scan parquet  (121)
+            :- Project (126)
+            :  +- Filter (125)
+            :     +- Scan parquet  (124)
+            :- Project (129)
+            :  +- Filter (128)
+            :     +- Scan parquet  (127)
+            :- Project (132)
+            :  +- Filter (131)
+            :     +- Scan parquet  (130)
+            :- Project (135)
+            :  +- Filter (134)
+            :     +- Scan parquet  (133)
+            :- Project (138)
+            :  +- Filter (137)
+            :     +- Scan parquet  (136)
+            :- Project (141)
+            :  +- Filter (140)
+            :     +- Scan parquet  (139)
+            +- Project (144)
+               +- Filter (143)
+                  +- Scan parquet  (142)
+
+
+(1) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1, tpep_dropoff_datetime#2, trip_distance#4, PULocationID#7, DOLocationID#8]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-01.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(2) Filter
+Input [5]: [tpep_pickup_datetime#1, tpep_dropoff_datetime#2, trip_distance#4, PULocationID#7, DOLocationID#8]
+Condition : (((isnotnull(trip_distance#4) AND ((cast((unix_timestamp(tpep_dropoff_datetime#2, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#2, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#4 > 0.1))
+
+(3) Project
+Output [5]: [yellow AS service#1883, trip_distance#4 AS miles#1886, (cast((unix_timestamp(tpep_dropoff_datetime#2, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#3961, date_trunc(month, cast(tpep_pickup_datetime#1 as timestamp), Some(America/New_York)) AS month#3969, (DOLocationID#8 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#7 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#3978]
+Input [5]: [tpep_pickup_datetime#1, tpep_dropoff_datetime#2, trip_distance#4, PULocationID#7, DOLocationID#8]
+
+(4) Scan parquet 
+Output [5]: [tpep_pickup_datetime#66, tpep_dropoff_datetime#67, trip_distance#69, PULocationID#72, DOLocationID#73]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-02.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(5) Filter
+Input [5]: [tpep_pickup_datetime#66, tpep_dropoff_datetime#67, trip_distance#69, PULocationID#72, DOLocationID#73]
+Condition : (((isnotnull(trip_distance#69) AND ((cast((unix_timestamp(tpep_dropoff_datetime#67, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#66, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#67, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#66, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#69 > 0.1))
+
+(6) Project
+Output [5]: [yellow AS service#4009, trip_distance#69 AS miles#4012, (cast((unix_timestamp(tpep_dropoff_datetime#67, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#66, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4193, date_trunc(month, cast(tpep_pickup_datetime#66 as timestamp), Some(America/New_York)) AS month#4240, (DOLocationID#73 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#72 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4241]
+Input [5]: [tpep_pickup_datetime#66, tpep_dropoff_datetime#67, trip_distance#69, PULocationID#72, DOLocationID#73]
+
+(7) Scan parquet 
+Output [5]: [tpep_pickup_datetime#131, tpep_dropoff_datetime#132, trip_distance#134, PULocationID#137, DOLocationID#138]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-03.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(8) Filter
+Input [5]: [tpep_pickup_datetime#131, tpep_dropoff_datetime#132, trip_distance#134, PULocationID#137, DOLocationID#138]
+Condition : (((isnotnull(trip_distance#134) AND ((cast((unix_timestamp(tpep_dropoff_datetime#132, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#131, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#132, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#131, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#134 > 0.1))
+
+(9) Project
+Output [5]: [yellow AS service#4013, trip_distance#134 AS miles#4016, (cast((unix_timestamp(tpep_dropoff_datetime#132, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#131, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4194, date_trunc(month, cast(tpep_pickup_datetime#131 as timestamp), Some(America/New_York)) AS month#4242, (DOLocationID#138 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#137 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4243]
+Input [5]: [tpep_pickup_datetime#131, tpep_dropoff_datetime#132, trip_distance#134, PULocationID#137, DOLocationID#138]
+
+(10) Scan parquet 
+Output [5]: [tpep_pickup_datetime#196, tpep_dropoff_datetime#197, trip_distance#199, PULocationID#202, DOLocationID#203]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-04.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(11) Filter
+Input [5]: [tpep_pickup_datetime#196, tpep_dropoff_datetime#197, trip_distance#199, PULocationID#202, DOLocationID#203]
+Condition : (((isnotnull(trip_distance#199) AND ((cast((unix_timestamp(tpep_dropoff_datetime#197, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#196, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#197, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#196, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#199 > 0.1))
+
+(12) Project
+Output [5]: [yellow AS service#4017, trip_distance#199 AS miles#4020, (cast((unix_timestamp(tpep_dropoff_datetime#197, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#196, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4195, date_trunc(month, cast(tpep_pickup_datetime#196 as timestamp), Some(America/New_York)) AS month#4244, (DOLocationID#203 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#202 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4245]
+Input [5]: [tpep_pickup_datetime#196, tpep_dropoff_datetime#197, trip_distance#199, PULocationID#202, DOLocationID#203]
+
+(13) Scan parquet 
+Output [5]: [tpep_pickup_datetime#261, tpep_dropoff_datetime#262, trip_distance#264, PULocationID#267, DOLocationID#268]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-05.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(14) Filter
+Input [5]: [tpep_pickup_datetime#261, tpep_dropoff_datetime#262, trip_distance#264, PULocationID#267, DOLocationID#268]
+Condition : (((isnotnull(trip_distance#264) AND ((cast((unix_timestamp(tpep_dropoff_datetime#262, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#261, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#262, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#261, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#264 > 0.1))
+
+(15) Project
+Output [5]: [yellow AS service#4021, trip_distance#264 AS miles#4024, (cast((unix_timestamp(tpep_dropoff_datetime#262, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#261, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4196, date_trunc(month, cast(tpep_pickup_datetime#261 as timestamp), Some(America/New_York)) AS month#4246, (DOLocationID#268 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#267 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4247]
+Input [5]: [tpep_pickup_datetime#261, tpep_dropoff_datetime#262, trip_distance#264, PULocationID#267, DOLocationID#268]
+
+(16) Scan parquet 
+Output [5]: [tpep_pickup_datetime#326, tpep_dropoff_datetime#327, trip_distance#329, PULocationID#332, DOLocationID#333]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-06.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(17) Filter
+Input [5]: [tpep_pickup_datetime#326, tpep_dropoff_datetime#327, trip_distance#329, PULocationID#332, DOLocationID#333]
+Condition : (((isnotnull(trip_distance#329) AND ((cast((unix_timestamp(tpep_dropoff_datetime#327, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#326, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#327, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#326, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#329 > 0.1))
+
+(18) Project
+Output [5]: [yellow AS service#4025, trip_distance#329 AS miles#4028, (cast((unix_timestamp(tpep_dropoff_datetime#327, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#326, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4197, date_trunc(month, cast(tpep_pickup_datetime#326 as timestamp), Some(America/New_York)) AS month#4248, (DOLocationID#333 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#332 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4249]
+Input [5]: [tpep_pickup_datetime#326, tpep_dropoff_datetime#327, trip_distance#329, PULocationID#332, DOLocationID#333]
+
+(19) Scan parquet 
+Output [5]: [tpep_pickup_datetime#391, tpep_dropoff_datetime#392, trip_distance#394, PULocationID#397, DOLocationID#398]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-07.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(20) Filter
+Input [5]: [tpep_pickup_datetime#391, tpep_dropoff_datetime#392, trip_distance#394, PULocationID#397, DOLocationID#398]
+Condition : (((isnotnull(trip_distance#394) AND ((cast((unix_timestamp(tpep_dropoff_datetime#392, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#391, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#392, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#391, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#394 > 0.1))
+
+(21) Project
+Output [5]: [yellow AS service#4029, trip_distance#394 AS miles#4032, (cast((unix_timestamp(tpep_dropoff_datetime#392, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#391, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4198, date_trunc(month, cast(tpep_pickup_datetime#391 as timestamp), Some(America/New_York)) AS month#4250, (DOLocationID#398 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#397 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4251]
+Input [5]: [tpep_pickup_datetime#391, tpep_dropoff_datetime#392, trip_distance#394, PULocationID#397, DOLocationID#398]
+
+(22) Scan parquet 
+Output [5]: [tpep_pickup_datetime#456, tpep_dropoff_datetime#457, trip_distance#459, PULocationID#462, DOLocationID#463]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-08.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(23) Filter
+Input [5]: [tpep_pickup_datetime#456, tpep_dropoff_datetime#457, trip_distance#459, PULocationID#462, DOLocationID#463]
+Condition : (((isnotnull(trip_distance#459) AND ((cast((unix_timestamp(tpep_dropoff_datetime#457, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#456, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#457, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#456, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#459 > 0.1))
+
+(24) Project
+Output [5]: [yellow AS service#4033, trip_distance#459 AS miles#4036, (cast((unix_timestamp(tpep_dropoff_datetime#457, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#456, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4199, date_trunc(month, cast(tpep_pickup_datetime#456 as timestamp), Some(America/New_York)) AS month#4252, (DOLocationID#463 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#462 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4253]
+Input [5]: [tpep_pickup_datetime#456, tpep_dropoff_datetime#457, trip_distance#459, PULocationID#462, DOLocationID#463]
+
+(25) Scan parquet 
+Output [5]: [tpep_pickup_datetime#521, tpep_dropoff_datetime#522, trip_distance#524, PULocationID#527, DOLocationID#528]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-09.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(26) Filter
+Input [5]: [tpep_pickup_datetime#521, tpep_dropoff_datetime#522, trip_distance#524, PULocationID#527, DOLocationID#528]
+Condition : (((isnotnull(trip_distance#524) AND ((cast((unix_timestamp(tpep_dropoff_datetime#522, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#521, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#522, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#521, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#524 > 0.1))
+
+(27) Project
+Output [5]: [yellow AS service#4037, trip_distance#524 AS miles#4040, (cast((unix_timestamp(tpep_dropoff_datetime#522, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#521, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4200, date_trunc(month, cast(tpep_pickup_datetime#521 as timestamp), Some(America/New_York)) AS month#4254, (DOLocationID#528 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#527 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4255]
+Input [5]: [tpep_pickup_datetime#521, tpep_dropoff_datetime#522, trip_distance#524, PULocationID#527, DOLocationID#528]
+
+(28) Scan parquet 
+Output [5]: [tpep_pickup_datetime#586, tpep_dropoff_datetime#587, trip_distance#589, PULocationID#592, DOLocationID#593]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-10.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(29) Filter
+Input [5]: [tpep_pickup_datetime#586, tpep_dropoff_datetime#587, trip_distance#589, PULocationID#592, DOLocationID#593]
+Condition : (((isnotnull(trip_distance#589) AND ((cast((unix_timestamp(tpep_dropoff_datetime#587, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#586, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#587, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#586, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#589 > 0.1))
+
+(30) Project
+Output [5]: [yellow AS service#4041, trip_distance#589 AS miles#4044, (cast((unix_timestamp(tpep_dropoff_datetime#587, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#586, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4201, date_trunc(month, cast(tpep_pickup_datetime#586 as timestamp), Some(America/New_York)) AS month#4256, (DOLocationID#593 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#592 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4257]
+Input [5]: [tpep_pickup_datetime#586, tpep_dropoff_datetime#587, trip_distance#589, PULocationID#592, DOLocationID#593]
+
+(31) Scan parquet 
+Output [5]: [tpep_pickup_datetime#651, tpep_dropoff_datetime#652, trip_distance#654, PULocationID#657, DOLocationID#658]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-11.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(32) Filter
+Input [5]: [tpep_pickup_datetime#651, tpep_dropoff_datetime#652, trip_distance#654, PULocationID#657, DOLocationID#658]
+Condition : (((isnotnull(trip_distance#654) AND ((cast((unix_timestamp(tpep_dropoff_datetime#652, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#651, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#652, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#651, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#654 > 0.1))
+
+(33) Project
+Output [5]: [yellow AS service#4045, trip_distance#654 AS miles#4048, (cast((unix_timestamp(tpep_dropoff_datetime#652, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#651, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4202, date_trunc(month, cast(tpep_pickup_datetime#651 as timestamp), Some(America/New_York)) AS month#4258, (DOLocationID#658 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#657 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4259]
+Input [5]: [tpep_pickup_datetime#651, tpep_dropoff_datetime#652, trip_distance#654, PULocationID#657, DOLocationID#658]
+
+(34) Scan parquet 
+Output [5]: [tpep_pickup_datetime#716, tpep_dropoff_datetime#717, trip_distance#719, PULocationID#722, DOLocationID#723]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-12.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(35) Filter
+Input [5]: [tpep_pickup_datetime#716, tpep_dropoff_datetime#717, trip_distance#719, PULocationID#722, DOLocationID#723]
+Condition : (((isnotnull(trip_distance#719) AND ((cast((unix_timestamp(tpep_dropoff_datetime#717, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#716, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#717, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#716, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#719 > 0.1))
+
+(36) Project
+Output [5]: [yellow AS service#4049, trip_distance#719 AS miles#4052, (cast((unix_timestamp(tpep_dropoff_datetime#717, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#716, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4203, date_trunc(month, cast(tpep_pickup_datetime#716 as timestamp), Some(America/New_York)) AS month#4260, (DOLocationID#723 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#722 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4261]
+Input [5]: [tpep_pickup_datetime#716, tpep_dropoff_datetime#717, trip_distance#719, PULocationID#722, DOLocationID#723]
+
+(37) Scan parquet 
+Output [5]: [tpep_pickup_datetime#781, tpep_dropoff_datetime#782, trip_distance#784, PULocationID#787, DOLocationID#788]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-01.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(38) Filter
+Input [5]: [tpep_pickup_datetime#781, tpep_dropoff_datetime#782, trip_distance#784, PULocationID#787, DOLocationID#788]
+Condition : (((isnotnull(trip_distance#784) AND ((cast((unix_timestamp(tpep_dropoff_datetime#782, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#781, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#782, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#781, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#784 > 0.1))
+
+(39) Project
+Output [5]: [yellow AS service#4053, trip_distance#784 AS miles#4056, (cast((unix_timestamp(tpep_dropoff_datetime#782, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#781, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4204, date_trunc(month, cast(tpep_pickup_datetime#781 as timestamp), Some(America/New_York)) AS month#4262, (DOLocationID#788 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#787 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4263]
+Input [5]: [tpep_pickup_datetime#781, tpep_dropoff_datetime#782, trip_distance#784, PULocationID#787, DOLocationID#788]
+
+(40) Scan parquet 
+Output [5]: [tpep_pickup_datetime#848, tpep_dropoff_datetime#849, trip_distance#851, PULocationID#854, DOLocationID#855]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-02.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(41) Filter
+Input [5]: [tpep_pickup_datetime#848, tpep_dropoff_datetime#849, trip_distance#851, PULocationID#854, DOLocationID#855]
+Condition : (((isnotnull(trip_distance#851) AND ((cast((unix_timestamp(tpep_dropoff_datetime#849, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#848, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#849, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#848, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#851 > 0.1))
+
+(42) Project
+Output [5]: [yellow AS service#4057, trip_distance#851 AS miles#4060, (cast((unix_timestamp(tpep_dropoff_datetime#849, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#848, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4205, date_trunc(month, cast(tpep_pickup_datetime#848 as timestamp), Some(America/New_York)) AS month#4264, (DOLocationID#855 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#854 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4265]
+Input [5]: [tpep_pickup_datetime#848, tpep_dropoff_datetime#849, trip_distance#851, PULocationID#854, DOLocationID#855]
+
+(43) Scan parquet 
+Output [5]: [tpep_pickup_datetime#915, tpep_dropoff_datetime#916, trip_distance#918, PULocationID#921, DOLocationID#922]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-03.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(44) Filter
+Input [5]: [tpep_pickup_datetime#915, tpep_dropoff_datetime#916, trip_distance#918, PULocationID#921, DOLocationID#922]
+Condition : (((isnotnull(trip_distance#918) AND ((cast((unix_timestamp(tpep_dropoff_datetime#916, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#915, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#916, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#915, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#918 > 0.1))
+
+(45) Project
+Output [5]: [yellow AS service#4061, trip_distance#918 AS miles#4064, (cast((unix_timestamp(tpep_dropoff_datetime#916, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#915, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4206, date_trunc(month, cast(tpep_pickup_datetime#915 as timestamp), Some(America/New_York)) AS month#4266, (DOLocationID#922 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#921 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4267]
+Input [5]: [tpep_pickup_datetime#915, tpep_dropoff_datetime#916, trip_distance#918, PULocationID#921, DOLocationID#922]
+
+(46) Scan parquet 
+Output [5]: [tpep_pickup_datetime#982, tpep_dropoff_datetime#983, trip_distance#985, PULocationID#988, DOLocationID#989]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-04.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(47) Filter
+Input [5]: [tpep_pickup_datetime#982, tpep_dropoff_datetime#983, trip_distance#985, PULocationID#988, DOLocationID#989]
+Condition : (((isnotnull(trip_distance#985) AND ((cast((unix_timestamp(tpep_dropoff_datetime#983, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#982, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#983, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#982, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#985 > 0.1))
+
+(48) Project
+Output [5]: [yellow AS service#4065, trip_distance#985 AS miles#4068, (cast((unix_timestamp(tpep_dropoff_datetime#983, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#982, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4207, date_trunc(month, cast(tpep_pickup_datetime#982 as timestamp), Some(America/New_York)) AS month#4268, (DOLocationID#989 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#988 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4269]
+Input [5]: [tpep_pickup_datetime#982, tpep_dropoff_datetime#983, trip_distance#985, PULocationID#988, DOLocationID#989]
+
+(49) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1049, tpep_dropoff_datetime#1050, trip_distance#1052, PULocationID#1055, DOLocationID#1056]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-05.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(50) Filter
+Input [5]: [tpep_pickup_datetime#1049, tpep_dropoff_datetime#1050, trip_distance#1052, PULocationID#1055, DOLocationID#1056]
+Condition : (((isnotnull(trip_distance#1052) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1050, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1049, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1050, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1049, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#1052 > 0.1))
+
+(51) Project
+Output [5]: [yellow AS service#4069, trip_distance#1052 AS miles#4072, (cast((unix_timestamp(tpep_dropoff_datetime#1050, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1049, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4208, date_trunc(month, cast(tpep_pickup_datetime#1049 as timestamp), Some(America/New_York)) AS month#4270, (DOLocationID#1056 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#1055 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4271]
+Input [5]: [tpep_pickup_datetime#1049, tpep_dropoff_datetime#1050, trip_distance#1052, PULocationID#1055, DOLocationID#1056]
+
+(52) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1116, tpep_dropoff_datetime#1117, trip_distance#1119, PULocationID#1122, DOLocationID#1123]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-06.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(53) Filter
+Input [5]: [tpep_pickup_datetime#1116, tpep_dropoff_datetime#1117, trip_distance#1119, PULocationID#1122, DOLocationID#1123]
+Condition : (((isnotnull(trip_distance#1119) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1117, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1116, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1117, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1116, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#1119 > 0.1))
+
+(54) Project
+Output [5]: [yellow AS service#4073, trip_distance#1119 AS miles#4076, (cast((unix_timestamp(tpep_dropoff_datetime#1117, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1116, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4209, date_trunc(month, cast(tpep_pickup_datetime#1116 as timestamp), Some(America/New_York)) AS month#4272, (DOLocationID#1123 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#1122 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4273]
+Input [5]: [tpep_pickup_datetime#1116, tpep_dropoff_datetime#1117, trip_distance#1119, PULocationID#1122, DOLocationID#1123]
+
+(55) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1183, tpep_dropoff_datetime#1184, trip_distance#1186, PULocationID#1189, DOLocationID#1190]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-07.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(56) Filter
+Input [5]: [tpep_pickup_datetime#1183, tpep_dropoff_datetime#1184, trip_distance#1186, PULocationID#1189, DOLocationID#1190]
+Condition : (((isnotnull(trip_distance#1186) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1184, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1183, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1184, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1183, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#1186 > 0.1))
+
+(57) Project
+Output [5]: [yellow AS service#4077, trip_distance#1186 AS miles#4080, (cast((unix_timestamp(tpep_dropoff_datetime#1184, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1183, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4210, date_trunc(month, cast(tpep_pickup_datetime#1183 as timestamp), Some(America/New_York)) AS month#4274, (DOLocationID#1190 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#1189 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4275]
+Input [5]: [tpep_pickup_datetime#1183, tpep_dropoff_datetime#1184, trip_distance#1186, PULocationID#1189, DOLocationID#1190]
+
+(58) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1250, tpep_dropoff_datetime#1251, trip_distance#1253, PULocationID#1256, DOLocationID#1257]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-08.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(59) Filter
+Input [5]: [tpep_pickup_datetime#1250, tpep_dropoff_datetime#1251, trip_distance#1253, PULocationID#1256, DOLocationID#1257]
+Condition : (((isnotnull(trip_distance#1253) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1251, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1250, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1251, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1250, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#1253 > 0.1))
+
+(60) Project
+Output [5]: [yellow AS service#4081, trip_distance#1253 AS miles#4084, (cast((unix_timestamp(tpep_dropoff_datetime#1251, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1250, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4211, date_trunc(month, cast(tpep_pickup_datetime#1250 as timestamp), Some(America/New_York)) AS month#4276, (DOLocationID#1257 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#1256 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4277]
+Input [5]: [tpep_pickup_datetime#1250, tpep_dropoff_datetime#1251, trip_distance#1253, PULocationID#1256, DOLocationID#1257]
+
+(61) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1317, tpep_dropoff_datetime#1318, trip_distance#1320, PULocationID#1323, DOLocationID#1324]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-09.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(62) Filter
+Input [5]: [tpep_pickup_datetime#1317, tpep_dropoff_datetime#1318, trip_distance#1320, PULocationID#1323, DOLocationID#1324]
+Condition : (((isnotnull(trip_distance#1320) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1318, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1317, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1318, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1317, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#1320 > 0.1))
+
+(63) Project
+Output [5]: [yellow AS service#4085, trip_distance#1320 AS miles#4088, (cast((unix_timestamp(tpep_dropoff_datetime#1318, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1317, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4212, date_trunc(month, cast(tpep_pickup_datetime#1317 as timestamp), Some(America/New_York)) AS month#4278, (DOLocationID#1324 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#1323 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4279]
+Input [5]: [tpep_pickup_datetime#1317, tpep_dropoff_datetime#1318, trip_distance#1320, PULocationID#1323, DOLocationID#1324]
+
+(64) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1384, tpep_dropoff_datetime#1385, trip_distance#1387, PULocationID#1390, DOLocationID#1391]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-10.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(65) Filter
+Input [5]: [tpep_pickup_datetime#1384, tpep_dropoff_datetime#1385, trip_distance#1387, PULocationID#1390, DOLocationID#1391]
+Condition : (((isnotnull(trip_distance#1387) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1385, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1384, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1385, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1384, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#1387 > 0.1))
+
+(66) Project
+Output [5]: [yellow AS service#4089, trip_distance#1387 AS miles#4092, (cast((unix_timestamp(tpep_dropoff_datetime#1385, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1384, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4213, date_trunc(month, cast(tpep_pickup_datetime#1384 as timestamp), Some(America/New_York)) AS month#4280, (DOLocationID#1391 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#1390 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4281]
+Input [5]: [tpep_pickup_datetime#1384, tpep_dropoff_datetime#1385, trip_distance#1387, PULocationID#1390, DOLocationID#1391]
+
+(67) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1451, tpep_dropoff_datetime#1452, trip_distance#1454, PULocationID#1457, DOLocationID#1458]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-11.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(68) Filter
+Input [5]: [tpep_pickup_datetime#1451, tpep_dropoff_datetime#1452, trip_distance#1454, PULocationID#1457, DOLocationID#1458]
+Condition : (((isnotnull(trip_distance#1454) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1452, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1451, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1452, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1451, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#1454 > 0.1))
+
+(69) Project
+Output [5]: [yellow AS service#4093, trip_distance#1454 AS miles#4096, (cast((unix_timestamp(tpep_dropoff_datetime#1452, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1451, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4214, date_trunc(month, cast(tpep_pickup_datetime#1451 as timestamp), Some(America/New_York)) AS month#4282, (DOLocationID#1458 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#1457 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4283]
+Input [5]: [tpep_pickup_datetime#1451, tpep_dropoff_datetime#1452, trip_distance#1454, PULocationID#1457, DOLocationID#1458]
+
+(70) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1518, tpep_dropoff_datetime#1519, trip_distance#1521, PULocationID#1524, DOLocationID#1525]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-12.parquet]
+PushedFilters: [IsNotNull(trip_distance), GreaterThan(trip_distance,0.1)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,PULocationID:int,DOLocationID:int>
+
+(71) Filter
+Input [5]: [tpep_pickup_datetime#1518, tpep_dropoff_datetime#1519, trip_distance#1521, PULocationID#1524, DOLocationID#1525]
+Condition : (((isnotnull(trip_distance#1521) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1519, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1518, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(tpep_dropoff_datetime#1519, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1518, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_distance#1521 > 0.1))
+
+(72) Project
+Output [5]: [yellow AS service#4097, trip_distance#1521 AS miles#4100, (cast((unix_timestamp(tpep_dropoff_datetime#1519, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(tpep_pickup_datetime#1518, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4215, date_trunc(month, cast(tpep_pickup_datetime#1518 as timestamp), Some(America/New_York)) AS month#4284, (DOLocationID#1525 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#1524 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4285]
+Input [5]: [tpep_pickup_datetime#1518, tpep_dropoff_datetime#1519, trip_distance#1521, PULocationID#1524, DOLocationID#1525]
+
+(73) Scan parquet 
+Output [5]: [pickup_datetime#1898, dropoff_datetime#1899, PULocationID#1900, DOLocationID#1901, trip_miles#1902]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-01.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(74) Filter
+Input [5]: [pickup_datetime#1898, dropoff_datetime#1899, PULocationID#1900, DOLocationID#1901, trip_miles#1902]
+Condition : (((isnotnull(trip_miles#1902) AND ((cast((unix_timestamp(dropoff_datetime#1899, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#1898, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#1899, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#1898, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#1902 > 0.1))
+
+(75) Project
+Output [5]: [fhvhv AS service#3945, trip_miles#1902 AS miles#3948, (cast((unix_timestamp(dropoff_datetime#1899, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#1898, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4216, date_trunc(month, cast(pickup_datetime#1898 as timestamp), Some(America/New_York)) AS month#4286, (DOLocationID#1901 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#1900 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4287]
+Input [5]: [pickup_datetime#1898, dropoff_datetime#1899, PULocationID#1900, DOLocationID#1901, trip_miles#1902]
+
+(76) Scan parquet 
+Output [5]: [pickup_datetime#1971, dropoff_datetime#1972, PULocationID#1973, DOLocationID#1974, trip_miles#1975]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-02.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(77) Filter
+Input [5]: [pickup_datetime#1971, dropoff_datetime#1972, PULocationID#1973, DOLocationID#1974, trip_miles#1975]
+Condition : (((isnotnull(trip_miles#1975) AND ((cast((unix_timestamp(dropoff_datetime#1972, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#1971, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#1972, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#1971, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#1975 > 0.1))
+
+(78) Project
+Output [5]: [fhvhv AS service#4101, trip_miles#1975 AS miles#4104, (cast((unix_timestamp(dropoff_datetime#1972, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#1971, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4217, date_trunc(month, cast(pickup_datetime#1971 as timestamp), Some(America/New_York)) AS month#4288, (DOLocationID#1974 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#1973 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4289]
+Input [5]: [pickup_datetime#1971, dropoff_datetime#1972, PULocationID#1973, DOLocationID#1974, trip_miles#1975]
+
+(79) Scan parquet 
+Output [5]: [pickup_datetime#2044, dropoff_datetime#2045, PULocationID#2046, DOLocationID#2047, trip_miles#2048]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-03.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(80) Filter
+Input [5]: [pickup_datetime#2044, dropoff_datetime#2045, PULocationID#2046, DOLocationID#2047, trip_miles#2048]
+Condition : (((isnotnull(trip_miles#2048) AND ((cast((unix_timestamp(dropoff_datetime#2045, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2044, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2045, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2044, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2048 > 0.1))
+
+(81) Project
+Output [5]: [fhvhv AS service#4105, trip_miles#2048 AS miles#4108, (cast((unix_timestamp(dropoff_datetime#2045, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2044, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4218, date_trunc(month, cast(pickup_datetime#2044 as timestamp), Some(America/New_York)) AS month#4290, (DOLocationID#2047 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2046 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4291]
+Input [5]: [pickup_datetime#2044, dropoff_datetime#2045, PULocationID#2046, DOLocationID#2047, trip_miles#2048]
+
+(82) Scan parquet 
+Output [5]: [pickup_datetime#2117, dropoff_datetime#2118, PULocationID#2119, DOLocationID#2120, trip_miles#2121]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-04.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(83) Filter
+Input [5]: [pickup_datetime#2117, dropoff_datetime#2118, PULocationID#2119, DOLocationID#2120, trip_miles#2121]
+Condition : (((isnotnull(trip_miles#2121) AND ((cast((unix_timestamp(dropoff_datetime#2118, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2117, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2118, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2117, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2121 > 0.1))
+
+(84) Project
+Output [5]: [fhvhv AS service#4109, trip_miles#2121 AS miles#4112, (cast((unix_timestamp(dropoff_datetime#2118, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2117, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4219, date_trunc(month, cast(pickup_datetime#2117 as timestamp), Some(America/New_York)) AS month#4292, (DOLocationID#2120 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2119 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4293]
+Input [5]: [pickup_datetime#2117, dropoff_datetime#2118, PULocationID#2119, DOLocationID#2120, trip_miles#2121]
+
+(85) Scan parquet 
+Output [5]: [pickup_datetime#2190, dropoff_datetime#2191, PULocationID#2192, DOLocationID#2193, trip_miles#2194]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-05.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(86) Filter
+Input [5]: [pickup_datetime#2190, dropoff_datetime#2191, PULocationID#2192, DOLocationID#2193, trip_miles#2194]
+Condition : (((isnotnull(trip_miles#2194) AND ((cast((unix_timestamp(dropoff_datetime#2191, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2190, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2191, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2190, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2194 > 0.1))
+
+(87) Project
+Output [5]: [fhvhv AS service#4113, trip_miles#2194 AS miles#4116, (cast((unix_timestamp(dropoff_datetime#2191, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2190, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4220, date_trunc(month, cast(pickup_datetime#2190 as timestamp), Some(America/New_York)) AS month#4294, (DOLocationID#2193 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2192 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4295]
+Input [5]: [pickup_datetime#2190, dropoff_datetime#2191, PULocationID#2192, DOLocationID#2193, trip_miles#2194]
+
+(88) Scan parquet 
+Output [5]: [pickup_datetime#2263, dropoff_datetime#2264, PULocationID#2265, DOLocationID#2266, trip_miles#2267]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-06.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(89) Filter
+Input [5]: [pickup_datetime#2263, dropoff_datetime#2264, PULocationID#2265, DOLocationID#2266, trip_miles#2267]
+Condition : (((isnotnull(trip_miles#2267) AND ((cast((unix_timestamp(dropoff_datetime#2264, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2263, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2264, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2263, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2267 > 0.1))
+
+(90) Project
+Output [5]: [fhvhv AS service#4117, trip_miles#2267 AS miles#4120, (cast((unix_timestamp(dropoff_datetime#2264, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2263, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4221, date_trunc(month, cast(pickup_datetime#2263 as timestamp), Some(America/New_York)) AS month#4296, (DOLocationID#2266 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2265 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4297]
+Input [5]: [pickup_datetime#2263, dropoff_datetime#2264, PULocationID#2265, DOLocationID#2266, trip_miles#2267]
+
+(91) Scan parquet 
+Output [5]: [pickup_datetime#2336, dropoff_datetime#2337, PULocationID#2338, DOLocationID#2339, trip_miles#2340]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-07.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(92) Filter
+Input [5]: [pickup_datetime#2336, dropoff_datetime#2337, PULocationID#2338, DOLocationID#2339, trip_miles#2340]
+Condition : (((isnotnull(trip_miles#2340) AND ((cast((unix_timestamp(dropoff_datetime#2337, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2336, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2337, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2336, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2340 > 0.1))
+
+(93) Project
+Output [5]: [fhvhv AS service#4121, trip_miles#2340 AS miles#4124, (cast((unix_timestamp(dropoff_datetime#2337, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2336, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4222, date_trunc(month, cast(pickup_datetime#2336 as timestamp), Some(America/New_York)) AS month#4298, (DOLocationID#2339 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2338 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4299]
+Input [5]: [pickup_datetime#2336, dropoff_datetime#2337, PULocationID#2338, DOLocationID#2339, trip_miles#2340]
+
+(94) Scan parquet 
+Output [5]: [pickup_datetime#2409, dropoff_datetime#2410, PULocationID#2411, DOLocationID#2412, trip_miles#2413]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-08.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(95) Filter
+Input [5]: [pickup_datetime#2409, dropoff_datetime#2410, PULocationID#2411, DOLocationID#2412, trip_miles#2413]
+Condition : (((isnotnull(trip_miles#2413) AND ((cast((unix_timestamp(dropoff_datetime#2410, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2409, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2410, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2409, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2413 > 0.1))
+
+(96) Project
+Output [5]: [fhvhv AS service#4125, trip_miles#2413 AS miles#4128, (cast((unix_timestamp(dropoff_datetime#2410, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2409, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4223, date_trunc(month, cast(pickup_datetime#2409 as timestamp), Some(America/New_York)) AS month#4300, (DOLocationID#2412 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2411 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4301]
+Input [5]: [pickup_datetime#2409, dropoff_datetime#2410, PULocationID#2411, DOLocationID#2412, trip_miles#2413]
+
+(97) Scan parquet 
+Output [5]: [pickup_datetime#2482, dropoff_datetime#2483, PULocationID#2484, DOLocationID#2485, trip_miles#2486]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-09.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(98) Filter
+Input [5]: [pickup_datetime#2482, dropoff_datetime#2483, PULocationID#2484, DOLocationID#2485, trip_miles#2486]
+Condition : (((isnotnull(trip_miles#2486) AND ((cast((unix_timestamp(dropoff_datetime#2483, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2482, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2483, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2482, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2486 > 0.1))
+
+(99) Project
+Output [5]: [fhvhv AS service#4129, trip_miles#2486 AS miles#4132, (cast((unix_timestamp(dropoff_datetime#2483, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2482, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4224, date_trunc(month, cast(pickup_datetime#2482 as timestamp), Some(America/New_York)) AS month#4302, (DOLocationID#2485 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2484 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4303]
+Input [5]: [pickup_datetime#2482, dropoff_datetime#2483, PULocationID#2484, DOLocationID#2485, trip_miles#2486]
+
+(100) Scan parquet 
+Output [5]: [pickup_datetime#2555, dropoff_datetime#2556, PULocationID#2557, DOLocationID#2558, trip_miles#2559]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-10.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(101) Filter
+Input [5]: [pickup_datetime#2555, dropoff_datetime#2556, PULocationID#2557, DOLocationID#2558, trip_miles#2559]
+Condition : (((isnotnull(trip_miles#2559) AND ((cast((unix_timestamp(dropoff_datetime#2556, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2555, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2556, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2555, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2559 > 0.1))
+
+(102) Project
+Output [5]: [fhvhv AS service#4133, trip_miles#2559 AS miles#4136, (cast((unix_timestamp(dropoff_datetime#2556, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2555, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4225, date_trunc(month, cast(pickup_datetime#2555 as timestamp), Some(America/New_York)) AS month#4304, (DOLocationID#2558 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2557 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4305]
+Input [5]: [pickup_datetime#2555, dropoff_datetime#2556, PULocationID#2557, DOLocationID#2558, trip_miles#2559]
+
+(103) Scan parquet 
+Output [5]: [pickup_datetime#2628, dropoff_datetime#2629, PULocationID#2630, DOLocationID#2631, trip_miles#2632]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-11.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(104) Filter
+Input [5]: [pickup_datetime#2628, dropoff_datetime#2629, PULocationID#2630, DOLocationID#2631, trip_miles#2632]
+Condition : (((isnotnull(trip_miles#2632) AND ((cast((unix_timestamp(dropoff_datetime#2629, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2628, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2629, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2628, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2632 > 0.1))
+
+(105) Project
+Output [5]: [fhvhv AS service#4137, trip_miles#2632 AS miles#4140, (cast((unix_timestamp(dropoff_datetime#2629, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2628, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4226, date_trunc(month, cast(pickup_datetime#2628 as timestamp), Some(America/New_York)) AS month#4306, (DOLocationID#2631 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2630 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4307]
+Input [5]: [pickup_datetime#2628, dropoff_datetime#2629, PULocationID#2630, DOLocationID#2631, trip_miles#2632]
+
+(106) Scan parquet 
+Output [5]: [pickup_datetime#2701, dropoff_datetime#2702, PULocationID#2703, DOLocationID#2704, trip_miles#2705]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-12.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(107) Filter
+Input [5]: [pickup_datetime#2701, dropoff_datetime#2702, PULocationID#2703, DOLocationID#2704, trip_miles#2705]
+Condition : (((isnotnull(trip_miles#2705) AND ((cast((unix_timestamp(dropoff_datetime#2702, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2701, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2702, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2701, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2705 > 0.1))
+
+(108) Project
+Output [5]: [fhvhv AS service#4141, trip_miles#2705 AS miles#4144, (cast((unix_timestamp(dropoff_datetime#2702, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2701, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4227, date_trunc(month, cast(pickup_datetime#2701 as timestamp), Some(America/New_York)) AS month#4308, (DOLocationID#2704 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2703 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4309]
+Input [5]: [pickup_datetime#2701, dropoff_datetime#2702, PULocationID#2703, DOLocationID#2704, trip_miles#2705]
+
+(109) Scan parquet 
+Output [5]: [pickup_datetime#2774, dropoff_datetime#2775, PULocationID#2776, DOLocationID#2777, trip_miles#2778]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-01.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(110) Filter
+Input [5]: [pickup_datetime#2774, dropoff_datetime#2775, PULocationID#2776, DOLocationID#2777, trip_miles#2778]
+Condition : (((isnotnull(trip_miles#2778) AND ((cast((unix_timestamp(dropoff_datetime#2775, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2774, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2775, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2774, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2778 > 0.1))
+
+(111) Project
+Output [5]: [fhvhv AS service#4145, trip_miles#2778 AS miles#4148, (cast((unix_timestamp(dropoff_datetime#2775, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2774, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4228, date_trunc(month, cast(pickup_datetime#2774 as timestamp), Some(America/New_York)) AS month#4310, (DOLocationID#2777 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2776 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4311]
+Input [5]: [pickup_datetime#2774, dropoff_datetime#2775, PULocationID#2776, DOLocationID#2777, trip_miles#2778]
+
+(112) Scan parquet 
+Output [5]: [pickup_datetime#2849, dropoff_datetime#2850, PULocationID#2851, DOLocationID#2852, trip_miles#2853]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-02.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(113) Filter
+Input [5]: [pickup_datetime#2849, dropoff_datetime#2850, PULocationID#2851, DOLocationID#2852, trip_miles#2853]
+Condition : (((isnotnull(trip_miles#2853) AND ((cast((unix_timestamp(dropoff_datetime#2850, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2849, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2850, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2849, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2853 > 0.1))
+
+(114) Project
+Output [5]: [fhvhv AS service#4149, trip_miles#2853 AS miles#4152, (cast((unix_timestamp(dropoff_datetime#2850, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2849, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4229, date_trunc(month, cast(pickup_datetime#2849 as timestamp), Some(America/New_York)) AS month#4312, (DOLocationID#2852 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2851 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4313]
+Input [5]: [pickup_datetime#2849, dropoff_datetime#2850, PULocationID#2851, DOLocationID#2852, trip_miles#2853]
+
+(115) Scan parquet 
+Output [5]: [pickup_datetime#2924, dropoff_datetime#2925, PULocationID#2926, DOLocationID#2927, trip_miles#2928]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-03.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(116) Filter
+Input [5]: [pickup_datetime#2924, dropoff_datetime#2925, PULocationID#2926, DOLocationID#2927, trip_miles#2928]
+Condition : (((isnotnull(trip_miles#2928) AND ((cast((unix_timestamp(dropoff_datetime#2925, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2924, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#2925, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2924, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#2928 > 0.1))
+
+(117) Project
+Output [5]: [fhvhv AS service#4153, trip_miles#2928 AS miles#4156, (cast((unix_timestamp(dropoff_datetime#2925, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2924, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4230, date_trunc(month, cast(pickup_datetime#2924 as timestamp), Some(America/New_York)) AS month#4314, (DOLocationID#2927 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#2926 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4315]
+Input [5]: [pickup_datetime#2924, dropoff_datetime#2925, PULocationID#2926, DOLocationID#2927, trip_miles#2928]
+
+(118) Scan parquet 
+Output [5]: [pickup_datetime#2999, dropoff_datetime#3000, PULocationID#3001, DOLocationID#3002, trip_miles#3003]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-04.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(119) Filter
+Input [5]: [pickup_datetime#2999, dropoff_datetime#3000, PULocationID#3001, DOLocationID#3002, trip_miles#3003]
+Condition : (((isnotnull(trip_miles#3003) AND ((cast((unix_timestamp(dropoff_datetime#3000, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2999, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#3000, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2999, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#3003 > 0.1))
+
+(120) Project
+Output [5]: [fhvhv AS service#4157, trip_miles#3003 AS miles#4160, (cast((unix_timestamp(dropoff_datetime#3000, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#2999, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4231, date_trunc(month, cast(pickup_datetime#2999 as timestamp), Some(America/New_York)) AS month#4316, (DOLocationID#3002 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#3001 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4317]
+Input [5]: [pickup_datetime#2999, dropoff_datetime#3000, PULocationID#3001, DOLocationID#3002, trip_miles#3003]
+
+(121) Scan parquet 
+Output [5]: [pickup_datetime#3074, dropoff_datetime#3075, PULocationID#3076, DOLocationID#3077, trip_miles#3078]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-05.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(122) Filter
+Input [5]: [pickup_datetime#3074, dropoff_datetime#3075, PULocationID#3076, DOLocationID#3077, trip_miles#3078]
+Condition : (((isnotnull(trip_miles#3078) AND ((cast((unix_timestamp(dropoff_datetime#3075, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3074, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#3075, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3074, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#3078 > 0.1))
+
+(123) Project
+Output [5]: [fhvhv AS service#4161, trip_miles#3078 AS miles#4164, (cast((unix_timestamp(dropoff_datetime#3075, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3074, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4232, date_trunc(month, cast(pickup_datetime#3074 as timestamp), Some(America/New_York)) AS month#4318, (DOLocationID#3077 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#3076 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4319]
+Input [5]: [pickup_datetime#3074, dropoff_datetime#3075, PULocationID#3076, DOLocationID#3077, trip_miles#3078]
+
+(124) Scan parquet 
+Output [5]: [pickup_datetime#3149, dropoff_datetime#3150, PULocationID#3151, DOLocationID#3152, trip_miles#3153]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-06.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(125) Filter
+Input [5]: [pickup_datetime#3149, dropoff_datetime#3150, PULocationID#3151, DOLocationID#3152, trip_miles#3153]
+Condition : (((isnotnull(trip_miles#3153) AND ((cast((unix_timestamp(dropoff_datetime#3150, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3149, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#3150, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3149, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#3153 > 0.1))
+
+(126) Project
+Output [5]: [fhvhv AS service#4165, trip_miles#3153 AS miles#4168, (cast((unix_timestamp(dropoff_datetime#3150, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3149, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4233, date_trunc(month, cast(pickup_datetime#3149 as timestamp), Some(America/New_York)) AS month#4320, (DOLocationID#3152 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#3151 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4321]
+Input [5]: [pickup_datetime#3149, dropoff_datetime#3150, PULocationID#3151, DOLocationID#3152, trip_miles#3153]
+
+(127) Scan parquet 
+Output [5]: [pickup_datetime#3224, dropoff_datetime#3225, PULocationID#3226, DOLocationID#3227, trip_miles#3228]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-07.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(128) Filter
+Input [5]: [pickup_datetime#3224, dropoff_datetime#3225, PULocationID#3226, DOLocationID#3227, trip_miles#3228]
+Condition : (((isnotnull(trip_miles#3228) AND ((cast((unix_timestamp(dropoff_datetime#3225, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3224, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#3225, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3224, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#3228 > 0.1))
+
+(129) Project
+Output [5]: [fhvhv AS service#4169, trip_miles#3228 AS miles#4172, (cast((unix_timestamp(dropoff_datetime#3225, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3224, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4234, date_trunc(month, cast(pickup_datetime#3224 as timestamp), Some(America/New_York)) AS month#4322, (DOLocationID#3227 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#3226 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4323]
+Input [5]: [pickup_datetime#3224, dropoff_datetime#3225, PULocationID#3226, DOLocationID#3227, trip_miles#3228]
+
+(130) Scan parquet 
+Output [5]: [pickup_datetime#3299, dropoff_datetime#3300, PULocationID#3301, DOLocationID#3302, trip_miles#3303]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-08.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(131) Filter
+Input [5]: [pickup_datetime#3299, dropoff_datetime#3300, PULocationID#3301, DOLocationID#3302, trip_miles#3303]
+Condition : (((isnotnull(trip_miles#3303) AND ((cast((unix_timestamp(dropoff_datetime#3300, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3299, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#3300, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3299, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#3303 > 0.1))
+
+(132) Project
+Output [5]: [fhvhv AS service#4173, trip_miles#3303 AS miles#4176, (cast((unix_timestamp(dropoff_datetime#3300, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3299, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4235, date_trunc(month, cast(pickup_datetime#3299 as timestamp), Some(America/New_York)) AS month#4324, (DOLocationID#3302 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#3301 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4325]
+Input [5]: [pickup_datetime#3299, dropoff_datetime#3300, PULocationID#3301, DOLocationID#3302, trip_miles#3303]
+
+(133) Scan parquet 
+Output [5]: [pickup_datetime#3374, dropoff_datetime#3375, PULocationID#3376, DOLocationID#3377, trip_miles#3378]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-09.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(134) Filter
+Input [5]: [pickup_datetime#3374, dropoff_datetime#3375, PULocationID#3376, DOLocationID#3377, trip_miles#3378]
+Condition : (((isnotnull(trip_miles#3378) AND ((cast((unix_timestamp(dropoff_datetime#3375, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3374, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#3375, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3374, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#3378 > 0.1))
+
+(135) Project
+Output [5]: [fhvhv AS service#4177, trip_miles#3378 AS miles#4180, (cast((unix_timestamp(dropoff_datetime#3375, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3374, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4236, date_trunc(month, cast(pickup_datetime#3374 as timestamp), Some(America/New_York)) AS month#4326, (DOLocationID#3377 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#3376 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4327]
+Input [5]: [pickup_datetime#3374, dropoff_datetime#3375, PULocationID#3376, DOLocationID#3377, trip_miles#3378]
+
+(136) Scan parquet 
+Output [5]: [pickup_datetime#3449, dropoff_datetime#3450, PULocationID#3451, DOLocationID#3452, trip_miles#3453]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-10.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(137) Filter
+Input [5]: [pickup_datetime#3449, dropoff_datetime#3450, PULocationID#3451, DOLocationID#3452, trip_miles#3453]
+Condition : (((isnotnull(trip_miles#3453) AND ((cast((unix_timestamp(dropoff_datetime#3450, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3449, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#3450, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3449, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#3453 > 0.1))
+
+(138) Project
+Output [5]: [fhvhv AS service#4181, trip_miles#3453 AS miles#4184, (cast((unix_timestamp(dropoff_datetime#3450, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3449, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4237, date_trunc(month, cast(pickup_datetime#3449 as timestamp), Some(America/New_York)) AS month#4328, (DOLocationID#3452 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#3451 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4329]
+Input [5]: [pickup_datetime#3449, dropoff_datetime#3450, PULocationID#3451, DOLocationID#3452, trip_miles#3453]
+
+(139) Scan parquet 
+Output [5]: [pickup_datetime#3524, dropoff_datetime#3525, PULocationID#3526, DOLocationID#3527, trip_miles#3528]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-11.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(140) Filter
+Input [5]: [pickup_datetime#3524, dropoff_datetime#3525, PULocationID#3526, DOLocationID#3527, trip_miles#3528]
+Condition : (((isnotnull(trip_miles#3528) AND ((cast((unix_timestamp(dropoff_datetime#3525, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3524, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#3525, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3524, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#3528 > 0.1))
+
+(141) Project
+Output [5]: [fhvhv AS service#4185, trip_miles#3528 AS miles#4188, (cast((unix_timestamp(dropoff_datetime#3525, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3524, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4238, date_trunc(month, cast(pickup_datetime#3524 as timestamp), Some(America/New_York)) AS month#4330, (DOLocationID#3527 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#3526 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4331]
+Input [5]: [pickup_datetime#3524, dropoff_datetime#3525, PULocationID#3526, DOLocationID#3527, trip_miles#3528]
+
+(142) Scan parquet 
+Output [5]: [pickup_datetime#3599, dropoff_datetime#3600, PULocationID#3601, DOLocationID#3602, trip_miles#3603]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-12.parquet]
+PushedFilters: [IsNotNull(trip_miles), GreaterThan(trip_miles,0.1)]
+ReadSchema: struct<pickup_datetime:timestamp_ntz,dropoff_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int,trip_miles:double>
+
+(143) Filter
+Input [5]: [pickup_datetime#3599, dropoff_datetime#3600, PULocationID#3601, DOLocationID#3602, trip_miles#3603]
+Condition : (((isnotnull(trip_miles#3603) AND ((cast((unix_timestamp(dropoff_datetime#3600, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3599, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) > 1.0)) AND ((cast((unix_timestamp(dropoff_datetime#3600, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3599, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) < 240.0)) AND (trip_miles#3603 > 0.1))
+
+(144) Project
+Output [5]: [fhvhv AS service#4189, trip_miles#3603 AS miles#4192, (cast((unix_timestamp(dropoff_datetime#3600, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false) - unix_timestamp(pickup_datetime#3599, yyyy-MM-dd HH:mm:ss, Some(America/New_York), false)) as double) / 60.0) AS minutes#4239, date_trunc(month, cast(pickup_datetime#3599 as timestamp), Some(America/New_York)) AS month#4332, (DOLocationID#3602 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90 AND NOT PULocationID#3601 INSET 100, 107, 113, 114, 12, 125, 13, 137, 144, 148, 158, 161, 162, 163, 164, 170, 186, 209, 211, 224, 229, 230, 231, 232, 233, 234, 246, 249, 261, 4, 45, 48, 50, 68, 79, 87, 88, 90) AS into_cbd#4333]
+Input [5]: [pickup_datetime#3599, dropoff_datetime#3600, PULocationID#3601, DOLocationID#3602, trip_miles#3603]
+
+(145) Union
+
+(146) HashAggregate
+Input [5]: [service#1883, miles#1886, minutes#3961, month#3969, into_cbd#3978]
+Keys [3]: [service#1883, month#3969, into_cbd#3978]
+Functions [3]: [partial_count(1), partial_avg(minutes#3961), partial_avg((miles#1886 / (minutes#3961 / 60.0)))]
+Aggregate Attributes [5]: [count#4334L, sum#4335, count#4336L, sum#4337, count#4338L]
+Results [8]: [service#1883, month#3969, into_cbd#3978, count#4339L, sum#4340, count#4341L, sum#4342, count#4343L]
+
+(147) Exchange
+Input [8]: [service#1883, month#3969, into_cbd#3978, count#4339L, sum#4340, count#4341L, sum#4342, count#4343L]
+Arguments: hashpartitioning(service#1883, month#3969, into_cbd#3978, 200), ENSURE_REQUIREMENTS, [plan_id=395]
+
+(148) HashAggregate
+Input [8]: [service#1883, month#3969, into_cbd#3978, count#4339L, sum#4340, count#4341L, sum#4342, count#4343L]
+Keys [3]: [service#1883, month#3969, into_cbd#3978]
+Functions [3]: [count(1), avg(minutes#3961), avg((miles#1886 / (minutes#3961 / 60.0)))]
+Aggregate Attributes [3]: [count(1)#3997L, avg(minutes#3961)#3999, avg((miles#1886 / (minutes#3961 / 60.0)))#4001]
+Results [6]: [service#1883, month#3969, into_cbd#3978, count(1)#3997L AS trips#3998L, avg(minutes#3961)#3999 AS avg_minutes#4000, avg((miles#1886 / (minutes#3961 / 60.0)))#4001 AS avg_mph#4002]
+
+(149) AdaptiveSparkPlan
+Output [6]: [service#1883, month#3969, into_cbd#3978, trips#3998L, avg_minutes#4000, avg_mph#4002]
+Arguments: isFinalPlan=false
+
+
