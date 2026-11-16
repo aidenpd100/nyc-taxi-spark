@@ -34,7 +34,7 @@ partitions can receive data, whatever the partition count. See `explore/license_
   differ in case. `read_service` in `src/common.py` casts each file to a canonical
   schema and unions, so missing columns become null.
 - Timestamps are `timestamp_ntz` (local New York time, no zone conversion).
-- Weather: [source, station/grid point, date range, timezone handling].
+- Weather: .
 - Zone lookup: [source].
 
 ## Environment
@@ -72,6 +72,16 @@ these settings between baseline and optimized runs.
 | Q2 | | | | | | |
 | Q3 | | | | | | |
 
+
+
+## Baselines (Seth's Computer)
+| Query | Scope | Time | Trials | Plan | UI screenshot | Notes |
+| Q1 |HVFHV, 24 months, 483,057,328 rows after filters | | | | | |
+| Q2 |22 months,  80,892,744 rows | 81.29s|1 |`baseline/q2_feb_dec_yoy/plan.txt` |`baseline/q2_feb_dec_yoy/ui_slow_stage.png` | see below|
+| Q3 |24 months,  89,892,263 rows|39.32s | 1|`baseline/q3_all_24mo/plan.txt` |`baseline/q3_all_24mo/ui_slow_task.png` |see below |
+
+
+
 ### Q1 baseline findings
 
 - Slowest stage: stage 50, **2 tasks** (one per license).
@@ -89,6 +99,17 @@ these settings between baseline and optimized runs.
   help with 2 keys; the partitioning key has to change (for example `(license, hour)`
   or a salt).
 
+### Q2 Baseline Findings
+- Slowest stage- stage 128, 361 tasks
+- Ended up being a lot faster than expected
+- most of slowdown is likely from reading/scanning every file multiple time (when looking at other sparkUI jobs, each of the slowest tasks due to that)
+- can produce speedup from scaning less, more intellegent window paritioning, and improving skew on the max duration tasks, and improving the amound of paralleization (if we can make it so that there is less, there will be less overhead for the small tasks)
+
+### Q3 Baseline findings 
+- Slowest stage- stage ?, 361 tasks
+- once again, ended up being a lot faster than expected
+- slowdown from windowing, scanning and MSJ
+- speedup can come from allowing spark to optimize, using BHJ, and not scanning multiple times
 ## Division of work
 
 - Aiden: ingestion, `common.py`, Q1

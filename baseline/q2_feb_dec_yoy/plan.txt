@@ -1,0 +1,1088 @@
+== Physical Plan ==
+AdaptiveSparkPlan (186)
++- Sort (185)
+   +- Exchange (184)
+      +- HashAggregate (183)
+         +- Exchange (182)
+            +- HashAggregate (181)
+               +- Project (180)
+                  +- SortMergeJoin LeftOuter (179)
+                     :- Sort (99)
+                     :  +- Exchange (98)
+                     :     +- Union (97)
+                     :        :- Project (4)
+                     :        :  +- Project (3)
+                     :        :     +- Filter (2)
+                     :        :        +- Scan parquet  (1)
+                     :        :- Project (8)
+                     :        :  +- Project (7)
+                     :        :     +- Filter (6)
+                     :        :        +- Scan parquet  (5)
+                     :        :- Project (12)
+                     :        :  +- Project (11)
+                     :        :     +- Filter (10)
+                     :        :        +- Scan parquet  (9)
+                     :        :- Project (16)
+                     :        :  +- Project (15)
+                     :        :     +- Filter (14)
+                     :        :        +- Scan parquet  (13)
+                     :        :- Project (20)
+                     :        :  +- Project (19)
+                     :        :     +- Filter (18)
+                     :        :        +- Scan parquet  (17)
+                     :        :- Project (24)
+                     :        :  +- Project (23)
+                     :        :     +- Filter (22)
+                     :        :        +- Scan parquet  (21)
+                     :        :- Project (28)
+                     :        :  +- Project (27)
+                     :        :     +- Filter (26)
+                     :        :        +- Scan parquet  (25)
+                     :        :- Project (32)
+                     :        :  +- Project (31)
+                     :        :     +- Filter (30)
+                     :        :        +- Scan parquet  (29)
+                     :        :- Project (36)
+                     :        :  +- Project (35)
+                     :        :     +- Filter (34)
+                     :        :        +- Scan parquet  (33)
+                     :        :- Project (40)
+                     :        :  +- Project (39)
+                     :        :     +- Filter (38)
+                     :        :        +- Scan parquet  (37)
+                     :        :- Project (44)
+                     :        :  +- Project (43)
+                     :        :     +- Filter (42)
+                     :        :        +- Scan parquet  (41)
+                     :        :- Project (48)
+                     :        :  +- Project (47)
+                     :        :     +- Filter (46)
+                     :        :        +- Scan parquet  (45)
+                     :        :- Project (52)
+                     :        :  +- Project (51)
+                     :        :     +- Filter (50)
+                     :        :        +- Scan parquet  (49)
+                     :        :- Project (56)
+                     :        :  +- Project (55)
+                     :        :     +- Filter (54)
+                     :        :        +- Scan parquet  (53)
+                     :        :- Project (60)
+                     :        :  +- Project (59)
+                     :        :     +- Filter (58)
+                     :        :        +- Scan parquet  (57)
+                     :        :- Project (64)
+                     :        :  +- Project (63)
+                     :        :     +- Filter (62)
+                     :        :        +- Scan parquet  (61)
+                     :        :- Project (68)
+                     :        :  +- Project (67)
+                     :        :     +- Filter (66)
+                     :        :        +- Scan parquet  (65)
+                     :        :- Project (72)
+                     :        :  +- Project (71)
+                     :        :     +- Filter (70)
+                     :        :        +- Scan parquet  (69)
+                     :        :- Project (76)
+                     :        :  +- Project (75)
+                     :        :     +- Filter (74)
+                     :        :        +- Scan parquet  (73)
+                     :        :- Project (80)
+                     :        :  +- Project (79)
+                     :        :     +- Filter (78)
+                     :        :        +- Scan parquet  (77)
+                     :        :- Project (84)
+                     :        :  +- Project (83)
+                     :        :     +- Filter (82)
+                     :        :        +- Scan parquet  (81)
+                     :        :- Project (88)
+                     :        :  +- Project (87)
+                     :        :     +- Filter (86)
+                     :        :        +- Scan parquet  (85)
+                     :        :- Project (92)
+                     :        :  +- Project (91)
+                     :        :     +- Filter (90)
+                     :        :        +- Scan parquet  (89)
+                     :        +- Project (96)
+                     :           +- Project (95)
+                     :              +- Filter (94)
+                     :                 +- Scan parquet  (93)
+                     +- Sort (178)
+                        +- Project (177)
+                           +- Filter (176)
+                              +- HashAggregate (175)
+                                 +- Exchange (174)
+                                    +- HashAggregate (173)
+                                       +- Union (172)
+                                          :- Project (102)
+                                          :  +- Filter (101)
+                                          :     +- Scan parquet  (100)
+                                          :- Project (105)
+                                          :  +- Filter (104)
+                                          :     +- Scan parquet  (103)
+                                          :- Project (108)
+                                          :  +- Filter (107)
+                                          :     +- Scan parquet  (106)
+                                          :- Project (111)
+                                          :  +- Filter (110)
+                                          :     +- Scan parquet  (109)
+                                          :- Project (114)
+                                          :  +- Filter (113)
+                                          :     +- Scan parquet  (112)
+                                          :- Project (117)
+                                          :  +- Filter (116)
+                                          :     +- Scan parquet  (115)
+                                          :- Project (120)
+                                          :  +- Filter (119)
+                                          :     +- Scan parquet  (118)
+                                          :- Project (123)
+                                          :  +- Filter (122)
+                                          :     +- Scan parquet  (121)
+                                          :- Project (126)
+                                          :  +- Filter (125)
+                                          :     +- Scan parquet  (124)
+                                          :- Project (129)
+                                          :  +- Filter (128)
+                                          :     +- Scan parquet  (127)
+                                          :- Project (132)
+                                          :  +- Filter (131)
+                                          :     +- Scan parquet  (130)
+                                          :- Project (135)
+                                          :  +- Filter (134)
+                                          :     +- Scan parquet  (133)
+                                          :- Project (138)
+                                          :  +- Filter (137)
+                                          :     +- Scan parquet  (136)
+                                          :- Project (141)
+                                          :  +- Filter (140)
+                                          :     +- Scan parquet  (139)
+                                          :- Project (144)
+                                          :  +- Filter (143)
+                                          :     +- Scan parquet  (142)
+                                          :- Project (147)
+                                          :  +- Filter (146)
+                                          :     +- Scan parquet  (145)
+                                          :- Project (150)
+                                          :  +- Filter (149)
+                                          :     +- Scan parquet  (148)
+                                          :- Project (153)
+                                          :  +- Filter (152)
+                                          :     +- Scan parquet  (151)
+                                          :- Project (156)
+                                          :  +- Filter (155)
+                                          :     +- Scan parquet  (154)
+                                          :- Project (159)
+                                          :  +- Filter (158)
+                                          :     +- Scan parquet  (157)
+                                          :- Project (162)
+                                          :  +- Filter (161)
+                                          :     +- Scan parquet  (160)
+                                          :- Project (165)
+                                          :  +- Filter (164)
+                                          :     +- Scan parquet  (163)
+                                          :- Project (168)
+                                          :  +- Filter (167)
+                                          :     +- Scan parquet  (166)
+                                          +- Project (171)
+                                             +- Filter (170)
+                                                +- Scan parquet  (169)
+
+
+(1) Scan parquet 
+Output [4]: [tpep_pickup_datetime#1, tpep_dropoff_datetime#2, trip_distance#4, DOLocationID#8]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-01.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(2) Filter
+Input [4]: [tpep_pickup_datetime#1, tpep_dropoff_datetime#2, trip_distance#4, DOLocationID#8]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1) AND isnotnull(tpep_dropoff_datetime#2)) AND isnotnull(trip_distance#4)) AND (trip_distance#4 > 0.0)) AND isnotnull(DOLocationID#8)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1 as timestamp), cast(tpep_dropoff_datetime#2 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#1 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#1 as date)) >= 2))
+
+(3) Project
+Output [4]: [tpep_pickup_datetime#1, trip_distance#4, DOLocationID#8 AS DOLocationID#25, timestampdiff(SECOND, cast(tpep_pickup_datetime#1 as timestamp), cast(tpep_dropoff_datetime#2 as timestamp), Some(America/New_York)) AS duration_seconds#804L]
+Input [4]: [tpep_pickup_datetime#1, tpep_dropoff_datetime#2, trip_distance#4, DOLocationID#8]
+
+(4) Project
+Output [4]: [DOLocationID#25, year(cast(tpep_pickup_datetime#1 as date)) AS year#805, (cast(duration_seconds#804L as double) / 60.0) AS duration_minutes#807, (trip_distance#4 / (cast(duration_seconds#804L as double) / 3600.0)) AS speed_mph#808]
+Input [4]: [tpep_pickup_datetime#1, trip_distance#4, DOLocationID#25, duration_seconds#804L]
+
+(5) Scan parquet 
+Output [4]: [tpep_pickup_datetime#34, tpep_dropoff_datetime#35, trip_distance#37, DOLocationID#41]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-02.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(6) Filter
+Input [4]: [tpep_pickup_datetime#34, tpep_dropoff_datetime#35, trip_distance#37, DOLocationID#41]
+Condition : (((((((isnotnull(tpep_pickup_datetime#34) AND isnotnull(tpep_dropoff_datetime#35)) AND isnotnull(trip_distance#37)) AND (trip_distance#37 > 0.0)) AND isnotnull(DOLocationID#41)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#34 as timestamp), cast(tpep_dropoff_datetime#35 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#34 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#34 as date)) >= 2))
+
+(7) Project
+Output [4]: [tpep_pickup_datetime#34, trip_distance#37, DOLocationID#41, timestampdiff(SECOND, cast(tpep_pickup_datetime#34 as timestamp), cast(tpep_dropoff_datetime#35 as timestamp), Some(America/New_York)) AS duration_seconds#1667L]
+Input [4]: [tpep_pickup_datetime#34, tpep_dropoff_datetime#35, trip_distance#37, DOLocationID#41]
+
+(8) Project
+Output [4]: [DOLocationID#41, year(cast(tpep_pickup_datetime#34 as date)) AS year#1713, (cast(duration_seconds#1667L as double) / 60.0) AS duration_minutes#1714, (trip_distance#37 / (cast(duration_seconds#1667L as double) / 3600.0)) AS speed_mph#1715]
+Input [4]: [tpep_pickup_datetime#34, trip_distance#37, DOLocationID#41, duration_seconds#1667L]
+
+(9) Scan parquet 
+Output [4]: [tpep_pickup_datetime#67, tpep_dropoff_datetime#68, trip_distance#70, DOLocationID#74]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-03.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(10) Filter
+Input [4]: [tpep_pickup_datetime#67, tpep_dropoff_datetime#68, trip_distance#70, DOLocationID#74]
+Condition : (((((((isnotnull(tpep_pickup_datetime#67) AND isnotnull(tpep_dropoff_datetime#68)) AND isnotnull(trip_distance#70)) AND (trip_distance#70 > 0.0)) AND isnotnull(DOLocationID#74)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#67 as timestamp), cast(tpep_dropoff_datetime#68 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#67 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#67 as date)) >= 2))
+
+(11) Project
+Output [4]: [tpep_pickup_datetime#67, trip_distance#70, DOLocationID#74, timestampdiff(SECOND, cast(tpep_pickup_datetime#67 as timestamp), cast(tpep_dropoff_datetime#68 as timestamp), Some(America/New_York)) AS duration_seconds#1668L]
+Input [4]: [tpep_pickup_datetime#67, tpep_dropoff_datetime#68, trip_distance#70, DOLocationID#74]
+
+(12) Project
+Output [4]: [DOLocationID#74, year(cast(tpep_pickup_datetime#67 as date)) AS year#1716, (cast(duration_seconds#1668L as double) / 60.0) AS duration_minutes#1717, (trip_distance#70 / (cast(duration_seconds#1668L as double) / 3600.0)) AS speed_mph#1718]
+Input [4]: [tpep_pickup_datetime#67, trip_distance#70, DOLocationID#74, duration_seconds#1668L]
+
+(13) Scan parquet 
+Output [4]: [tpep_pickup_datetime#100, tpep_dropoff_datetime#101, trip_distance#103, DOLocationID#107]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-04.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(14) Filter
+Input [4]: [tpep_pickup_datetime#100, tpep_dropoff_datetime#101, trip_distance#103, DOLocationID#107]
+Condition : (((((((isnotnull(tpep_pickup_datetime#100) AND isnotnull(tpep_dropoff_datetime#101)) AND isnotnull(trip_distance#103)) AND (trip_distance#103 > 0.0)) AND isnotnull(DOLocationID#107)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#100 as timestamp), cast(tpep_dropoff_datetime#101 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#100 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#100 as date)) >= 2))
+
+(15) Project
+Output [4]: [tpep_pickup_datetime#100, trip_distance#103, DOLocationID#107, timestampdiff(SECOND, cast(tpep_pickup_datetime#100 as timestamp), cast(tpep_dropoff_datetime#101 as timestamp), Some(America/New_York)) AS duration_seconds#1669L]
+Input [4]: [tpep_pickup_datetime#100, tpep_dropoff_datetime#101, trip_distance#103, DOLocationID#107]
+
+(16) Project
+Output [4]: [DOLocationID#107, year(cast(tpep_pickup_datetime#100 as date)) AS year#1719, (cast(duration_seconds#1669L as double) / 60.0) AS duration_minutes#1720, (trip_distance#103 / (cast(duration_seconds#1669L as double) / 3600.0)) AS speed_mph#1721]
+Input [4]: [tpep_pickup_datetime#100, trip_distance#103, DOLocationID#107, duration_seconds#1669L]
+
+(17) Scan parquet 
+Output [4]: [tpep_pickup_datetime#133, tpep_dropoff_datetime#134, trip_distance#136, DOLocationID#140]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-05.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(18) Filter
+Input [4]: [tpep_pickup_datetime#133, tpep_dropoff_datetime#134, trip_distance#136, DOLocationID#140]
+Condition : (((((((isnotnull(tpep_pickup_datetime#133) AND isnotnull(tpep_dropoff_datetime#134)) AND isnotnull(trip_distance#136)) AND (trip_distance#136 > 0.0)) AND isnotnull(DOLocationID#140)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#133 as timestamp), cast(tpep_dropoff_datetime#134 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#133 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#133 as date)) >= 2))
+
+(19) Project
+Output [4]: [tpep_pickup_datetime#133, trip_distance#136, DOLocationID#140, timestampdiff(SECOND, cast(tpep_pickup_datetime#133 as timestamp), cast(tpep_dropoff_datetime#134 as timestamp), Some(America/New_York)) AS duration_seconds#1670L]
+Input [4]: [tpep_pickup_datetime#133, tpep_dropoff_datetime#134, trip_distance#136, DOLocationID#140]
+
+(20) Project
+Output [4]: [DOLocationID#140, year(cast(tpep_pickup_datetime#133 as date)) AS year#1722, (cast(duration_seconds#1670L as double) / 60.0) AS duration_minutes#1723, (trip_distance#136 / (cast(duration_seconds#1670L as double) / 3600.0)) AS speed_mph#1724]
+Input [4]: [tpep_pickup_datetime#133, trip_distance#136, DOLocationID#140, duration_seconds#1670L]
+
+(21) Scan parquet 
+Output [4]: [tpep_pickup_datetime#166, tpep_dropoff_datetime#167, trip_distance#169, DOLocationID#173]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-06.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(22) Filter
+Input [4]: [tpep_pickup_datetime#166, tpep_dropoff_datetime#167, trip_distance#169, DOLocationID#173]
+Condition : (((((((isnotnull(tpep_pickup_datetime#166) AND isnotnull(tpep_dropoff_datetime#167)) AND isnotnull(trip_distance#169)) AND (trip_distance#169 > 0.0)) AND isnotnull(DOLocationID#173)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#166 as timestamp), cast(tpep_dropoff_datetime#167 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#166 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#166 as date)) >= 2))
+
+(23) Project
+Output [4]: [tpep_pickup_datetime#166, trip_distance#169, DOLocationID#173, timestampdiff(SECOND, cast(tpep_pickup_datetime#166 as timestamp), cast(tpep_dropoff_datetime#167 as timestamp), Some(America/New_York)) AS duration_seconds#1671L]
+Input [4]: [tpep_pickup_datetime#166, tpep_dropoff_datetime#167, trip_distance#169, DOLocationID#173]
+
+(24) Project
+Output [4]: [DOLocationID#173, year(cast(tpep_pickup_datetime#166 as date)) AS year#1725, (cast(duration_seconds#1671L as double) / 60.0) AS duration_minutes#1726, (trip_distance#169 / (cast(duration_seconds#1671L as double) / 3600.0)) AS speed_mph#1727]
+Input [4]: [tpep_pickup_datetime#166, trip_distance#169, DOLocationID#173, duration_seconds#1671L]
+
+(25) Scan parquet 
+Output [4]: [tpep_pickup_datetime#199, tpep_dropoff_datetime#200, trip_distance#202, DOLocationID#206]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-07.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(26) Filter
+Input [4]: [tpep_pickup_datetime#199, tpep_dropoff_datetime#200, trip_distance#202, DOLocationID#206]
+Condition : (((((((isnotnull(tpep_pickup_datetime#199) AND isnotnull(tpep_dropoff_datetime#200)) AND isnotnull(trip_distance#202)) AND (trip_distance#202 > 0.0)) AND isnotnull(DOLocationID#206)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#199 as timestamp), cast(tpep_dropoff_datetime#200 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#199 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#199 as date)) >= 2))
+
+(27) Project
+Output [4]: [tpep_pickup_datetime#199, trip_distance#202, DOLocationID#206, timestampdiff(SECOND, cast(tpep_pickup_datetime#199 as timestamp), cast(tpep_dropoff_datetime#200 as timestamp), Some(America/New_York)) AS duration_seconds#1672L]
+Input [4]: [tpep_pickup_datetime#199, tpep_dropoff_datetime#200, trip_distance#202, DOLocationID#206]
+
+(28) Project
+Output [4]: [DOLocationID#206, year(cast(tpep_pickup_datetime#199 as date)) AS year#1728, (cast(duration_seconds#1672L as double) / 60.0) AS duration_minutes#1729, (trip_distance#202 / (cast(duration_seconds#1672L as double) / 3600.0)) AS speed_mph#1730]
+Input [4]: [tpep_pickup_datetime#199, trip_distance#202, DOLocationID#206, duration_seconds#1672L]
+
+(29) Scan parquet 
+Output [4]: [tpep_pickup_datetime#232, tpep_dropoff_datetime#233, trip_distance#235, DOLocationID#239]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-08.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(30) Filter
+Input [4]: [tpep_pickup_datetime#232, tpep_dropoff_datetime#233, trip_distance#235, DOLocationID#239]
+Condition : (((((((isnotnull(tpep_pickup_datetime#232) AND isnotnull(tpep_dropoff_datetime#233)) AND isnotnull(trip_distance#235)) AND (trip_distance#235 > 0.0)) AND isnotnull(DOLocationID#239)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#232 as timestamp), cast(tpep_dropoff_datetime#233 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#232 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#232 as date)) >= 2))
+
+(31) Project
+Output [4]: [tpep_pickup_datetime#232, trip_distance#235, DOLocationID#239, timestampdiff(SECOND, cast(tpep_pickup_datetime#232 as timestamp), cast(tpep_dropoff_datetime#233 as timestamp), Some(America/New_York)) AS duration_seconds#1673L]
+Input [4]: [tpep_pickup_datetime#232, tpep_dropoff_datetime#233, trip_distance#235, DOLocationID#239]
+
+(32) Project
+Output [4]: [DOLocationID#239, year(cast(tpep_pickup_datetime#232 as date)) AS year#1731, (cast(duration_seconds#1673L as double) / 60.0) AS duration_minutes#1732, (trip_distance#235 / (cast(duration_seconds#1673L as double) / 3600.0)) AS speed_mph#1733]
+Input [4]: [tpep_pickup_datetime#232, trip_distance#235, DOLocationID#239, duration_seconds#1673L]
+
+(33) Scan parquet 
+Output [4]: [tpep_pickup_datetime#265, tpep_dropoff_datetime#266, trip_distance#268, DOLocationID#272]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-09.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(34) Filter
+Input [4]: [tpep_pickup_datetime#265, tpep_dropoff_datetime#266, trip_distance#268, DOLocationID#272]
+Condition : (((((((isnotnull(tpep_pickup_datetime#265) AND isnotnull(tpep_dropoff_datetime#266)) AND isnotnull(trip_distance#268)) AND (trip_distance#268 > 0.0)) AND isnotnull(DOLocationID#272)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#265 as timestamp), cast(tpep_dropoff_datetime#266 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#265 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#265 as date)) >= 2))
+
+(35) Project
+Output [4]: [tpep_pickup_datetime#265, trip_distance#268, DOLocationID#272, timestampdiff(SECOND, cast(tpep_pickup_datetime#265 as timestamp), cast(tpep_dropoff_datetime#266 as timestamp), Some(America/New_York)) AS duration_seconds#1674L]
+Input [4]: [tpep_pickup_datetime#265, tpep_dropoff_datetime#266, trip_distance#268, DOLocationID#272]
+
+(36) Project
+Output [4]: [DOLocationID#272, year(cast(tpep_pickup_datetime#265 as date)) AS year#1734, (cast(duration_seconds#1674L as double) / 60.0) AS duration_minutes#1735, (trip_distance#268 / (cast(duration_seconds#1674L as double) / 3600.0)) AS speed_mph#1736]
+Input [4]: [tpep_pickup_datetime#265, trip_distance#268, DOLocationID#272, duration_seconds#1674L]
+
+(37) Scan parquet 
+Output [4]: [tpep_pickup_datetime#298, tpep_dropoff_datetime#299, trip_distance#301, DOLocationID#305]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-10.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(38) Filter
+Input [4]: [tpep_pickup_datetime#298, tpep_dropoff_datetime#299, trip_distance#301, DOLocationID#305]
+Condition : (((((((isnotnull(tpep_pickup_datetime#298) AND isnotnull(tpep_dropoff_datetime#299)) AND isnotnull(trip_distance#301)) AND (trip_distance#301 > 0.0)) AND isnotnull(DOLocationID#305)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#298 as timestamp), cast(tpep_dropoff_datetime#299 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#298 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#298 as date)) >= 2))
+
+(39) Project
+Output [4]: [tpep_pickup_datetime#298, trip_distance#301, DOLocationID#305, timestampdiff(SECOND, cast(tpep_pickup_datetime#298 as timestamp), cast(tpep_dropoff_datetime#299 as timestamp), Some(America/New_York)) AS duration_seconds#1675L]
+Input [4]: [tpep_pickup_datetime#298, tpep_dropoff_datetime#299, trip_distance#301, DOLocationID#305]
+
+(40) Project
+Output [4]: [DOLocationID#305, year(cast(tpep_pickup_datetime#298 as date)) AS year#1737, (cast(duration_seconds#1675L as double) / 60.0) AS duration_minutes#1738, (trip_distance#301 / (cast(duration_seconds#1675L as double) / 3600.0)) AS speed_mph#1739]
+Input [4]: [tpep_pickup_datetime#298, trip_distance#301, DOLocationID#305, duration_seconds#1675L]
+
+(41) Scan parquet 
+Output [4]: [tpep_pickup_datetime#331, tpep_dropoff_datetime#332, trip_distance#334, DOLocationID#338]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-11.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(42) Filter
+Input [4]: [tpep_pickup_datetime#331, tpep_dropoff_datetime#332, trip_distance#334, DOLocationID#338]
+Condition : (((((((isnotnull(tpep_pickup_datetime#331) AND isnotnull(tpep_dropoff_datetime#332)) AND isnotnull(trip_distance#334)) AND (trip_distance#334 > 0.0)) AND isnotnull(DOLocationID#338)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#331 as timestamp), cast(tpep_dropoff_datetime#332 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#331 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#331 as date)) >= 2))
+
+(43) Project
+Output [4]: [tpep_pickup_datetime#331, trip_distance#334, DOLocationID#338, timestampdiff(SECOND, cast(tpep_pickup_datetime#331 as timestamp), cast(tpep_dropoff_datetime#332 as timestamp), Some(America/New_York)) AS duration_seconds#1676L]
+Input [4]: [tpep_pickup_datetime#331, tpep_dropoff_datetime#332, trip_distance#334, DOLocationID#338]
+
+(44) Project
+Output [4]: [DOLocationID#338, year(cast(tpep_pickup_datetime#331 as date)) AS year#1740, (cast(duration_seconds#1676L as double) / 60.0) AS duration_minutes#1741, (trip_distance#334 / (cast(duration_seconds#1676L as double) / 3600.0)) AS speed_mph#1742]
+Input [4]: [tpep_pickup_datetime#331, trip_distance#334, DOLocationID#338, duration_seconds#1676L]
+
+(45) Scan parquet 
+Output [4]: [tpep_pickup_datetime#364, tpep_dropoff_datetime#365, trip_distance#367, DOLocationID#371]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-12.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(46) Filter
+Input [4]: [tpep_pickup_datetime#364, tpep_dropoff_datetime#365, trip_distance#367, DOLocationID#371]
+Condition : (((((((isnotnull(tpep_pickup_datetime#364) AND isnotnull(tpep_dropoff_datetime#365)) AND isnotnull(trip_distance#367)) AND (trip_distance#367 > 0.0)) AND isnotnull(DOLocationID#371)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#364 as timestamp), cast(tpep_dropoff_datetime#365 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#364 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#364 as date)) >= 2))
+
+(47) Project
+Output [4]: [tpep_pickup_datetime#364, trip_distance#367, DOLocationID#371, timestampdiff(SECOND, cast(tpep_pickup_datetime#364 as timestamp), cast(tpep_dropoff_datetime#365 as timestamp), Some(America/New_York)) AS duration_seconds#1677L]
+Input [4]: [tpep_pickup_datetime#364, tpep_dropoff_datetime#365, trip_distance#367, DOLocationID#371]
+
+(48) Project
+Output [4]: [DOLocationID#371, year(cast(tpep_pickup_datetime#364 as date)) AS year#1743, (cast(duration_seconds#1677L as double) / 60.0) AS duration_minutes#1744, (trip_distance#367 / (cast(duration_seconds#1677L as double) / 3600.0)) AS speed_mph#1745]
+Input [4]: [tpep_pickup_datetime#364, trip_distance#367, DOLocationID#371, duration_seconds#1677L]
+
+(49) Scan parquet 
+Output [4]: [tpep_pickup_datetime#397, tpep_dropoff_datetime#398, trip_distance#400, DOLocationID#404]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-01.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(50) Filter
+Input [4]: [tpep_pickup_datetime#397, tpep_dropoff_datetime#398, trip_distance#400, DOLocationID#404]
+Condition : (((((((isnotnull(tpep_pickup_datetime#397) AND isnotnull(tpep_dropoff_datetime#398)) AND isnotnull(trip_distance#400)) AND (trip_distance#400 > 0.0)) AND isnotnull(DOLocationID#404)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#397 as timestamp), cast(tpep_dropoff_datetime#398 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#397 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#397 as date)) >= 2))
+
+(51) Project
+Output [4]: [tpep_pickup_datetime#397, trip_distance#400, DOLocationID#404, timestampdiff(SECOND, cast(tpep_pickup_datetime#397 as timestamp), cast(tpep_dropoff_datetime#398 as timestamp), Some(America/New_York)) AS duration_seconds#1678L]
+Input [4]: [tpep_pickup_datetime#397, tpep_dropoff_datetime#398, trip_distance#400, DOLocationID#404]
+
+(52) Project
+Output [4]: [DOLocationID#404, year(cast(tpep_pickup_datetime#397 as date)) AS year#1746, (cast(duration_seconds#1678L as double) / 60.0) AS duration_minutes#1747, (trip_distance#400 / (cast(duration_seconds#1678L as double) / 3600.0)) AS speed_mph#1748]
+Input [4]: [tpep_pickup_datetime#397, trip_distance#400, DOLocationID#404, duration_seconds#1678L]
+
+(53) Scan parquet 
+Output [4]: [tpep_pickup_datetime#431, tpep_dropoff_datetime#432, trip_distance#434, DOLocationID#438]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-02.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(54) Filter
+Input [4]: [tpep_pickup_datetime#431, tpep_dropoff_datetime#432, trip_distance#434, DOLocationID#438]
+Condition : (((((((isnotnull(tpep_pickup_datetime#431) AND isnotnull(tpep_dropoff_datetime#432)) AND isnotnull(trip_distance#434)) AND (trip_distance#434 > 0.0)) AND isnotnull(DOLocationID#438)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#431 as timestamp), cast(tpep_dropoff_datetime#432 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#431 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#431 as date)) >= 2))
+
+(55) Project
+Output [4]: [tpep_pickup_datetime#431, trip_distance#434, DOLocationID#438, timestampdiff(SECOND, cast(tpep_pickup_datetime#431 as timestamp), cast(tpep_dropoff_datetime#432 as timestamp), Some(America/New_York)) AS duration_seconds#1679L]
+Input [4]: [tpep_pickup_datetime#431, tpep_dropoff_datetime#432, trip_distance#434, DOLocationID#438]
+
+(56) Project
+Output [4]: [DOLocationID#438, year(cast(tpep_pickup_datetime#431 as date)) AS year#1749, (cast(duration_seconds#1679L as double) / 60.0) AS duration_minutes#1750, (trip_distance#434 / (cast(duration_seconds#1679L as double) / 3600.0)) AS speed_mph#1751]
+Input [4]: [tpep_pickup_datetime#431, trip_distance#434, DOLocationID#438, duration_seconds#1679L]
+
+(57) Scan parquet 
+Output [4]: [tpep_pickup_datetime#465, tpep_dropoff_datetime#466, trip_distance#468, DOLocationID#472]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-03.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(58) Filter
+Input [4]: [tpep_pickup_datetime#465, tpep_dropoff_datetime#466, trip_distance#468, DOLocationID#472]
+Condition : (((((((isnotnull(tpep_pickup_datetime#465) AND isnotnull(tpep_dropoff_datetime#466)) AND isnotnull(trip_distance#468)) AND (trip_distance#468 > 0.0)) AND isnotnull(DOLocationID#472)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#465 as timestamp), cast(tpep_dropoff_datetime#466 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#465 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#465 as date)) >= 2))
+
+(59) Project
+Output [4]: [tpep_pickup_datetime#465, trip_distance#468, DOLocationID#472, timestampdiff(SECOND, cast(tpep_pickup_datetime#465 as timestamp), cast(tpep_dropoff_datetime#466 as timestamp), Some(America/New_York)) AS duration_seconds#1680L]
+Input [4]: [tpep_pickup_datetime#465, tpep_dropoff_datetime#466, trip_distance#468, DOLocationID#472]
+
+(60) Project
+Output [4]: [DOLocationID#472, year(cast(tpep_pickup_datetime#465 as date)) AS year#1752, (cast(duration_seconds#1680L as double) / 60.0) AS duration_minutes#1753, (trip_distance#468 / (cast(duration_seconds#1680L as double) / 3600.0)) AS speed_mph#1754]
+Input [4]: [tpep_pickup_datetime#465, trip_distance#468, DOLocationID#472, duration_seconds#1680L]
+
+(61) Scan parquet 
+Output [4]: [tpep_pickup_datetime#499, tpep_dropoff_datetime#500, trip_distance#502, DOLocationID#506]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-04.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(62) Filter
+Input [4]: [tpep_pickup_datetime#499, tpep_dropoff_datetime#500, trip_distance#502, DOLocationID#506]
+Condition : (((((((isnotnull(tpep_pickup_datetime#499) AND isnotnull(tpep_dropoff_datetime#500)) AND isnotnull(trip_distance#502)) AND (trip_distance#502 > 0.0)) AND isnotnull(DOLocationID#506)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#499 as timestamp), cast(tpep_dropoff_datetime#500 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#499 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#499 as date)) >= 2))
+
+(63) Project
+Output [4]: [tpep_pickup_datetime#499, trip_distance#502, DOLocationID#506, timestampdiff(SECOND, cast(tpep_pickup_datetime#499 as timestamp), cast(tpep_dropoff_datetime#500 as timestamp), Some(America/New_York)) AS duration_seconds#1681L]
+Input [4]: [tpep_pickup_datetime#499, tpep_dropoff_datetime#500, trip_distance#502, DOLocationID#506]
+
+(64) Project
+Output [4]: [DOLocationID#506, year(cast(tpep_pickup_datetime#499 as date)) AS year#1755, (cast(duration_seconds#1681L as double) / 60.0) AS duration_minutes#1756, (trip_distance#502 / (cast(duration_seconds#1681L as double) / 3600.0)) AS speed_mph#1757]
+Input [4]: [tpep_pickup_datetime#499, trip_distance#502, DOLocationID#506, duration_seconds#1681L]
+
+(65) Scan parquet 
+Output [4]: [tpep_pickup_datetime#533, tpep_dropoff_datetime#534, trip_distance#536, DOLocationID#540]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-05.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(66) Filter
+Input [4]: [tpep_pickup_datetime#533, tpep_dropoff_datetime#534, trip_distance#536, DOLocationID#540]
+Condition : (((((((isnotnull(tpep_pickup_datetime#533) AND isnotnull(tpep_dropoff_datetime#534)) AND isnotnull(trip_distance#536)) AND (trip_distance#536 > 0.0)) AND isnotnull(DOLocationID#540)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#533 as timestamp), cast(tpep_dropoff_datetime#534 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#533 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#533 as date)) >= 2))
+
+(67) Project
+Output [4]: [tpep_pickup_datetime#533, trip_distance#536, DOLocationID#540, timestampdiff(SECOND, cast(tpep_pickup_datetime#533 as timestamp), cast(tpep_dropoff_datetime#534 as timestamp), Some(America/New_York)) AS duration_seconds#1682L]
+Input [4]: [tpep_pickup_datetime#533, tpep_dropoff_datetime#534, trip_distance#536, DOLocationID#540]
+
+(68) Project
+Output [4]: [DOLocationID#540, year(cast(tpep_pickup_datetime#533 as date)) AS year#1758, (cast(duration_seconds#1682L as double) / 60.0) AS duration_minutes#1759, (trip_distance#536 / (cast(duration_seconds#1682L as double) / 3600.0)) AS speed_mph#1760]
+Input [4]: [tpep_pickup_datetime#533, trip_distance#536, DOLocationID#540, duration_seconds#1682L]
+
+(69) Scan parquet 
+Output [4]: [tpep_pickup_datetime#567, tpep_dropoff_datetime#568, trip_distance#570, DOLocationID#574]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-06.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(70) Filter
+Input [4]: [tpep_pickup_datetime#567, tpep_dropoff_datetime#568, trip_distance#570, DOLocationID#574]
+Condition : (((((((isnotnull(tpep_pickup_datetime#567) AND isnotnull(tpep_dropoff_datetime#568)) AND isnotnull(trip_distance#570)) AND (trip_distance#570 > 0.0)) AND isnotnull(DOLocationID#574)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#567 as timestamp), cast(tpep_dropoff_datetime#568 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#567 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#567 as date)) >= 2))
+
+(71) Project
+Output [4]: [tpep_pickup_datetime#567, trip_distance#570, DOLocationID#574, timestampdiff(SECOND, cast(tpep_pickup_datetime#567 as timestamp), cast(tpep_dropoff_datetime#568 as timestamp), Some(America/New_York)) AS duration_seconds#1683L]
+Input [4]: [tpep_pickup_datetime#567, tpep_dropoff_datetime#568, trip_distance#570, DOLocationID#574]
+
+(72) Project
+Output [4]: [DOLocationID#574, year(cast(tpep_pickup_datetime#567 as date)) AS year#1761, (cast(duration_seconds#1683L as double) / 60.0) AS duration_minutes#1762, (trip_distance#570 / (cast(duration_seconds#1683L as double) / 3600.0)) AS speed_mph#1763]
+Input [4]: [tpep_pickup_datetime#567, trip_distance#570, DOLocationID#574, duration_seconds#1683L]
+
+(73) Scan parquet 
+Output [4]: [tpep_pickup_datetime#601, tpep_dropoff_datetime#602, trip_distance#604, DOLocationID#608]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-07.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(74) Filter
+Input [4]: [tpep_pickup_datetime#601, tpep_dropoff_datetime#602, trip_distance#604, DOLocationID#608]
+Condition : (((((((isnotnull(tpep_pickup_datetime#601) AND isnotnull(tpep_dropoff_datetime#602)) AND isnotnull(trip_distance#604)) AND (trip_distance#604 > 0.0)) AND isnotnull(DOLocationID#608)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#601 as timestamp), cast(tpep_dropoff_datetime#602 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#601 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#601 as date)) >= 2))
+
+(75) Project
+Output [4]: [tpep_pickup_datetime#601, trip_distance#604, DOLocationID#608, timestampdiff(SECOND, cast(tpep_pickup_datetime#601 as timestamp), cast(tpep_dropoff_datetime#602 as timestamp), Some(America/New_York)) AS duration_seconds#1684L]
+Input [4]: [tpep_pickup_datetime#601, tpep_dropoff_datetime#602, trip_distance#604, DOLocationID#608]
+
+(76) Project
+Output [4]: [DOLocationID#608, year(cast(tpep_pickup_datetime#601 as date)) AS year#1764, (cast(duration_seconds#1684L as double) / 60.0) AS duration_minutes#1765, (trip_distance#604 / (cast(duration_seconds#1684L as double) / 3600.0)) AS speed_mph#1766]
+Input [4]: [tpep_pickup_datetime#601, trip_distance#604, DOLocationID#608, duration_seconds#1684L]
+
+(77) Scan parquet 
+Output [4]: [tpep_pickup_datetime#635, tpep_dropoff_datetime#636, trip_distance#638, DOLocationID#642]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-08.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(78) Filter
+Input [4]: [tpep_pickup_datetime#635, tpep_dropoff_datetime#636, trip_distance#638, DOLocationID#642]
+Condition : (((((((isnotnull(tpep_pickup_datetime#635) AND isnotnull(tpep_dropoff_datetime#636)) AND isnotnull(trip_distance#638)) AND (trip_distance#638 > 0.0)) AND isnotnull(DOLocationID#642)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#635 as timestamp), cast(tpep_dropoff_datetime#636 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#635 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#635 as date)) >= 2))
+
+(79) Project
+Output [4]: [tpep_pickup_datetime#635, trip_distance#638, DOLocationID#642, timestampdiff(SECOND, cast(tpep_pickup_datetime#635 as timestamp), cast(tpep_dropoff_datetime#636 as timestamp), Some(America/New_York)) AS duration_seconds#1685L]
+Input [4]: [tpep_pickup_datetime#635, tpep_dropoff_datetime#636, trip_distance#638, DOLocationID#642]
+
+(80) Project
+Output [4]: [DOLocationID#642, year(cast(tpep_pickup_datetime#635 as date)) AS year#1767, (cast(duration_seconds#1685L as double) / 60.0) AS duration_minutes#1768, (trip_distance#638 / (cast(duration_seconds#1685L as double) / 3600.0)) AS speed_mph#1769]
+Input [4]: [tpep_pickup_datetime#635, trip_distance#638, DOLocationID#642, duration_seconds#1685L]
+
+(81) Scan parquet 
+Output [4]: [tpep_pickup_datetime#669, tpep_dropoff_datetime#670, trip_distance#672, DOLocationID#676]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-09.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(82) Filter
+Input [4]: [tpep_pickup_datetime#669, tpep_dropoff_datetime#670, trip_distance#672, DOLocationID#676]
+Condition : (((((((isnotnull(tpep_pickup_datetime#669) AND isnotnull(tpep_dropoff_datetime#670)) AND isnotnull(trip_distance#672)) AND (trip_distance#672 > 0.0)) AND isnotnull(DOLocationID#676)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#669 as timestamp), cast(tpep_dropoff_datetime#670 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#669 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#669 as date)) >= 2))
+
+(83) Project
+Output [4]: [tpep_pickup_datetime#669, trip_distance#672, DOLocationID#676, timestampdiff(SECOND, cast(tpep_pickup_datetime#669 as timestamp), cast(tpep_dropoff_datetime#670 as timestamp), Some(America/New_York)) AS duration_seconds#1686L]
+Input [4]: [tpep_pickup_datetime#669, tpep_dropoff_datetime#670, trip_distance#672, DOLocationID#676]
+
+(84) Project
+Output [4]: [DOLocationID#676, year(cast(tpep_pickup_datetime#669 as date)) AS year#1770, (cast(duration_seconds#1686L as double) / 60.0) AS duration_minutes#1771, (trip_distance#672 / (cast(duration_seconds#1686L as double) / 3600.0)) AS speed_mph#1772]
+Input [4]: [tpep_pickup_datetime#669, trip_distance#672, DOLocationID#676, duration_seconds#1686L]
+
+(85) Scan parquet 
+Output [4]: [tpep_pickup_datetime#703, tpep_dropoff_datetime#704, trip_distance#706, DOLocationID#710]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-10.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(86) Filter
+Input [4]: [tpep_pickup_datetime#703, tpep_dropoff_datetime#704, trip_distance#706, DOLocationID#710]
+Condition : (((((((isnotnull(tpep_pickup_datetime#703) AND isnotnull(tpep_dropoff_datetime#704)) AND isnotnull(trip_distance#706)) AND (trip_distance#706 > 0.0)) AND isnotnull(DOLocationID#710)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#703 as timestamp), cast(tpep_dropoff_datetime#704 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#703 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#703 as date)) >= 2))
+
+(87) Project
+Output [4]: [tpep_pickup_datetime#703, trip_distance#706, DOLocationID#710, timestampdiff(SECOND, cast(tpep_pickup_datetime#703 as timestamp), cast(tpep_dropoff_datetime#704 as timestamp), Some(America/New_York)) AS duration_seconds#1687L]
+Input [4]: [tpep_pickup_datetime#703, tpep_dropoff_datetime#704, trip_distance#706, DOLocationID#710]
+
+(88) Project
+Output [4]: [DOLocationID#710, year(cast(tpep_pickup_datetime#703 as date)) AS year#1773, (cast(duration_seconds#1687L as double) / 60.0) AS duration_minutes#1774, (trip_distance#706 / (cast(duration_seconds#1687L as double) / 3600.0)) AS speed_mph#1775]
+Input [4]: [tpep_pickup_datetime#703, trip_distance#706, DOLocationID#710, duration_seconds#1687L]
+
+(89) Scan parquet 
+Output [4]: [tpep_pickup_datetime#737, tpep_dropoff_datetime#738, trip_distance#740, DOLocationID#744]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-11.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(90) Filter
+Input [4]: [tpep_pickup_datetime#737, tpep_dropoff_datetime#738, trip_distance#740, DOLocationID#744]
+Condition : (((((((isnotnull(tpep_pickup_datetime#737) AND isnotnull(tpep_dropoff_datetime#738)) AND isnotnull(trip_distance#740)) AND (trip_distance#740 > 0.0)) AND isnotnull(DOLocationID#744)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#737 as timestamp), cast(tpep_dropoff_datetime#738 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#737 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#737 as date)) >= 2))
+
+(91) Project
+Output [4]: [tpep_pickup_datetime#737, trip_distance#740, DOLocationID#744, timestampdiff(SECOND, cast(tpep_pickup_datetime#737 as timestamp), cast(tpep_dropoff_datetime#738 as timestamp), Some(America/New_York)) AS duration_seconds#1688L]
+Input [4]: [tpep_pickup_datetime#737, tpep_dropoff_datetime#738, trip_distance#740, DOLocationID#744]
+
+(92) Project
+Output [4]: [DOLocationID#744, year(cast(tpep_pickup_datetime#737 as date)) AS year#1776, (cast(duration_seconds#1688L as double) / 60.0) AS duration_minutes#1777, (trip_distance#740 / (cast(duration_seconds#1688L as double) / 3600.0)) AS speed_mph#1778]
+Input [4]: [tpep_pickup_datetime#737, trip_distance#740, DOLocationID#744, duration_seconds#1688L]
+
+(93) Scan parquet 
+Output [4]: [tpep_pickup_datetime#771, tpep_dropoff_datetime#772, trip_distance#774, DOLocationID#778]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-12.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(94) Filter
+Input [4]: [tpep_pickup_datetime#771, tpep_dropoff_datetime#772, trip_distance#774, DOLocationID#778]
+Condition : (((((((isnotnull(tpep_pickup_datetime#771) AND isnotnull(tpep_dropoff_datetime#772)) AND isnotnull(trip_distance#774)) AND (trip_distance#774 > 0.0)) AND isnotnull(DOLocationID#778)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#771 as timestamp), cast(tpep_dropoff_datetime#772 as timestamp), Some(America/New_York)) > 0)) AND year(cast(tpep_pickup_datetime#771 as date)) IN (2024,2025)) AND (month(cast(tpep_pickup_datetime#771 as date)) >= 2))
+
+(95) Project
+Output [4]: [tpep_pickup_datetime#771, trip_distance#774, DOLocationID#778, timestampdiff(SECOND, cast(tpep_pickup_datetime#771 as timestamp), cast(tpep_dropoff_datetime#772 as timestamp), Some(America/New_York)) AS duration_seconds#1689L]
+Input [4]: [tpep_pickup_datetime#771, tpep_dropoff_datetime#772, trip_distance#774, DOLocationID#778]
+
+(96) Project
+Output [4]: [DOLocationID#778, year(cast(tpep_pickup_datetime#771 as date)) AS year#1779, (cast(duration_seconds#1689L as double) / 60.0) AS duration_minutes#1780, (trip_distance#774 / (cast(duration_seconds#1689L as double) / 3600.0)) AS speed_mph#1781]
+Input [4]: [tpep_pickup_datetime#771, trip_distance#774, DOLocationID#778, duration_seconds#1689L]
+
+(97) Union
+
+(98) Exchange
+Input [4]: [DOLocationID#25, year#805, duration_minutes#807, speed_mph#808]
+Arguments: hashpartitioning(DOLocationID#25, 200), ENSURE_REQUIREMENTS, [plan_id=528]
+
+(99) Sort
+Input [4]: [DOLocationID#25, year#805, duration_minutes#807, speed_mph#808]
+Arguments: [DOLocationID#25 ASC NULLS FIRST], false, 0
+
+(100) Scan parquet 
+Output [4]: [tpep_pickup_datetime#810, tpep_dropoff_datetime#811, trip_distance#813, DOLocationID#817]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-01.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(101) Filter
+Input [4]: [tpep_pickup_datetime#810, tpep_dropoff_datetime#811, trip_distance#813, DOLocationID#817]
+Condition : (((((((isnotnull(tpep_pickup_datetime#810) AND isnotnull(tpep_dropoff_datetime#811)) AND isnotnull(trip_distance#813)) AND (trip_distance#813 > 0.0)) AND isnotnull(DOLocationID#817)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#810 as timestamp), cast(tpep_dropoff_datetime#811 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#810 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#810 as date)) >= 2))
+
+(102) Project
+Output [2]: [DOLocationID#817 AS DOLocationID#834, null AS cbd_congestion_fee#840]
+Input [4]: [tpep_pickup_datetime#810, tpep_dropoff_datetime#811, trip_distance#813, DOLocationID#817]
+
+(103) Scan parquet 
+Output [4]: [tpep_pickup_datetime#843, tpep_dropoff_datetime#844, trip_distance#846, DOLocationID#850]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-02.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(104) Filter
+Input [4]: [tpep_pickup_datetime#843, tpep_dropoff_datetime#844, trip_distance#846, DOLocationID#850]
+Condition : (((((((isnotnull(tpep_pickup_datetime#843) AND isnotnull(tpep_dropoff_datetime#844)) AND isnotnull(trip_distance#846)) AND (trip_distance#846 > 0.0)) AND isnotnull(DOLocationID#850)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#843 as timestamp), cast(tpep_dropoff_datetime#844 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#843 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#843 as date)) >= 2))
+
+(105) Project
+Output [2]: [DOLocationID#850, null AS cbd_congestion_fee#873]
+Input [4]: [tpep_pickup_datetime#843, tpep_dropoff_datetime#844, trip_distance#846, DOLocationID#850]
+
+(106) Scan parquet 
+Output [4]: [tpep_pickup_datetime#876, tpep_dropoff_datetime#877, trip_distance#879, DOLocationID#883]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-03.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(107) Filter
+Input [4]: [tpep_pickup_datetime#876, tpep_dropoff_datetime#877, trip_distance#879, DOLocationID#883]
+Condition : (((((((isnotnull(tpep_pickup_datetime#876) AND isnotnull(tpep_dropoff_datetime#877)) AND isnotnull(trip_distance#879)) AND (trip_distance#879 > 0.0)) AND isnotnull(DOLocationID#883)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#876 as timestamp), cast(tpep_dropoff_datetime#877 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#876 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#876 as date)) >= 2))
+
+(108) Project
+Output [2]: [DOLocationID#883, null AS cbd_congestion_fee#906]
+Input [4]: [tpep_pickup_datetime#876, tpep_dropoff_datetime#877, trip_distance#879, DOLocationID#883]
+
+(109) Scan parquet 
+Output [4]: [tpep_pickup_datetime#909, tpep_dropoff_datetime#910, trip_distance#912, DOLocationID#916]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-04.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(110) Filter
+Input [4]: [tpep_pickup_datetime#909, tpep_dropoff_datetime#910, trip_distance#912, DOLocationID#916]
+Condition : (((((((isnotnull(tpep_pickup_datetime#909) AND isnotnull(tpep_dropoff_datetime#910)) AND isnotnull(trip_distance#912)) AND (trip_distance#912 > 0.0)) AND isnotnull(DOLocationID#916)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#909 as timestamp), cast(tpep_dropoff_datetime#910 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#909 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#909 as date)) >= 2))
+
+(111) Project
+Output [2]: [DOLocationID#916, null AS cbd_congestion_fee#939]
+Input [4]: [tpep_pickup_datetime#909, tpep_dropoff_datetime#910, trip_distance#912, DOLocationID#916]
+
+(112) Scan parquet 
+Output [4]: [tpep_pickup_datetime#942, tpep_dropoff_datetime#943, trip_distance#945, DOLocationID#949]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-05.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(113) Filter
+Input [4]: [tpep_pickup_datetime#942, tpep_dropoff_datetime#943, trip_distance#945, DOLocationID#949]
+Condition : (((((((isnotnull(tpep_pickup_datetime#942) AND isnotnull(tpep_dropoff_datetime#943)) AND isnotnull(trip_distance#945)) AND (trip_distance#945 > 0.0)) AND isnotnull(DOLocationID#949)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#942 as timestamp), cast(tpep_dropoff_datetime#943 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#942 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#942 as date)) >= 2))
+
+(114) Project
+Output [2]: [DOLocationID#949, null AS cbd_congestion_fee#972]
+Input [4]: [tpep_pickup_datetime#942, tpep_dropoff_datetime#943, trip_distance#945, DOLocationID#949]
+
+(115) Scan parquet 
+Output [4]: [tpep_pickup_datetime#975, tpep_dropoff_datetime#976, trip_distance#978, DOLocationID#982]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-06.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(116) Filter
+Input [4]: [tpep_pickup_datetime#975, tpep_dropoff_datetime#976, trip_distance#978, DOLocationID#982]
+Condition : (((((((isnotnull(tpep_pickup_datetime#975) AND isnotnull(tpep_dropoff_datetime#976)) AND isnotnull(trip_distance#978)) AND (trip_distance#978 > 0.0)) AND isnotnull(DOLocationID#982)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#975 as timestamp), cast(tpep_dropoff_datetime#976 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#975 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#975 as date)) >= 2))
+
+(117) Project
+Output [2]: [DOLocationID#982, null AS cbd_congestion_fee#1005]
+Input [4]: [tpep_pickup_datetime#975, tpep_dropoff_datetime#976, trip_distance#978, DOLocationID#982]
+
+(118) Scan parquet 
+Output [4]: [tpep_pickup_datetime#1008, tpep_dropoff_datetime#1009, trip_distance#1011, DOLocationID#1015]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-07.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(119) Filter
+Input [4]: [tpep_pickup_datetime#1008, tpep_dropoff_datetime#1009, trip_distance#1011, DOLocationID#1015]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1008) AND isnotnull(tpep_dropoff_datetime#1009)) AND isnotnull(trip_distance#1011)) AND (trip_distance#1011 > 0.0)) AND isnotnull(DOLocationID#1015)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1008 as timestamp), cast(tpep_dropoff_datetime#1009 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1008 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1008 as date)) >= 2))
+
+(120) Project
+Output [2]: [DOLocationID#1015, null AS cbd_congestion_fee#1038]
+Input [4]: [tpep_pickup_datetime#1008, tpep_dropoff_datetime#1009, trip_distance#1011, DOLocationID#1015]
+
+(121) Scan parquet 
+Output [4]: [tpep_pickup_datetime#1041, tpep_dropoff_datetime#1042, trip_distance#1044, DOLocationID#1048]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-08.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(122) Filter
+Input [4]: [tpep_pickup_datetime#1041, tpep_dropoff_datetime#1042, trip_distance#1044, DOLocationID#1048]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1041) AND isnotnull(tpep_dropoff_datetime#1042)) AND isnotnull(trip_distance#1044)) AND (trip_distance#1044 > 0.0)) AND isnotnull(DOLocationID#1048)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1041 as timestamp), cast(tpep_dropoff_datetime#1042 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1041 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1041 as date)) >= 2))
+
+(123) Project
+Output [2]: [DOLocationID#1048, null AS cbd_congestion_fee#1071]
+Input [4]: [tpep_pickup_datetime#1041, tpep_dropoff_datetime#1042, trip_distance#1044, DOLocationID#1048]
+
+(124) Scan parquet 
+Output [4]: [tpep_pickup_datetime#1074, tpep_dropoff_datetime#1075, trip_distance#1077, DOLocationID#1081]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-09.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(125) Filter
+Input [4]: [tpep_pickup_datetime#1074, tpep_dropoff_datetime#1075, trip_distance#1077, DOLocationID#1081]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1074) AND isnotnull(tpep_dropoff_datetime#1075)) AND isnotnull(trip_distance#1077)) AND (trip_distance#1077 > 0.0)) AND isnotnull(DOLocationID#1081)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1074 as timestamp), cast(tpep_dropoff_datetime#1075 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1074 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1074 as date)) >= 2))
+
+(126) Project
+Output [2]: [DOLocationID#1081, null AS cbd_congestion_fee#1104]
+Input [4]: [tpep_pickup_datetime#1074, tpep_dropoff_datetime#1075, trip_distance#1077, DOLocationID#1081]
+
+(127) Scan parquet 
+Output [4]: [tpep_pickup_datetime#1107, tpep_dropoff_datetime#1108, trip_distance#1110, DOLocationID#1114]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-10.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(128) Filter
+Input [4]: [tpep_pickup_datetime#1107, tpep_dropoff_datetime#1108, trip_distance#1110, DOLocationID#1114]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1107) AND isnotnull(tpep_dropoff_datetime#1108)) AND isnotnull(trip_distance#1110)) AND (trip_distance#1110 > 0.0)) AND isnotnull(DOLocationID#1114)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1107 as timestamp), cast(tpep_dropoff_datetime#1108 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1107 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1107 as date)) >= 2))
+
+(129) Project
+Output [2]: [DOLocationID#1114, null AS cbd_congestion_fee#1137]
+Input [4]: [tpep_pickup_datetime#1107, tpep_dropoff_datetime#1108, trip_distance#1110, DOLocationID#1114]
+
+(130) Scan parquet 
+Output [4]: [tpep_pickup_datetime#1140, tpep_dropoff_datetime#1141, trip_distance#1143, DOLocationID#1147]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-11.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(131) Filter
+Input [4]: [tpep_pickup_datetime#1140, tpep_dropoff_datetime#1141, trip_distance#1143, DOLocationID#1147]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1140) AND isnotnull(tpep_dropoff_datetime#1141)) AND isnotnull(trip_distance#1143)) AND (trip_distance#1143 > 0.0)) AND isnotnull(DOLocationID#1147)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1140 as timestamp), cast(tpep_dropoff_datetime#1141 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1140 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1140 as date)) >= 2))
+
+(132) Project
+Output [2]: [DOLocationID#1147, null AS cbd_congestion_fee#1170]
+Input [4]: [tpep_pickup_datetime#1140, tpep_dropoff_datetime#1141, trip_distance#1143, DOLocationID#1147]
+
+(133) Scan parquet 
+Output [4]: [tpep_pickup_datetime#1173, tpep_dropoff_datetime#1174, trip_distance#1176, DOLocationID#1180]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-12.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int>
+
+(134) Filter
+Input [4]: [tpep_pickup_datetime#1173, tpep_dropoff_datetime#1174, trip_distance#1176, DOLocationID#1180]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1173) AND isnotnull(tpep_dropoff_datetime#1174)) AND isnotnull(trip_distance#1176)) AND (trip_distance#1176 > 0.0)) AND isnotnull(DOLocationID#1180)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1173 as timestamp), cast(tpep_dropoff_datetime#1174 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1173 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1173 as date)) >= 2))
+
+(135) Project
+Output [2]: [DOLocationID#1180, null AS cbd_congestion_fee#1203]
+Input [4]: [tpep_pickup_datetime#1173, tpep_dropoff_datetime#1174, trip_distance#1176, DOLocationID#1180]
+
+(136) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1206, tpep_dropoff_datetime#1207, trip_distance#1209, DOLocationID#1213, cbd_congestion_fee#1224]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-01.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(137) Filter
+Input [5]: [tpep_pickup_datetime#1206, tpep_dropoff_datetime#1207, trip_distance#1209, DOLocationID#1213, cbd_congestion_fee#1224]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1206) AND isnotnull(tpep_dropoff_datetime#1207)) AND isnotnull(trip_distance#1209)) AND (trip_distance#1209 > 0.0)) AND isnotnull(DOLocationID#1213)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1206 as timestamp), cast(tpep_dropoff_datetime#1207 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1206 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1206 as date)) >= 2))
+
+(138) Project
+Output [2]: [DOLocationID#1213, cbd_congestion_fee#1224]
+Input [5]: [tpep_pickup_datetime#1206, tpep_dropoff_datetime#1207, trip_distance#1209, DOLocationID#1213, cbd_congestion_fee#1224]
+
+(139) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1240, tpep_dropoff_datetime#1241, trip_distance#1243, DOLocationID#1247, cbd_congestion_fee#1258]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-02.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(140) Filter
+Input [5]: [tpep_pickup_datetime#1240, tpep_dropoff_datetime#1241, trip_distance#1243, DOLocationID#1247, cbd_congestion_fee#1258]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1240) AND isnotnull(tpep_dropoff_datetime#1241)) AND isnotnull(trip_distance#1243)) AND (trip_distance#1243 > 0.0)) AND isnotnull(DOLocationID#1247)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1240 as timestamp), cast(tpep_dropoff_datetime#1241 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1240 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1240 as date)) >= 2))
+
+(141) Project
+Output [2]: [DOLocationID#1247, cbd_congestion_fee#1258]
+Input [5]: [tpep_pickup_datetime#1240, tpep_dropoff_datetime#1241, trip_distance#1243, DOLocationID#1247, cbd_congestion_fee#1258]
+
+(142) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1274, tpep_dropoff_datetime#1275, trip_distance#1277, DOLocationID#1281, cbd_congestion_fee#1292]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-03.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(143) Filter
+Input [5]: [tpep_pickup_datetime#1274, tpep_dropoff_datetime#1275, trip_distance#1277, DOLocationID#1281, cbd_congestion_fee#1292]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1274) AND isnotnull(tpep_dropoff_datetime#1275)) AND isnotnull(trip_distance#1277)) AND (trip_distance#1277 > 0.0)) AND isnotnull(DOLocationID#1281)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1274 as timestamp), cast(tpep_dropoff_datetime#1275 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1274 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1274 as date)) >= 2))
+
+(144) Project
+Output [2]: [DOLocationID#1281, cbd_congestion_fee#1292]
+Input [5]: [tpep_pickup_datetime#1274, tpep_dropoff_datetime#1275, trip_distance#1277, DOLocationID#1281, cbd_congestion_fee#1292]
+
+(145) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1308, tpep_dropoff_datetime#1309, trip_distance#1311, DOLocationID#1315, cbd_congestion_fee#1326]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-04.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(146) Filter
+Input [5]: [tpep_pickup_datetime#1308, tpep_dropoff_datetime#1309, trip_distance#1311, DOLocationID#1315, cbd_congestion_fee#1326]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1308) AND isnotnull(tpep_dropoff_datetime#1309)) AND isnotnull(trip_distance#1311)) AND (trip_distance#1311 > 0.0)) AND isnotnull(DOLocationID#1315)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1308 as timestamp), cast(tpep_dropoff_datetime#1309 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1308 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1308 as date)) >= 2))
+
+(147) Project
+Output [2]: [DOLocationID#1315, cbd_congestion_fee#1326]
+Input [5]: [tpep_pickup_datetime#1308, tpep_dropoff_datetime#1309, trip_distance#1311, DOLocationID#1315, cbd_congestion_fee#1326]
+
+(148) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1342, tpep_dropoff_datetime#1343, trip_distance#1345, DOLocationID#1349, cbd_congestion_fee#1360]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-05.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(149) Filter
+Input [5]: [tpep_pickup_datetime#1342, tpep_dropoff_datetime#1343, trip_distance#1345, DOLocationID#1349, cbd_congestion_fee#1360]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1342) AND isnotnull(tpep_dropoff_datetime#1343)) AND isnotnull(trip_distance#1345)) AND (trip_distance#1345 > 0.0)) AND isnotnull(DOLocationID#1349)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1342 as timestamp), cast(tpep_dropoff_datetime#1343 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1342 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1342 as date)) >= 2))
+
+(150) Project
+Output [2]: [DOLocationID#1349, cbd_congestion_fee#1360]
+Input [5]: [tpep_pickup_datetime#1342, tpep_dropoff_datetime#1343, trip_distance#1345, DOLocationID#1349, cbd_congestion_fee#1360]
+
+(151) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1376, tpep_dropoff_datetime#1377, trip_distance#1379, DOLocationID#1383, cbd_congestion_fee#1394]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-06.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(152) Filter
+Input [5]: [tpep_pickup_datetime#1376, tpep_dropoff_datetime#1377, trip_distance#1379, DOLocationID#1383, cbd_congestion_fee#1394]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1376) AND isnotnull(tpep_dropoff_datetime#1377)) AND isnotnull(trip_distance#1379)) AND (trip_distance#1379 > 0.0)) AND isnotnull(DOLocationID#1383)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1376 as timestamp), cast(tpep_dropoff_datetime#1377 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1376 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1376 as date)) >= 2))
+
+(153) Project
+Output [2]: [DOLocationID#1383, cbd_congestion_fee#1394]
+Input [5]: [tpep_pickup_datetime#1376, tpep_dropoff_datetime#1377, trip_distance#1379, DOLocationID#1383, cbd_congestion_fee#1394]
+
+(154) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1410, tpep_dropoff_datetime#1411, trip_distance#1413, DOLocationID#1417, cbd_congestion_fee#1428]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-07.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(155) Filter
+Input [5]: [tpep_pickup_datetime#1410, tpep_dropoff_datetime#1411, trip_distance#1413, DOLocationID#1417, cbd_congestion_fee#1428]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1410) AND isnotnull(tpep_dropoff_datetime#1411)) AND isnotnull(trip_distance#1413)) AND (trip_distance#1413 > 0.0)) AND isnotnull(DOLocationID#1417)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1410 as timestamp), cast(tpep_dropoff_datetime#1411 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1410 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1410 as date)) >= 2))
+
+(156) Project
+Output [2]: [DOLocationID#1417, cbd_congestion_fee#1428]
+Input [5]: [tpep_pickup_datetime#1410, tpep_dropoff_datetime#1411, trip_distance#1413, DOLocationID#1417, cbd_congestion_fee#1428]
+
+(157) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1444, tpep_dropoff_datetime#1445, trip_distance#1447, DOLocationID#1451, cbd_congestion_fee#1462]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-08.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(158) Filter
+Input [5]: [tpep_pickup_datetime#1444, tpep_dropoff_datetime#1445, trip_distance#1447, DOLocationID#1451, cbd_congestion_fee#1462]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1444) AND isnotnull(tpep_dropoff_datetime#1445)) AND isnotnull(trip_distance#1447)) AND (trip_distance#1447 > 0.0)) AND isnotnull(DOLocationID#1451)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1444 as timestamp), cast(tpep_dropoff_datetime#1445 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1444 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1444 as date)) >= 2))
+
+(159) Project
+Output [2]: [DOLocationID#1451, cbd_congestion_fee#1462]
+Input [5]: [tpep_pickup_datetime#1444, tpep_dropoff_datetime#1445, trip_distance#1447, DOLocationID#1451, cbd_congestion_fee#1462]
+
+(160) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1478, tpep_dropoff_datetime#1479, trip_distance#1481, DOLocationID#1485, cbd_congestion_fee#1496]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-09.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(161) Filter
+Input [5]: [tpep_pickup_datetime#1478, tpep_dropoff_datetime#1479, trip_distance#1481, DOLocationID#1485, cbd_congestion_fee#1496]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1478) AND isnotnull(tpep_dropoff_datetime#1479)) AND isnotnull(trip_distance#1481)) AND (trip_distance#1481 > 0.0)) AND isnotnull(DOLocationID#1485)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1478 as timestamp), cast(tpep_dropoff_datetime#1479 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1478 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1478 as date)) >= 2))
+
+(162) Project
+Output [2]: [DOLocationID#1485, cbd_congestion_fee#1496]
+Input [5]: [tpep_pickup_datetime#1478, tpep_dropoff_datetime#1479, trip_distance#1481, DOLocationID#1485, cbd_congestion_fee#1496]
+
+(163) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1512, tpep_dropoff_datetime#1513, trip_distance#1515, DOLocationID#1519, cbd_congestion_fee#1530]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-10.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(164) Filter
+Input [5]: [tpep_pickup_datetime#1512, tpep_dropoff_datetime#1513, trip_distance#1515, DOLocationID#1519, cbd_congestion_fee#1530]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1512) AND isnotnull(tpep_dropoff_datetime#1513)) AND isnotnull(trip_distance#1515)) AND (trip_distance#1515 > 0.0)) AND isnotnull(DOLocationID#1519)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1512 as timestamp), cast(tpep_dropoff_datetime#1513 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1512 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1512 as date)) >= 2))
+
+(165) Project
+Output [2]: [DOLocationID#1519, cbd_congestion_fee#1530]
+Input [5]: [tpep_pickup_datetime#1512, tpep_dropoff_datetime#1513, trip_distance#1515, DOLocationID#1519, cbd_congestion_fee#1530]
+
+(166) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1546, tpep_dropoff_datetime#1547, trip_distance#1549, DOLocationID#1553, cbd_congestion_fee#1564]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-11.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(167) Filter
+Input [5]: [tpep_pickup_datetime#1546, tpep_dropoff_datetime#1547, trip_distance#1549, DOLocationID#1553, cbd_congestion_fee#1564]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1546) AND isnotnull(tpep_dropoff_datetime#1547)) AND isnotnull(trip_distance#1549)) AND (trip_distance#1549 > 0.0)) AND isnotnull(DOLocationID#1553)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1546 as timestamp), cast(tpep_dropoff_datetime#1547 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1546 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1546 as date)) >= 2))
+
+(168) Project
+Output [2]: [DOLocationID#1553, cbd_congestion_fee#1564]
+Input [5]: [tpep_pickup_datetime#1546, tpep_dropoff_datetime#1547, trip_distance#1549, DOLocationID#1553, cbd_congestion_fee#1564]
+
+(169) Scan parquet 
+Output [5]: [tpep_pickup_datetime#1580, tpep_dropoff_datetime#1581, trip_distance#1583, DOLocationID#1587, cbd_congestion_fee#1598]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-12.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(tpep_dropoff_datetime), IsNotNull(trip_distance), GreaterThan(trip_distance,0.0), IsNotNull(DOLocationID)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,tpep_dropoff_datetime:timestamp_ntz,trip_distance:double,DOLocationID:int,cbd_congestion_fee:double>
+
+(170) Filter
+Input [5]: [tpep_pickup_datetime#1580, tpep_dropoff_datetime#1581, trip_distance#1583, DOLocationID#1587, cbd_congestion_fee#1598]
+Condition : (((((((isnotnull(tpep_pickup_datetime#1580) AND isnotnull(tpep_dropoff_datetime#1581)) AND isnotnull(trip_distance#1583)) AND (trip_distance#1583 > 0.0)) AND isnotnull(DOLocationID#1587)) AND (timestampdiff(SECOND, cast(tpep_pickup_datetime#1580 as timestamp), cast(tpep_dropoff_datetime#1581 as timestamp), Some(America/New_York)) > 0)) AND (year(cast(tpep_pickup_datetime#1580 as date)) = 2025)) AND (month(cast(tpep_pickup_datetime#1580 as date)) >= 2))
+
+(171) Project
+Output [2]: [DOLocationID#1587, cbd_congestion_fee#1598]
+Input [5]: [tpep_pickup_datetime#1580, tpep_dropoff_datetime#1581, trip_distance#1583, DOLocationID#1587, cbd_congestion_fee#1598]
+
+(172) Union
+
+(173) HashAggregate
+Input [2]: [DOLocationID#834, cbd_congestion_fee#840]
+Keys [1]: [DOLocationID#834]
+Functions [1]: [partial_avg(CASE WHEN (cbd_congestion_fee#840 > 0.0) THEN 1.0 ELSE 0.0 END)]
+Aggregate Attributes [2]: [sum#1792, count#1793L]
+Results [3]: [DOLocationID#834, sum#1794, count#1795L]
+
+(174) Exchange
+Input [3]: [DOLocationID#834, sum#1794, count#1795L]
+Arguments: hashpartitioning(DOLocationID#834, 200), ENSURE_REQUIREMENTS, [plan_id=522]
+
+(175) HashAggregate
+Input [3]: [DOLocationID#834, sum#1794, count#1795L]
+Keys [1]: [DOLocationID#834]
+Functions [1]: [avg(CASE WHEN (cbd_congestion_fee#840 > 0.0) THEN 1.0 ELSE 0.0 END)]
+Aggregate Attributes [1]: [avg(CASE WHEN (cbd_congestion_fee#840 > 0.0) THEN 1.0 ELSE 0.0 END)#1637]
+Results [2]: [DOLocationID#834, avg(CASE WHEN (cbd_congestion_fee#840 > 0.0) THEN 1.0 ELSE 0.0 END)#1637 AS positive_fee_rate#1618]
+
+(176) Filter
+Input [2]: [DOLocationID#834, positive_fee_rate#1618]
+Condition : (isnotnull(positive_fee_rate#1618) AND (positive_fee_rate#1618 >= 0.5))
+
+(177) Project
+Output [2]: [DOLocationID#834, 1 AS treated_match#1639]
+Input [2]: [DOLocationID#834, positive_fee_rate#1618]
+
+(178) Sort
+Input [2]: [DOLocationID#834, treated_match#1639]
+Arguments: [DOLocationID#834 ASC NULLS FIRST], false, 0
+
+(179) SortMergeJoin
+Left keys [1]: [DOLocationID#25]
+Right keys [1]: [DOLocationID#834]
+Join type: LeftOuter
+Join condition: None
+
+(180) Project
+Output [4]: [year#805, duration_minutes#807, speed_mph#808, CASE WHEN isnotnull(treated_match#1639) THEN treated ELSE control END AS cohort#1640]
+Input [6]: [DOLocationID#25, year#805, duration_minutes#807, speed_mph#808, DOLocationID#834, treated_match#1639]
+
+(181) HashAggregate
+Input [4]: [year#805, duration_minutes#807, speed_mph#808, cohort#1640]
+Keys [2]: [year#805, cohort#1640]
+Functions [3]: [partial_count(1), partial_avg(duration_minutes#807), partial_avg(speed_mph#808)]
+Aggregate Attributes [5]: [count#1782L, sum#1783, count#1784L, sum#1785, count#1786L]
+Results [7]: [year#805, cohort#1640, count#1787L, sum#1788, count#1789L, sum#1790, count#1791L]
+
+(182) Exchange
+Input [7]: [year#805, cohort#1640, count#1787L, sum#1788, count#1789L, sum#1790, count#1791L]
+Arguments: hashpartitioning(year#805, cohort#1640, 200), ENSURE_REQUIREMENTS, [plan_id=535]
+
+(183) HashAggregate
+Input [7]: [year#805, cohort#1640, count#1787L, sum#1788, count#1789L, sum#1790, count#1791L]
+Keys [2]: [year#805, cohort#1640]
+Functions [3]: [count(1), avg(duration_minutes#807), avg(speed_mph#808)]
+Aggregate Attributes [3]: [count(1)#1664L, avg(duration_minutes#807)#1665, avg(speed_mph#808)#1666]
+Results [5]: [year#805, cohort#1640, count(1)#1664L AS trip_count#1641L, avg(duration_minutes#807)#1665 AS avg_duration_minutes#1642, avg(speed_mph#808)#1666 AS avg_speed_mph#1643]
+
+(184) Exchange
+Input [5]: [year#805, cohort#1640, trip_count#1641L, avg_duration_minutes#1642, avg_speed_mph#1643]
+Arguments: rangepartitioning(cohort#1640 ASC NULLS FIRST, year#805 ASC NULLS FIRST, 200), ENSURE_REQUIREMENTS, [plan_id=538]
+
+(185) Sort
+Input [5]: [year#805, cohort#1640, trip_count#1641L, avg_duration_minutes#1642, avg_speed_mph#1643]
+Arguments: [cohort#1640 ASC NULLS FIRST, year#805 ASC NULLS FIRST], true, 0
+
+(186) AdaptiveSparkPlan
+Output [5]: [year#805, cohort#1640, trip_count#1641L, avg_duration_minutes#1642, avg_speed_mph#1643]
+Arguments: isFinalPlan=false
+
+

@@ -1,0 +1,1165 @@
+== Physical Plan ==
+AdaptiveSparkPlan (197)
++- Project (196)
+   +- Project (195)
+      +- Window (194)
+         +- Sort (193)
+            +- Exchange (192)
+               +- Project (191)
+                  +- SortMergeJoin LeftOuter (190)
+                     :- Sort (174)
+                     :  +- Exchange (173)
+                     :     +- Project (172)
+                     :        +- SortMergeJoin LeftOuter (171)
+                     :           :- Sort (81)
+                     :           :  +- Exchange (80)
+                     :           :     +- CartesianProduct Inner (79)
+                     :           :        :- HashAggregate (76)
+                     :           :        :  +- Exchange (75)
+                     :           :        :     +- HashAggregate (74)
+                     :           :        :        +- Union (73)
+                     :           :        :           :- Project (3)
+                     :           :        :           :  +- Filter (2)
+                     :           :        :           :     +- Scan parquet  (1)
+                     :           :        :           :- Project (6)
+                     :           :        :           :  +- Filter (5)
+                     :           :        :           :     +- Scan parquet  (4)
+                     :           :        :           :- Project (9)
+                     :           :        :           :  +- Filter (8)
+                     :           :        :           :     +- Scan parquet  (7)
+                     :           :        :           :- Project (12)
+                     :           :        :           :  +- Filter (11)
+                     :           :        :           :     +- Scan parquet  (10)
+                     :           :        :           :- Project (15)
+                     :           :        :           :  +- Filter (14)
+                     :           :        :           :     +- Scan parquet  (13)
+                     :           :        :           :- Project (18)
+                     :           :        :           :  +- Filter (17)
+                     :           :        :           :     +- Scan parquet  (16)
+                     :           :        :           :- Project (21)
+                     :           :        :           :  +- Filter (20)
+                     :           :        :           :     +- Scan parquet  (19)
+                     :           :        :           :- Project (24)
+                     :           :        :           :  +- Filter (23)
+                     :           :        :           :     +- Scan parquet  (22)
+                     :           :        :           :- Project (27)
+                     :           :        :           :  +- Filter (26)
+                     :           :        :           :     +- Scan parquet  (25)
+                     :           :        :           :- Project (30)
+                     :           :        :           :  +- Filter (29)
+                     :           :        :           :     +- Scan parquet  (28)
+                     :           :        :           :- Project (33)
+                     :           :        :           :  +- Filter (32)
+                     :           :        :           :     +- Scan parquet  (31)
+                     :           :        :           :- Project (36)
+                     :           :        :           :  +- Filter (35)
+                     :           :        :           :     +- Scan parquet  (34)
+                     :           :        :           :- Project (39)
+                     :           :        :           :  +- Filter (38)
+                     :           :        :           :     +- Scan parquet  (37)
+                     :           :        :           :- Project (42)
+                     :           :        :           :  +- Filter (41)
+                     :           :        :           :     +- Scan parquet  (40)
+                     :           :        :           :- Project (45)
+                     :           :        :           :  +- Filter (44)
+                     :           :        :           :     +- Scan parquet  (43)
+                     :           :        :           :- Project (48)
+                     :           :        :           :  +- Filter (47)
+                     :           :        :           :     +- Scan parquet  (46)
+                     :           :        :           :- Project (51)
+                     :           :        :           :  +- Filter (50)
+                     :           :        :           :     +- Scan parquet  (49)
+                     :           :        :           :- Project (54)
+                     :           :        :           :  +- Filter (53)
+                     :           :        :           :     +- Scan parquet  (52)
+                     :           :        :           :- Project (57)
+                     :           :        :           :  +- Filter (56)
+                     :           :        :           :     +- Scan parquet  (55)
+                     :           :        :           :- Project (60)
+                     :           :        :           :  +- Filter (59)
+                     :           :        :           :     +- Scan parquet  (58)
+                     :           :        :           :- Project (63)
+                     :           :        :           :  +- Filter (62)
+                     :           :        :           :     +- Scan parquet  (61)
+                     :           :        :           :- Project (66)
+                     :           :        :           :  +- Filter (65)
+                     :           :        :           :     +- Scan parquet  (64)
+                     :           :        :           :- Project (69)
+                     :           :        :           :  +- Filter (68)
+                     :           :        :           :     +- Scan parquet  (67)
+                     :           :        :           +- Project (72)
+                     :           :        :              +- Filter (71)
+                     :           :        :                 +- Scan parquet  (70)
+                     :           :        +- Project (78)
+                     :           :           +- Range (77)
+                     :           +- Sort (170)
+                     :              +- HashAggregate (169)
+                     :                 +- Exchange (168)
+                     :                    +- HashAggregate (167)
+                     :                       +- Project (166)
+                     :                          +- SortMergeJoin LeftOuter (165)
+                     :                             :- Sort (159)
+                     :                             :  +- Exchange (158)
+                     :                             :     +- HashAggregate (157)
+                     :                             :        +- Exchange (156)
+                     :                             :           +- HashAggregate (155)
+                     :                             :              +- Union (154)
+                     :                             :                 :- Project (84)
+                     :                             :                 :  +- Filter (83)
+                     :                             :                 :     +- Scan parquet  (82)
+                     :                             :                 :- Project (87)
+                     :                             :                 :  +- Filter (86)
+                     :                             :                 :     +- Scan parquet  (85)
+                     :                             :                 :- Project (90)
+                     :                             :                 :  +- Filter (89)
+                     :                             :                 :     +- Scan parquet  (88)
+                     :                             :                 :- Project (93)
+                     :                             :                 :  +- Filter (92)
+                     :                             :                 :     +- Scan parquet  (91)
+                     :                             :                 :- Project (96)
+                     :                             :                 :  +- Filter (95)
+                     :                             :                 :     +- Scan parquet  (94)
+                     :                             :                 :- Project (99)
+                     :                             :                 :  +- Filter (98)
+                     :                             :                 :     +- Scan parquet  (97)
+                     :                             :                 :- Project (102)
+                     :                             :                 :  +- Filter (101)
+                     :                             :                 :     +- Scan parquet  (100)
+                     :                             :                 :- Project (105)
+                     :                             :                 :  +- Filter (104)
+                     :                             :                 :     +- Scan parquet  (103)
+                     :                             :                 :- Project (108)
+                     :                             :                 :  +- Filter (107)
+                     :                             :                 :     +- Scan parquet  (106)
+                     :                             :                 :- Project (111)
+                     :                             :                 :  +- Filter (110)
+                     :                             :                 :     +- Scan parquet  (109)
+                     :                             :                 :- Project (114)
+                     :                             :                 :  +- Filter (113)
+                     :                             :                 :     +- Scan parquet  (112)
+                     :                             :                 :- Project (117)
+                     :                             :                 :  +- Filter (116)
+                     :                             :                 :     +- Scan parquet  (115)
+                     :                             :                 :- Project (120)
+                     :                             :                 :  +- Filter (119)
+                     :                             :                 :     +- Scan parquet  (118)
+                     :                             :                 :- Project (123)
+                     :                             :                 :  +- Filter (122)
+                     :                             :                 :     +- Scan parquet  (121)
+                     :                             :                 :- Project (126)
+                     :                             :                 :  +- Filter (125)
+                     :                             :                 :     +- Scan parquet  (124)
+                     :                             :                 :- Project (129)
+                     :                             :                 :  +- Filter (128)
+                     :                             :                 :     +- Scan parquet  (127)
+                     :                             :                 :- Project (132)
+                     :                             :                 :  +- Filter (131)
+                     :                             :                 :     +- Scan parquet  (130)
+                     :                             :                 :- Project (135)
+                     :                             :                 :  +- Filter (134)
+                     :                             :                 :     +- Scan parquet  (133)
+                     :                             :                 :- Project (138)
+                     :                             :                 :  +- Filter (137)
+                     :                             :                 :     +- Scan parquet  (136)
+                     :                             :                 :- Project (141)
+                     :                             :                 :  +- Filter (140)
+                     :                             :                 :     +- Scan parquet  (139)
+                     :                             :                 :- Project (144)
+                     :                             :                 :  +- Filter (143)
+                     :                             :                 :     +- Scan parquet  (142)
+                     :                             :                 :- Project (147)
+                     :                             :                 :  +- Filter (146)
+                     :                             :                 :     +- Scan parquet  (145)
+                     :                             :                 :- Project (150)
+                     :                             :                 :  +- Filter (149)
+                     :                             :                 :     +- Scan parquet  (148)
+                     :                             :                 +- Project (153)
+                     :                             :                    +- Filter (152)
+                     :                             :                       +- Scan parquet  (151)
+                     :                             +- Sort (164)
+                     :                                +- Exchange (163)
+                     :                                   +- Project (162)
+                     :                                      +- Filter (161)
+                     :                                         +- Scan parquet  (160)
+                     +- Sort (189)
+                        +- Exchange (188)
+                           +- Project (187)
+                              +- Filter (186)
+                                 +- Window (185)
+                                    +- Sort (184)
+                                       +- Exchange (183)
+                                          +- Sort (182)
+                                             +- Exchange (181)
+                                                +- HashAggregate (180)
+                                                   +- Exchange (179)
+                                                      +- HashAggregate (178)
+                                                         +- Project (177)
+                                                            +- Filter (176)
+                                                               +- Scan parquet  (175)
+
+
+(1) Scan parquet 
+Output [3]: [tpep_pickup_datetime#8, PULocationID#14, DOLocationID#15]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-01.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(2) Filter
+Input [3]: [tpep_pickup_datetime#8, PULocationID#14, DOLocationID#15]
+Condition : ((((isnotnull(tpep_pickup_datetime#8) AND isnotnull(PULocationID#14)) AND isnotnull(DOLocationID#15)) AND (tpep_pickup_datetime#8 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#8 < 2026-01-01 00:00:00))
+
+(3) Project
+Output [2]: [PULocationID#14 AS PULocationID#31, DOLocationID#15 AS DOLocationID#32]
+Input [3]: [tpep_pickup_datetime#8, PULocationID#14, DOLocationID#15]
+
+(4) Scan parquet 
+Output [3]: [tpep_pickup_datetime#41, PULocationID#47, DOLocationID#48]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-02.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(5) Filter
+Input [3]: [tpep_pickup_datetime#41, PULocationID#47, DOLocationID#48]
+Condition : ((((isnotnull(tpep_pickup_datetime#41) AND isnotnull(PULocationID#47)) AND isnotnull(DOLocationID#48)) AND (tpep_pickup_datetime#41 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#41 < 2026-01-01 00:00:00))
+
+(6) Project
+Output [2]: [PULocationID#47, DOLocationID#48]
+Input [3]: [tpep_pickup_datetime#41, PULocationID#47, DOLocationID#48]
+
+(7) Scan parquet 
+Output [3]: [tpep_pickup_datetime#74, PULocationID#80, DOLocationID#81]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-03.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(8) Filter
+Input [3]: [tpep_pickup_datetime#74, PULocationID#80, DOLocationID#81]
+Condition : ((((isnotnull(tpep_pickup_datetime#74) AND isnotnull(PULocationID#80)) AND isnotnull(DOLocationID#81)) AND (tpep_pickup_datetime#74 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#74 < 2026-01-01 00:00:00))
+
+(9) Project
+Output [2]: [PULocationID#80, DOLocationID#81]
+Input [3]: [tpep_pickup_datetime#74, PULocationID#80, DOLocationID#81]
+
+(10) Scan parquet 
+Output [3]: [tpep_pickup_datetime#107, PULocationID#113, DOLocationID#114]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-04.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(11) Filter
+Input [3]: [tpep_pickup_datetime#107, PULocationID#113, DOLocationID#114]
+Condition : ((((isnotnull(tpep_pickup_datetime#107) AND isnotnull(PULocationID#113)) AND isnotnull(DOLocationID#114)) AND (tpep_pickup_datetime#107 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#107 < 2026-01-01 00:00:00))
+
+(12) Project
+Output [2]: [PULocationID#113, DOLocationID#114]
+Input [3]: [tpep_pickup_datetime#107, PULocationID#113, DOLocationID#114]
+
+(13) Scan parquet 
+Output [3]: [tpep_pickup_datetime#140, PULocationID#146, DOLocationID#147]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-05.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(14) Filter
+Input [3]: [tpep_pickup_datetime#140, PULocationID#146, DOLocationID#147]
+Condition : ((((isnotnull(tpep_pickup_datetime#140) AND isnotnull(PULocationID#146)) AND isnotnull(DOLocationID#147)) AND (tpep_pickup_datetime#140 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#140 < 2026-01-01 00:00:00))
+
+(15) Project
+Output [2]: [PULocationID#146, DOLocationID#147]
+Input [3]: [tpep_pickup_datetime#140, PULocationID#146, DOLocationID#147]
+
+(16) Scan parquet 
+Output [3]: [tpep_pickup_datetime#173, PULocationID#179, DOLocationID#180]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-06.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(17) Filter
+Input [3]: [tpep_pickup_datetime#173, PULocationID#179, DOLocationID#180]
+Condition : ((((isnotnull(tpep_pickup_datetime#173) AND isnotnull(PULocationID#179)) AND isnotnull(DOLocationID#180)) AND (tpep_pickup_datetime#173 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#173 < 2026-01-01 00:00:00))
+
+(18) Project
+Output [2]: [PULocationID#179, DOLocationID#180]
+Input [3]: [tpep_pickup_datetime#173, PULocationID#179, DOLocationID#180]
+
+(19) Scan parquet 
+Output [3]: [tpep_pickup_datetime#206, PULocationID#212, DOLocationID#213]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-07.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(20) Filter
+Input [3]: [tpep_pickup_datetime#206, PULocationID#212, DOLocationID#213]
+Condition : ((((isnotnull(tpep_pickup_datetime#206) AND isnotnull(PULocationID#212)) AND isnotnull(DOLocationID#213)) AND (tpep_pickup_datetime#206 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#206 < 2026-01-01 00:00:00))
+
+(21) Project
+Output [2]: [PULocationID#212, DOLocationID#213]
+Input [3]: [tpep_pickup_datetime#206, PULocationID#212, DOLocationID#213]
+
+(22) Scan parquet 
+Output [3]: [tpep_pickup_datetime#239, PULocationID#245, DOLocationID#246]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-08.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(23) Filter
+Input [3]: [tpep_pickup_datetime#239, PULocationID#245, DOLocationID#246]
+Condition : ((((isnotnull(tpep_pickup_datetime#239) AND isnotnull(PULocationID#245)) AND isnotnull(DOLocationID#246)) AND (tpep_pickup_datetime#239 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#239 < 2026-01-01 00:00:00))
+
+(24) Project
+Output [2]: [PULocationID#245, DOLocationID#246]
+Input [3]: [tpep_pickup_datetime#239, PULocationID#245, DOLocationID#246]
+
+(25) Scan parquet 
+Output [3]: [tpep_pickup_datetime#272, PULocationID#278, DOLocationID#279]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-09.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(26) Filter
+Input [3]: [tpep_pickup_datetime#272, PULocationID#278, DOLocationID#279]
+Condition : ((((isnotnull(tpep_pickup_datetime#272) AND isnotnull(PULocationID#278)) AND isnotnull(DOLocationID#279)) AND (tpep_pickup_datetime#272 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#272 < 2026-01-01 00:00:00))
+
+(27) Project
+Output [2]: [PULocationID#278, DOLocationID#279]
+Input [3]: [tpep_pickup_datetime#272, PULocationID#278, DOLocationID#279]
+
+(28) Scan parquet 
+Output [3]: [tpep_pickup_datetime#305, PULocationID#311, DOLocationID#312]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-10.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(29) Filter
+Input [3]: [tpep_pickup_datetime#305, PULocationID#311, DOLocationID#312]
+Condition : ((((isnotnull(tpep_pickup_datetime#305) AND isnotnull(PULocationID#311)) AND isnotnull(DOLocationID#312)) AND (tpep_pickup_datetime#305 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#305 < 2026-01-01 00:00:00))
+
+(30) Project
+Output [2]: [PULocationID#311, DOLocationID#312]
+Input [3]: [tpep_pickup_datetime#305, PULocationID#311, DOLocationID#312]
+
+(31) Scan parquet 
+Output [3]: [tpep_pickup_datetime#338, PULocationID#344, DOLocationID#345]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-11.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(32) Filter
+Input [3]: [tpep_pickup_datetime#338, PULocationID#344, DOLocationID#345]
+Condition : ((((isnotnull(tpep_pickup_datetime#338) AND isnotnull(PULocationID#344)) AND isnotnull(DOLocationID#345)) AND (tpep_pickup_datetime#338 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#338 < 2026-01-01 00:00:00))
+
+(33) Project
+Output [2]: [PULocationID#344, DOLocationID#345]
+Input [3]: [tpep_pickup_datetime#338, PULocationID#344, DOLocationID#345]
+
+(34) Scan parquet 
+Output [3]: [tpep_pickup_datetime#371, PULocationID#377, DOLocationID#378]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-12.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(35) Filter
+Input [3]: [tpep_pickup_datetime#371, PULocationID#377, DOLocationID#378]
+Condition : ((((isnotnull(tpep_pickup_datetime#371) AND isnotnull(PULocationID#377)) AND isnotnull(DOLocationID#378)) AND (tpep_pickup_datetime#371 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#371 < 2026-01-01 00:00:00))
+
+(36) Project
+Output [2]: [PULocationID#377, DOLocationID#378]
+Input [3]: [tpep_pickup_datetime#371, PULocationID#377, DOLocationID#378]
+
+(37) Scan parquet 
+Output [3]: [tpep_pickup_datetime#404, PULocationID#410, DOLocationID#411]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-01.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(38) Filter
+Input [3]: [tpep_pickup_datetime#404, PULocationID#410, DOLocationID#411]
+Condition : ((((isnotnull(tpep_pickup_datetime#404) AND isnotnull(PULocationID#410)) AND isnotnull(DOLocationID#411)) AND (tpep_pickup_datetime#404 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#404 < 2026-01-01 00:00:00))
+
+(39) Project
+Output [2]: [PULocationID#410, DOLocationID#411]
+Input [3]: [tpep_pickup_datetime#404, PULocationID#410, DOLocationID#411]
+
+(40) Scan parquet 
+Output [3]: [tpep_pickup_datetime#438, PULocationID#444, DOLocationID#445]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-02.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(41) Filter
+Input [3]: [tpep_pickup_datetime#438, PULocationID#444, DOLocationID#445]
+Condition : ((((isnotnull(tpep_pickup_datetime#438) AND isnotnull(PULocationID#444)) AND isnotnull(DOLocationID#445)) AND (tpep_pickup_datetime#438 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#438 < 2026-01-01 00:00:00))
+
+(42) Project
+Output [2]: [PULocationID#444, DOLocationID#445]
+Input [3]: [tpep_pickup_datetime#438, PULocationID#444, DOLocationID#445]
+
+(43) Scan parquet 
+Output [3]: [tpep_pickup_datetime#472, PULocationID#478, DOLocationID#479]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-03.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(44) Filter
+Input [3]: [tpep_pickup_datetime#472, PULocationID#478, DOLocationID#479]
+Condition : ((((isnotnull(tpep_pickup_datetime#472) AND isnotnull(PULocationID#478)) AND isnotnull(DOLocationID#479)) AND (tpep_pickup_datetime#472 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#472 < 2026-01-01 00:00:00))
+
+(45) Project
+Output [2]: [PULocationID#478, DOLocationID#479]
+Input [3]: [tpep_pickup_datetime#472, PULocationID#478, DOLocationID#479]
+
+(46) Scan parquet 
+Output [3]: [tpep_pickup_datetime#506, PULocationID#512, DOLocationID#513]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-04.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(47) Filter
+Input [3]: [tpep_pickup_datetime#506, PULocationID#512, DOLocationID#513]
+Condition : ((((isnotnull(tpep_pickup_datetime#506) AND isnotnull(PULocationID#512)) AND isnotnull(DOLocationID#513)) AND (tpep_pickup_datetime#506 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#506 < 2026-01-01 00:00:00))
+
+(48) Project
+Output [2]: [PULocationID#512, DOLocationID#513]
+Input [3]: [tpep_pickup_datetime#506, PULocationID#512, DOLocationID#513]
+
+(49) Scan parquet 
+Output [3]: [tpep_pickup_datetime#540, PULocationID#546, DOLocationID#547]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-05.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(50) Filter
+Input [3]: [tpep_pickup_datetime#540, PULocationID#546, DOLocationID#547]
+Condition : ((((isnotnull(tpep_pickup_datetime#540) AND isnotnull(PULocationID#546)) AND isnotnull(DOLocationID#547)) AND (tpep_pickup_datetime#540 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#540 < 2026-01-01 00:00:00))
+
+(51) Project
+Output [2]: [PULocationID#546, DOLocationID#547]
+Input [3]: [tpep_pickup_datetime#540, PULocationID#546, DOLocationID#547]
+
+(52) Scan parquet 
+Output [3]: [tpep_pickup_datetime#574, PULocationID#580, DOLocationID#581]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-06.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(53) Filter
+Input [3]: [tpep_pickup_datetime#574, PULocationID#580, DOLocationID#581]
+Condition : ((((isnotnull(tpep_pickup_datetime#574) AND isnotnull(PULocationID#580)) AND isnotnull(DOLocationID#581)) AND (tpep_pickup_datetime#574 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#574 < 2026-01-01 00:00:00))
+
+(54) Project
+Output [2]: [PULocationID#580, DOLocationID#581]
+Input [3]: [tpep_pickup_datetime#574, PULocationID#580, DOLocationID#581]
+
+(55) Scan parquet 
+Output [3]: [tpep_pickup_datetime#608, PULocationID#614, DOLocationID#615]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-07.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(56) Filter
+Input [3]: [tpep_pickup_datetime#608, PULocationID#614, DOLocationID#615]
+Condition : ((((isnotnull(tpep_pickup_datetime#608) AND isnotnull(PULocationID#614)) AND isnotnull(DOLocationID#615)) AND (tpep_pickup_datetime#608 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#608 < 2026-01-01 00:00:00))
+
+(57) Project
+Output [2]: [PULocationID#614, DOLocationID#615]
+Input [3]: [tpep_pickup_datetime#608, PULocationID#614, DOLocationID#615]
+
+(58) Scan parquet 
+Output [3]: [tpep_pickup_datetime#642, PULocationID#648, DOLocationID#649]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-08.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(59) Filter
+Input [3]: [tpep_pickup_datetime#642, PULocationID#648, DOLocationID#649]
+Condition : ((((isnotnull(tpep_pickup_datetime#642) AND isnotnull(PULocationID#648)) AND isnotnull(DOLocationID#649)) AND (tpep_pickup_datetime#642 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#642 < 2026-01-01 00:00:00))
+
+(60) Project
+Output [2]: [PULocationID#648, DOLocationID#649]
+Input [3]: [tpep_pickup_datetime#642, PULocationID#648, DOLocationID#649]
+
+(61) Scan parquet 
+Output [3]: [tpep_pickup_datetime#676, PULocationID#682, DOLocationID#683]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-09.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(62) Filter
+Input [3]: [tpep_pickup_datetime#676, PULocationID#682, DOLocationID#683]
+Condition : ((((isnotnull(tpep_pickup_datetime#676) AND isnotnull(PULocationID#682)) AND isnotnull(DOLocationID#683)) AND (tpep_pickup_datetime#676 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#676 < 2026-01-01 00:00:00))
+
+(63) Project
+Output [2]: [PULocationID#682, DOLocationID#683]
+Input [3]: [tpep_pickup_datetime#676, PULocationID#682, DOLocationID#683]
+
+(64) Scan parquet 
+Output [3]: [tpep_pickup_datetime#710, PULocationID#716, DOLocationID#717]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-10.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(65) Filter
+Input [3]: [tpep_pickup_datetime#710, PULocationID#716, DOLocationID#717]
+Condition : ((((isnotnull(tpep_pickup_datetime#710) AND isnotnull(PULocationID#716)) AND isnotnull(DOLocationID#717)) AND (tpep_pickup_datetime#710 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#710 < 2026-01-01 00:00:00))
+
+(66) Project
+Output [2]: [PULocationID#716, DOLocationID#717]
+Input [3]: [tpep_pickup_datetime#710, PULocationID#716, DOLocationID#717]
+
+(67) Scan parquet 
+Output [3]: [tpep_pickup_datetime#744, PULocationID#750, DOLocationID#751]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-11.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(68) Filter
+Input [3]: [tpep_pickup_datetime#744, PULocationID#750, DOLocationID#751]
+Condition : ((((isnotnull(tpep_pickup_datetime#744) AND isnotnull(PULocationID#750)) AND isnotnull(DOLocationID#751)) AND (tpep_pickup_datetime#744 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#744 < 2026-01-01 00:00:00))
+
+(69) Project
+Output [2]: [PULocationID#750, DOLocationID#751]
+Input [3]: [tpep_pickup_datetime#744, PULocationID#750, DOLocationID#751]
+
+(70) Scan parquet 
+Output [3]: [tpep_pickup_datetime#778, PULocationID#784, DOLocationID#785]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-12.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(71) Filter
+Input [3]: [tpep_pickup_datetime#778, PULocationID#784, DOLocationID#785]
+Condition : ((((isnotnull(tpep_pickup_datetime#778) AND isnotnull(PULocationID#784)) AND isnotnull(DOLocationID#785)) AND (tpep_pickup_datetime#778 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#778 < 2026-01-01 00:00:00))
+
+(72) Project
+Output [2]: [PULocationID#784, DOLocationID#785]
+Input [3]: [tpep_pickup_datetime#778, PULocationID#784, DOLocationID#785]
+
+(73) Union
+
+(74) HashAggregate
+Input [2]: [PULocationID#31, DOLocationID#32]
+Keys [2]: [PULocationID#31, DOLocationID#32]
+Functions: []
+Aggregate Attributes: []
+Results [2]: [PULocationID#31, DOLocationID#32]
+
+(75) Exchange
+Input [2]: [PULocationID#31, DOLocationID#32]
+Arguments: hashpartitioning(PULocationID#31, DOLocationID#32, 200), ENSURE_REQUIREMENTS, [plan_id=500]
+
+(76) HashAggregate
+Input [2]: [PULocationID#31, DOLocationID#32]
+Keys [2]: [PULocationID#31, DOLocationID#32]
+Functions: []
+Aggregate Attributes: []
+Results [2]: [PULocationID#31, DOLocationID#32]
+
+(77) Range
+Output [1]: [id#838L]
+Arguments: Range (0, 24, step=1, splits=Some(16))
+
+(78) Project
+Output [1]: [add_months(2024-01-01, cast(id#838L as int)) AS month#839]
+Input [1]: [id#838L]
+
+(79) CartesianProduct
+Join type: Inner
+Join condition: None
+
+(80) Exchange
+Input [3]: [PULocationID#31, DOLocationID#32, month#839]
+Arguments: hashpartitioning(month#839, PULocationID#31, DOLocationID#32, 200), ENSURE_REQUIREMENTS, [plan_id=519]
+
+(81) Sort
+Input [3]: [PULocationID#31, DOLocationID#32, month#839]
+Arguments: [month#839 ASC NULLS FIRST, PULocationID#31 ASC NULLS FIRST, DOLocationID#32 ASC NULLS FIRST], false, 0
+
+(82) Scan parquet 
+Output [3]: [tpep_pickup_datetime#841, PULocationID#847, DOLocationID#848]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-01.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(83) Filter
+Input [3]: [tpep_pickup_datetime#841, PULocationID#847, DOLocationID#848]
+Condition : (((((isnotnull(tpep_pickup_datetime#841) AND isnotnull(PULocationID#847)) AND isnotnull(DOLocationID#848)) AND (tpep_pickup_datetime#841 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#841 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#841 as date) as timestamp), Some(America/New_York)) as date)))
+
+(84) Project
+Output [3]: [PULocationID#847 AS PULocationID#864, DOLocationID#848 AS DOLocationID#865, cast(tpep_pickup_datetime#841 as date) AS pickup_date#1620]
+Input [3]: [tpep_pickup_datetime#841, PULocationID#847, DOLocationID#848]
+
+(85) Scan parquet 
+Output [3]: [tpep_pickup_datetime#873, PULocationID#879, DOLocationID#880]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-02.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(86) Filter
+Input [3]: [tpep_pickup_datetime#873, PULocationID#879, DOLocationID#880]
+Condition : (((((isnotnull(tpep_pickup_datetime#873) AND isnotnull(PULocationID#879)) AND isnotnull(DOLocationID#880)) AND (tpep_pickup_datetime#873 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#873 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#873 as date) as timestamp), Some(America/New_York)) as date)))
+
+(87) Project
+Output [3]: [PULocationID#879, DOLocationID#880, cast(tpep_pickup_datetime#873 as date) AS pickup_date#1670]
+Input [3]: [tpep_pickup_datetime#873, PULocationID#879, DOLocationID#880]
+
+(88) Scan parquet 
+Output [3]: [tpep_pickup_datetime#905, PULocationID#911, DOLocationID#912]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-03.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(89) Filter
+Input [3]: [tpep_pickup_datetime#905, PULocationID#911, DOLocationID#912]
+Condition : (((((isnotnull(tpep_pickup_datetime#905) AND isnotnull(PULocationID#911)) AND isnotnull(DOLocationID#912)) AND (tpep_pickup_datetime#905 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#905 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#905 as date) as timestamp), Some(America/New_York)) as date)))
+
+(90) Project
+Output [3]: [PULocationID#911, DOLocationID#912, cast(tpep_pickup_datetime#905 as date) AS pickup_date#1671]
+Input [3]: [tpep_pickup_datetime#905, PULocationID#911, DOLocationID#912]
+
+(91) Scan parquet 
+Output [3]: [tpep_pickup_datetime#937, PULocationID#943, DOLocationID#944]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-04.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(92) Filter
+Input [3]: [tpep_pickup_datetime#937, PULocationID#943, DOLocationID#944]
+Condition : (((((isnotnull(tpep_pickup_datetime#937) AND isnotnull(PULocationID#943)) AND isnotnull(DOLocationID#944)) AND (tpep_pickup_datetime#937 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#937 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#937 as date) as timestamp), Some(America/New_York)) as date)))
+
+(93) Project
+Output [3]: [PULocationID#943, DOLocationID#944, cast(tpep_pickup_datetime#937 as date) AS pickup_date#1672]
+Input [3]: [tpep_pickup_datetime#937, PULocationID#943, DOLocationID#944]
+
+(94) Scan parquet 
+Output [3]: [tpep_pickup_datetime#969, PULocationID#975, DOLocationID#976]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-05.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(95) Filter
+Input [3]: [tpep_pickup_datetime#969, PULocationID#975, DOLocationID#976]
+Condition : (((((isnotnull(tpep_pickup_datetime#969) AND isnotnull(PULocationID#975)) AND isnotnull(DOLocationID#976)) AND (tpep_pickup_datetime#969 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#969 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#969 as date) as timestamp), Some(America/New_York)) as date)))
+
+(96) Project
+Output [3]: [PULocationID#975, DOLocationID#976, cast(tpep_pickup_datetime#969 as date) AS pickup_date#1673]
+Input [3]: [tpep_pickup_datetime#969, PULocationID#975, DOLocationID#976]
+
+(97) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1001, PULocationID#1007, DOLocationID#1008]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-06.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(98) Filter
+Input [3]: [tpep_pickup_datetime#1001, PULocationID#1007, DOLocationID#1008]
+Condition : (((((isnotnull(tpep_pickup_datetime#1001) AND isnotnull(PULocationID#1007)) AND isnotnull(DOLocationID#1008)) AND (tpep_pickup_datetime#1001 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1001 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1001 as date) as timestamp), Some(America/New_York)) as date)))
+
+(99) Project
+Output [3]: [PULocationID#1007, DOLocationID#1008, cast(tpep_pickup_datetime#1001 as date) AS pickup_date#1674]
+Input [3]: [tpep_pickup_datetime#1001, PULocationID#1007, DOLocationID#1008]
+
+(100) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1033, PULocationID#1039, DOLocationID#1040]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-07.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(101) Filter
+Input [3]: [tpep_pickup_datetime#1033, PULocationID#1039, DOLocationID#1040]
+Condition : (((((isnotnull(tpep_pickup_datetime#1033) AND isnotnull(PULocationID#1039)) AND isnotnull(DOLocationID#1040)) AND (tpep_pickup_datetime#1033 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1033 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1033 as date) as timestamp), Some(America/New_York)) as date)))
+
+(102) Project
+Output [3]: [PULocationID#1039, DOLocationID#1040, cast(tpep_pickup_datetime#1033 as date) AS pickup_date#1675]
+Input [3]: [tpep_pickup_datetime#1033, PULocationID#1039, DOLocationID#1040]
+
+(103) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1065, PULocationID#1071, DOLocationID#1072]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-08.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(104) Filter
+Input [3]: [tpep_pickup_datetime#1065, PULocationID#1071, DOLocationID#1072]
+Condition : (((((isnotnull(tpep_pickup_datetime#1065) AND isnotnull(PULocationID#1071)) AND isnotnull(DOLocationID#1072)) AND (tpep_pickup_datetime#1065 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1065 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1065 as date) as timestamp), Some(America/New_York)) as date)))
+
+(105) Project
+Output [3]: [PULocationID#1071, DOLocationID#1072, cast(tpep_pickup_datetime#1065 as date) AS pickup_date#1676]
+Input [3]: [tpep_pickup_datetime#1065, PULocationID#1071, DOLocationID#1072]
+
+(106) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1097, PULocationID#1103, DOLocationID#1104]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-09.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(107) Filter
+Input [3]: [tpep_pickup_datetime#1097, PULocationID#1103, DOLocationID#1104]
+Condition : (((((isnotnull(tpep_pickup_datetime#1097) AND isnotnull(PULocationID#1103)) AND isnotnull(DOLocationID#1104)) AND (tpep_pickup_datetime#1097 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1097 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1097 as date) as timestamp), Some(America/New_York)) as date)))
+
+(108) Project
+Output [3]: [PULocationID#1103, DOLocationID#1104, cast(tpep_pickup_datetime#1097 as date) AS pickup_date#1677]
+Input [3]: [tpep_pickup_datetime#1097, PULocationID#1103, DOLocationID#1104]
+
+(109) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1129, PULocationID#1135, DOLocationID#1136]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-10.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(110) Filter
+Input [3]: [tpep_pickup_datetime#1129, PULocationID#1135, DOLocationID#1136]
+Condition : (((((isnotnull(tpep_pickup_datetime#1129) AND isnotnull(PULocationID#1135)) AND isnotnull(DOLocationID#1136)) AND (tpep_pickup_datetime#1129 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1129 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1129 as date) as timestamp), Some(America/New_York)) as date)))
+
+(111) Project
+Output [3]: [PULocationID#1135, DOLocationID#1136, cast(tpep_pickup_datetime#1129 as date) AS pickup_date#1678]
+Input [3]: [tpep_pickup_datetime#1129, PULocationID#1135, DOLocationID#1136]
+
+(112) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1161, PULocationID#1167, DOLocationID#1168]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-11.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(113) Filter
+Input [3]: [tpep_pickup_datetime#1161, PULocationID#1167, DOLocationID#1168]
+Condition : (((((isnotnull(tpep_pickup_datetime#1161) AND isnotnull(PULocationID#1167)) AND isnotnull(DOLocationID#1168)) AND (tpep_pickup_datetime#1161 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1161 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1161 as date) as timestamp), Some(America/New_York)) as date)))
+
+(114) Project
+Output [3]: [PULocationID#1167, DOLocationID#1168, cast(tpep_pickup_datetime#1161 as date) AS pickup_date#1679]
+Input [3]: [tpep_pickup_datetime#1161, PULocationID#1167, DOLocationID#1168]
+
+(115) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1193, PULocationID#1199, DOLocationID#1200]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2024-12.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(116) Filter
+Input [3]: [tpep_pickup_datetime#1193, PULocationID#1199, DOLocationID#1200]
+Condition : (((((isnotnull(tpep_pickup_datetime#1193) AND isnotnull(PULocationID#1199)) AND isnotnull(DOLocationID#1200)) AND (tpep_pickup_datetime#1193 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1193 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1193 as date) as timestamp), Some(America/New_York)) as date)))
+
+(117) Project
+Output [3]: [PULocationID#1199, DOLocationID#1200, cast(tpep_pickup_datetime#1193 as date) AS pickup_date#1680]
+Input [3]: [tpep_pickup_datetime#1193, PULocationID#1199, DOLocationID#1200]
+
+(118) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1225, PULocationID#1231, DOLocationID#1232]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-01.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(119) Filter
+Input [3]: [tpep_pickup_datetime#1225, PULocationID#1231, DOLocationID#1232]
+Condition : (((((isnotnull(tpep_pickup_datetime#1225) AND isnotnull(PULocationID#1231)) AND isnotnull(DOLocationID#1232)) AND (tpep_pickup_datetime#1225 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1225 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1225 as date) as timestamp), Some(America/New_York)) as date)))
+
+(120) Project
+Output [3]: [PULocationID#1231, DOLocationID#1232, cast(tpep_pickup_datetime#1225 as date) AS pickup_date#1681]
+Input [3]: [tpep_pickup_datetime#1225, PULocationID#1231, DOLocationID#1232]
+
+(121) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1258, PULocationID#1264, DOLocationID#1265]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-02.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(122) Filter
+Input [3]: [tpep_pickup_datetime#1258, PULocationID#1264, DOLocationID#1265]
+Condition : (((((isnotnull(tpep_pickup_datetime#1258) AND isnotnull(PULocationID#1264)) AND isnotnull(DOLocationID#1265)) AND (tpep_pickup_datetime#1258 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1258 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1258 as date) as timestamp), Some(America/New_York)) as date)))
+
+(123) Project
+Output [3]: [PULocationID#1264, DOLocationID#1265, cast(tpep_pickup_datetime#1258 as date) AS pickup_date#1682]
+Input [3]: [tpep_pickup_datetime#1258, PULocationID#1264, DOLocationID#1265]
+
+(124) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1291, PULocationID#1297, DOLocationID#1298]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-03.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(125) Filter
+Input [3]: [tpep_pickup_datetime#1291, PULocationID#1297, DOLocationID#1298]
+Condition : (((((isnotnull(tpep_pickup_datetime#1291) AND isnotnull(PULocationID#1297)) AND isnotnull(DOLocationID#1298)) AND (tpep_pickup_datetime#1291 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1291 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1291 as date) as timestamp), Some(America/New_York)) as date)))
+
+(126) Project
+Output [3]: [PULocationID#1297, DOLocationID#1298, cast(tpep_pickup_datetime#1291 as date) AS pickup_date#1683]
+Input [3]: [tpep_pickup_datetime#1291, PULocationID#1297, DOLocationID#1298]
+
+(127) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1324, PULocationID#1330, DOLocationID#1331]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-04.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(128) Filter
+Input [3]: [tpep_pickup_datetime#1324, PULocationID#1330, DOLocationID#1331]
+Condition : (((((isnotnull(tpep_pickup_datetime#1324) AND isnotnull(PULocationID#1330)) AND isnotnull(DOLocationID#1331)) AND (tpep_pickup_datetime#1324 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1324 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1324 as date) as timestamp), Some(America/New_York)) as date)))
+
+(129) Project
+Output [3]: [PULocationID#1330, DOLocationID#1331, cast(tpep_pickup_datetime#1324 as date) AS pickup_date#1684]
+Input [3]: [tpep_pickup_datetime#1324, PULocationID#1330, DOLocationID#1331]
+
+(130) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1357, PULocationID#1363, DOLocationID#1364]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-05.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(131) Filter
+Input [3]: [tpep_pickup_datetime#1357, PULocationID#1363, DOLocationID#1364]
+Condition : (((((isnotnull(tpep_pickup_datetime#1357) AND isnotnull(PULocationID#1363)) AND isnotnull(DOLocationID#1364)) AND (tpep_pickup_datetime#1357 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1357 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1357 as date) as timestamp), Some(America/New_York)) as date)))
+
+(132) Project
+Output [3]: [PULocationID#1363, DOLocationID#1364, cast(tpep_pickup_datetime#1357 as date) AS pickup_date#1685]
+Input [3]: [tpep_pickup_datetime#1357, PULocationID#1363, DOLocationID#1364]
+
+(133) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1390, PULocationID#1396, DOLocationID#1397]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-06.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(134) Filter
+Input [3]: [tpep_pickup_datetime#1390, PULocationID#1396, DOLocationID#1397]
+Condition : (((((isnotnull(tpep_pickup_datetime#1390) AND isnotnull(PULocationID#1396)) AND isnotnull(DOLocationID#1397)) AND (tpep_pickup_datetime#1390 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1390 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1390 as date) as timestamp), Some(America/New_York)) as date)))
+
+(135) Project
+Output [3]: [PULocationID#1396, DOLocationID#1397, cast(tpep_pickup_datetime#1390 as date) AS pickup_date#1686]
+Input [3]: [tpep_pickup_datetime#1390, PULocationID#1396, DOLocationID#1397]
+
+(136) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1423, PULocationID#1429, DOLocationID#1430]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-07.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(137) Filter
+Input [3]: [tpep_pickup_datetime#1423, PULocationID#1429, DOLocationID#1430]
+Condition : (((((isnotnull(tpep_pickup_datetime#1423) AND isnotnull(PULocationID#1429)) AND isnotnull(DOLocationID#1430)) AND (tpep_pickup_datetime#1423 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1423 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1423 as date) as timestamp), Some(America/New_York)) as date)))
+
+(138) Project
+Output [3]: [PULocationID#1429, DOLocationID#1430, cast(tpep_pickup_datetime#1423 as date) AS pickup_date#1687]
+Input [3]: [tpep_pickup_datetime#1423, PULocationID#1429, DOLocationID#1430]
+
+(139) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1456, PULocationID#1462, DOLocationID#1463]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-08.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(140) Filter
+Input [3]: [tpep_pickup_datetime#1456, PULocationID#1462, DOLocationID#1463]
+Condition : (((((isnotnull(tpep_pickup_datetime#1456) AND isnotnull(PULocationID#1462)) AND isnotnull(DOLocationID#1463)) AND (tpep_pickup_datetime#1456 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1456 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1456 as date) as timestamp), Some(America/New_York)) as date)))
+
+(141) Project
+Output [3]: [PULocationID#1462, DOLocationID#1463, cast(tpep_pickup_datetime#1456 as date) AS pickup_date#1688]
+Input [3]: [tpep_pickup_datetime#1456, PULocationID#1462, DOLocationID#1463]
+
+(142) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1489, PULocationID#1495, DOLocationID#1496]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-09.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(143) Filter
+Input [3]: [tpep_pickup_datetime#1489, PULocationID#1495, DOLocationID#1496]
+Condition : (((((isnotnull(tpep_pickup_datetime#1489) AND isnotnull(PULocationID#1495)) AND isnotnull(DOLocationID#1496)) AND (tpep_pickup_datetime#1489 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1489 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1489 as date) as timestamp), Some(America/New_York)) as date)))
+
+(144) Project
+Output [3]: [PULocationID#1495, DOLocationID#1496, cast(tpep_pickup_datetime#1489 as date) AS pickup_date#1689]
+Input [3]: [tpep_pickup_datetime#1489, PULocationID#1495, DOLocationID#1496]
+
+(145) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1522, PULocationID#1528, DOLocationID#1529]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-10.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(146) Filter
+Input [3]: [tpep_pickup_datetime#1522, PULocationID#1528, DOLocationID#1529]
+Condition : (((((isnotnull(tpep_pickup_datetime#1522) AND isnotnull(PULocationID#1528)) AND isnotnull(DOLocationID#1529)) AND (tpep_pickup_datetime#1522 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1522 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1522 as date) as timestamp), Some(America/New_York)) as date)))
+
+(147) Project
+Output [3]: [PULocationID#1528, DOLocationID#1529, cast(tpep_pickup_datetime#1522 as date) AS pickup_date#1690]
+Input [3]: [tpep_pickup_datetime#1522, PULocationID#1528, DOLocationID#1529]
+
+(148) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1555, PULocationID#1561, DOLocationID#1562]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-11.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(149) Filter
+Input [3]: [tpep_pickup_datetime#1555, PULocationID#1561, DOLocationID#1562]
+Condition : (((((isnotnull(tpep_pickup_datetime#1555) AND isnotnull(PULocationID#1561)) AND isnotnull(DOLocationID#1562)) AND (tpep_pickup_datetime#1555 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1555 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1555 as date) as timestamp), Some(America/New_York)) as date)))
+
+(150) Project
+Output [3]: [PULocationID#1561, DOLocationID#1562, cast(tpep_pickup_datetime#1555 as date) AS pickup_date#1691]
+Input [3]: [tpep_pickup_datetime#1555, PULocationID#1561, DOLocationID#1562]
+
+(151) Scan parquet 
+Output [3]: [tpep_pickup_datetime#1588, PULocationID#1594, DOLocationID#1595]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/raw/yellow/yellow_tripdata_2025-12.parquet]
+PushedFilters: [IsNotNull(tpep_pickup_datetime), IsNotNull(PULocationID), IsNotNull(DOLocationID), GreaterThanOrEqual(tpep_pickup_datetime,2024-01-01T00:00), LessThan(tpep_pickup_datetime,2026-01-01T00:00)]
+ReadSchema: struct<tpep_pickup_datetime:timestamp_ntz,PULocationID:int,DOLocationID:int>
+
+(152) Filter
+Input [3]: [tpep_pickup_datetime#1588, PULocationID#1594, DOLocationID#1595]
+Condition : (((((isnotnull(tpep_pickup_datetime#1588) AND isnotnull(PULocationID#1594)) AND isnotnull(DOLocationID#1595)) AND (tpep_pickup_datetime#1588 >= 2024-01-01 00:00:00)) AND (tpep_pickup_datetime#1588 < 2026-01-01 00:00:00)) AND isnotnull(cast(date_trunc(month, cast(cast(tpep_pickup_datetime#1588 as date) as timestamp), Some(America/New_York)) as date)))
+
+(153) Project
+Output [3]: [PULocationID#1594, DOLocationID#1595, cast(tpep_pickup_datetime#1588 as date) AS pickup_date#1692]
+Input [3]: [tpep_pickup_datetime#1588, PULocationID#1594, DOLocationID#1595]
+
+(154) Union
+
+(155) HashAggregate
+Input [3]: [PULocationID#864, DOLocationID#865, pickup_date#1620]
+Keys [3]: [pickup_date#1620, PULocationID#864, DOLocationID#865]
+Functions [1]: [partial_count(1)]
+Aggregate Attributes [1]: [count#1695L]
+Results [4]: [pickup_date#1620, PULocationID#864, DOLocationID#865, count#1696L]
+
+(156) Exchange
+Input [4]: [pickup_date#1620, PULocationID#864, DOLocationID#865, count#1696L]
+Arguments: hashpartitioning(pickup_date#1620, PULocationID#864, DOLocationID#865, 200), ENSURE_REQUIREMENTS, [plan_id=503]
+
+(157) HashAggregate
+Input [4]: [pickup_date#1620, PULocationID#864, DOLocationID#865, count#1696L]
+Keys [3]: [pickup_date#1620, PULocationID#864, DOLocationID#865]
+Functions [1]: [count(1)]
+Aggregate Attributes [1]: [count(1)#827L]
+Results [4]: [pickup_date#1620, PULocationID#864, DOLocationID#865, count(1)#827L AS daily_trip_count#1621L]
+
+(158) Exchange
+Input [4]: [pickup_date#1620, PULocationID#864, DOLocationID#865, daily_trip_count#1621L]
+Arguments: hashpartitioning(pickup_date#1620, 200), ENSURE_REQUIREMENTS, [plan_id=507]
+
+(159) Sort
+Input [4]: [pickup_date#1620, PULocationID#864, DOLocationID#865, daily_trip_count#1621L]
+Arguments: [pickup_date#1620 ASC NULLS FIRST], false, 0
+
+(160) Scan parquet 
+Output [1]: [date#0]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/weather/central_park_daily.parquet]
+PushedFilters: [IsNotNull(date), GreaterThanOrEqual(date,2024-01-01), LessThanOrEqual(date,2025-12-31)]
+ReadSchema: struct<date:date>
+
+(161) Filter
+Input [1]: [date#0]
+Condition : ((isnotnull(date#0) AND (date#0 >= 2024-01-01)) AND (date#0 <= 2025-12-31))
+
+(162) Project
+Output [1]: [date#0 AS pickup_date#3]
+Input [1]: [date#0]
+
+(163) Exchange
+Input [1]: [pickup_date#3]
+Arguments: hashpartitioning(pickup_date#3, 200), ENSURE_REQUIREMENTS, [plan_id=508]
+
+(164) Sort
+Input [1]: [pickup_date#3]
+Arguments: [pickup_date#3 ASC NULLS FIRST], false, 0
+
+(165) SortMergeJoin
+Left keys [1]: [pickup_date#1620]
+Right keys [1]: [pickup_date#3]
+Join type: LeftOuter
+Join condition: None
+
+(166) Project
+Output [4]: [PULocationID#864, DOLocationID#865, daily_trip_count#1621L, cast(date_trunc(month, cast(pickup_date#1620 as timestamp), Some(America/New_York)) as date) AS month#828]
+Input [5]: [pickup_date#1620, PULocationID#864, DOLocationID#865, daily_trip_count#1621L, pickup_date#3]
+
+(167) HashAggregate
+Input [4]: [PULocationID#864, DOLocationID#865, daily_trip_count#1621L, month#828]
+Keys [3]: [month#828, PULocationID#864, DOLocationID#865]
+Functions [1]: [partial_sum(daily_trip_count#1621L)]
+Aggregate Attributes [1]: [sum#1693L]
+Results [4]: [month#828, PULocationID#864, DOLocationID#865, sum#1694L]
+
+(168) Exchange
+Input [4]: [month#828, PULocationID#864, DOLocationID#865, sum#1694L]
+Arguments: hashpartitioning(month#828, PULocationID#864, DOLocationID#865, 200), ENSURE_REQUIREMENTS, [plan_id=515]
+
+(169) HashAggregate
+Input [4]: [month#828, PULocationID#864, DOLocationID#865, sum#1694L]
+Keys [3]: [month#828, PULocationID#864, DOLocationID#865]
+Functions [1]: [sum(daily_trip_count#1621L)]
+Aggregate Attributes [1]: [sum(daily_trip_count#1621L)#837L]
+Results [4]: [month#828, PULocationID#864, DOLocationID#865, sum(daily_trip_count#1621L)#837L AS trip_count#829L]
+
+(170) Sort
+Input [4]: [month#828, PULocationID#864, DOLocationID#865, trip_count#829L]
+Arguments: [month#828 ASC NULLS FIRST, PULocationID#864 ASC NULLS FIRST, DOLocationID#865 ASC NULLS FIRST], false, 0
+
+(171) SortMergeJoin
+Left keys [3]: [month#839, PULocationID#31, DOLocationID#32]
+Right keys [3]: [month#828, PULocationID#864, DOLocationID#865]
+Join type: LeftOuter
+Join condition: None
+
+(172) Project
+Output [4]: [month#839, PULocationID#31, DOLocationID#32, coalesce(trip_count#829L, 0) AS trip_count#1646L]
+Input [7]: [PULocationID#31, DOLocationID#32, month#839, month#828, PULocationID#864, DOLocationID#865, trip_count#829L]
+
+(173) Exchange
+Input [4]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L]
+Arguments: hashpartitioning(month#839, 200), ENSURE_REQUIREMENTS, [plan_id=537]
+
+(174) Sort
+Input [4]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L]
+Arguments: [month#839 ASC NULLS FIRST], false, 0
+
+(175) Scan parquet 
+Output [3]: [date#1660, prcp_mm#1661, snow_depth_cm#1662]
+Batched: true
+Location: InMemoryFileIndex [file:/home/seth/EN601x12/nyc-taxi-spark/data/weather/central_park_daily.parquet]
+PushedFilters: [IsNotNull(date), GreaterThanOrEqual(date,2024-01-01), LessThanOrEqual(date,2025-12-31)]
+ReadSchema: struct<date:date,prcp_mm:double,snow_depth_cm:int>
+
+(176) Filter
+Input [3]: [date#1660, prcp_mm#1661, snow_depth_cm#1662]
+Condition : ((isnotnull(date#1660) AND (date#1660 >= 2024-01-01)) AND (date#1660 <= 2025-12-31))
+
+(177) Project
+Output [3]: [prcp_mm#1661, cast(snow_depth_cm#1662 as double) AS snow_depth_cm#1665, cast(date_trunc(month, cast(date#1660 as timestamp), Some(America/New_York)) as date) AS month#1647]
+Input [3]: [date#1660, prcp_mm#1661, snow_depth_cm#1662]
+
+(178) HashAggregate
+Input [3]: [prcp_mm#1661, snow_depth_cm#1665, month#1647]
+Keys [1]: [month#1647]
+Functions [2]: [partial_sum(prcp_mm#1661), partial_max(snow_depth_cm#1665)]
+Aggregate Attributes [2]: [sum#1697, max#1698]
+Results [3]: [month#1647, sum#1699, max#1700]
+
+(179) Exchange
+Input [3]: [month#1647, sum#1699, max#1700]
+Arguments: hashpartitioning(month#1647, 200), ENSURE_REQUIREMENTS, [plan_id=524]
+
+(180) HashAggregate
+Input [3]: [month#1647, sum#1699, max#1700]
+Keys [1]: [month#1647]
+Functions [2]: [sum(prcp_mm#1661), max(snow_depth_cm#1665)]
+Aggregate Attributes [2]: [sum(prcp_mm#1661)#1654, max(snow_depth_cm#1665)#1655]
+Results [3]: [month#1647, sum(prcp_mm#1661)#1654 AS monthly_prcp_mm#1648, max(snow_depth_cm#1665)#1655 AS monthly_max_snow_depth_cm#1649]
+
+(181) Exchange
+Input [3]: [month#1647, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649]
+Arguments: rangepartitioning(month#1647 ASC NULLS FIRST, 200), ENSURE_REQUIREMENTS, [plan_id=527]
+
+(182) Sort
+Input [3]: [month#1647, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649]
+Arguments: [month#1647 ASC NULLS FIRST], true, 0
+
+(183) Exchange
+Input [3]: [month#1647, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649]
+Arguments: SinglePartition, ENSURE_REQUIREMENTS, [plan_id=530]
+
+(184) Sort
+Input [3]: [month#1647, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649]
+Arguments: [month#1647 ASC NULLS FIRST], false, 0
+
+(185) Window
+Input [3]: [month#1647, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649]
+Arguments: [lag(monthly_prcp_mm#1648, -1, null) windowspecdefinition(month#1647 ASC NULLS FIRST, specifiedwindowframe(RowFrame, -1, -1)) AS previous_monthly_prcp_mm#1656, lag(monthly_max_snow_depth_cm#1649, -1, null) windowspecdefinition(month#1647 ASC NULLS FIRST, specifiedwindowframe(RowFrame, -1, -1)) AS previous_monthly_max_snow_depth_cm#1657], [month#1647 ASC NULLS FIRST]
+
+(186) Filter
+Input [5]: [month#1647, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657]
+Condition : isnotnull(month#1647)
+
+(187) Project
+Output [7]: [month#1647, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, (monthly_prcp_mm#1648 - previous_monthly_prcp_mm#1656) AS monthly_prcp_mm_change#1658, (monthly_max_snow_depth_cm#1649 - previous_monthly_max_snow_depth_cm#1657) AS monthly_max_snow_depth_cm_change#1659]
+Input [5]: [month#1647, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657]
+
+(188) Exchange
+Input [7]: [month#1647, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659]
+Arguments: hashpartitioning(month#1647, 200), ENSURE_REQUIREMENTS, [plan_id=538]
+
+(189) Sort
+Input [7]: [month#1647, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659]
+Arguments: [month#1647 ASC NULLS FIRST], false, 0
+
+(190) SortMergeJoin
+Left keys [1]: [month#839]
+Right keys [1]: [month#1647]
+Join type: LeftOuter
+Join condition: None
+
+(191) Project
+Output [10]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659]
+Input [11]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L, month#1647, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659]
+
+(192) Exchange
+Input [10]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659]
+Arguments: hashpartitioning(PULocationID#31, DOLocationID#32, 200), ENSURE_REQUIREMENTS, [plan_id=544]
+
+(193) Sort
+Input [10]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659]
+Arguments: [PULocationID#31 ASC NULLS FIRST, DOLocationID#32 ASC NULLS FIRST, month#839 ASC NULLS FIRST], false, 0
+
+(194) Window
+Input [10]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659]
+Arguments: [lag(trip_count#1646L, -1, null) windowspecdefinition(PULocationID#31, DOLocationID#32, month#839 ASC NULLS FIRST, specifiedwindowframe(RowFrame, -1, -1)) AS previous_month_trip_count#1667L], [PULocationID#31, DOLocationID#32], [month#839 ASC NULLS FIRST]
+
+(195) Project
+Output [12]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659, previous_month_trip_count#1667L, (trip_count#1646L - previous_month_trip_count#1667L) AS trip_count_change#1668L]
+Input [11]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659, previous_month_trip_count#1667L]
+
+(196) Project
+Output [13]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659, previous_month_trip_count#1667L, trip_count_change#1668L, CASE WHEN (previous_month_trip_count#1667L > 0) THEN ((cast(trip_count_change#1668L as double) / cast(previous_month_trip_count#1667L as double)) * 100.0) END AS trip_count_pct_change#1669]
+Input [12]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659, previous_month_trip_count#1667L, trip_count_change#1668L]
+
+(197) AdaptiveSparkPlan
+Output [13]: [month#839, PULocationID#31, DOLocationID#32, trip_count#1646L, monthly_prcp_mm#1648, monthly_max_snow_depth_cm#1649, previous_monthly_prcp_mm#1656, previous_monthly_max_snow_depth_cm#1657, monthly_prcp_mm_change#1658, monthly_max_snow_depth_cm_change#1659, previous_month_trip_count#1667L, trip_count_change#1668L, trip_count_pct_change#1669]
+Arguments: isFinalPlan=false
+
+
