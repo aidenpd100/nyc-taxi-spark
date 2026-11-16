@@ -1,4 +1,4 @@
-# tlc-congestion-spark
+# nyc-taxi-spark
 
 Spark pipeline over NYC TLC trip records (yellow taxi and high-volume for-hire) to study
 company-level trip performance, Manhattan congestion pricing, and demand shifts.
