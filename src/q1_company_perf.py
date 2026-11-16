@@ -1,10 +1,15 @@
+import sys
 from pyspark.sql import functions as F, Window
 from common import *
 
-spark = get_spark("q1-baseline")
+# usage: python src\q1_company_perf.py 2025-01 2025-02 ...   (no args = all months)
+MONTHS = sys.argv[1:] or None
+TAG = "q1_" + (f"{len(MONTHS)}mo" if MONTHS else "all")
+
+spark = get_spark(TAG)
 
 def build():
-    df = read_service(spark, "fhvhv", HVFHV_COLS)
+    df = read_service(spark, "fhvhv", HVFHV_COLS, months=MONTHS)
     df = (df.where((F.col("trip_time") > 0) & (F.col("driver_pay") >= 0))
             .withColumn("pay_per_min", F.col("driver_pay") / (F.col("trip_time") / 60.0))
             .withColumn("hour", F.hour("pickup_datetime")))
@@ -17,6 +22,6 @@ def build():
                        F.avg(F.col("tips") / F.col("base_passenger_fare")).alias("avg_tip_rate")))
 
 def run():
-    build().write.mode("overwrite").parquet(f"{OUT}/q1")
+    build().write.mode("overwrite").parquet(f"{OUT}/{TAG}")
 
-run_baseline("q1", run, build)
+run_baseline(TAG, run, build)

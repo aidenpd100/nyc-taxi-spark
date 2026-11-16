@@ -10,24 +10,26 @@ RAW = "data/raw"
 OUT = "data/out"
 
 YELLOW_COLS = {
-    "VendorID": "int", "tpep_pickup_datetime": "timestamp",
-    "tpep_dropoff_datetime": "timestamp", "passenger_count": "int",
+    "VendorID": "int", "tpep_pickup_datetime": "timestamp_ntz",
+    "tpep_dropoff_datetime": "timestamp_ntz", "passenger_count": "int",
     "trip_distance": "double", "PULocationID": "int", "DOLocationID": "int",
     "payment_type": "int", "fare_amount": "double", "tip_amount": "double",
     "total_amount": "double", "congestion_surcharge": "double",
     "cbd_congestion_fee": "double",
 }
 HVFHV_COLS = {
-    "hvfhs_license_num": "string", "pickup_datetime": "timestamp",
-    "dropoff_datetime": "timestamp", "PULocationID": "int", "DOLocationID": "int",
+    "hvfhs_license_num": "string", "pickup_datetime": "timestamp_ntz",
+    "dropoff_datetime": "timestamp_ntz", "PULocationID": "int", "DOLocationID": "int",
     "trip_miles": "double", "trip_time": "long", "base_passenger_fare": "double",
     "tips": "double", "driver_pay": "double", "congestion_surcharge": "double",
     "cbd_congestion_fee": "double",
 }
 
-def read_service(spark, service, cols):
-    """Per-file read + cast to a canonical schema + union. Missing columns become null."""
+def read_service(spark, service, cols, months=None):
+    """months: optional list like ["2025-01", "2025-02"]; None = all files."""
     files = sorted(glob.glob(f"{RAW}/{service}/*.parquet"))
+    if months:
+        files = [f for f in files if any(m in f for m in months)]
     dfs = []
     for f in files:
         d = spark.read.parquet(f)
@@ -43,8 +45,7 @@ def get_spark(name):
     return (SparkSession.builder
             .master("local[*]")
             .appName(name)
-            .config("spark.driver.memory", "6g")
-            .config("spark.sql.session.timeZone", "America/New_York")
+            .config("spark.driver.memory", "16g")
             .getOrCreate())
 
 def save_plan(df, path):

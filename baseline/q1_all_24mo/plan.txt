@@ -1,0 +1,475 @@
+== Physical Plan ==
+AdaptiveSparkPlan (79)
++- HashAggregate (78)
+   +- HashAggregate (77)
+      +- Window (76)
+         +- Sort (75)
+            +- Exchange (74)
+               +- Union (73)
+                  :- Project (3)
+                  :  +- Filter (2)
+                  :     +- Scan parquet  (1)
+                  :- Project (6)
+                  :  +- Filter (5)
+                  :     +- Scan parquet  (4)
+                  :- Project (9)
+                  :  +- Filter (8)
+                  :     +- Scan parquet  (7)
+                  :- Project (12)
+                  :  +- Filter (11)
+                  :     +- Scan parquet  (10)
+                  :- Project (15)
+                  :  +- Filter (14)
+                  :     +- Scan parquet  (13)
+                  :- Project (18)
+                  :  +- Filter (17)
+                  :     +- Scan parquet  (16)
+                  :- Project (21)
+                  :  +- Filter (20)
+                  :     +- Scan parquet  (19)
+                  :- Project (24)
+                  :  +- Filter (23)
+                  :     +- Scan parquet  (22)
+                  :- Project (27)
+                  :  +- Filter (26)
+                  :     +- Scan parquet  (25)
+                  :- Project (30)
+                  :  +- Filter (29)
+                  :     +- Scan parquet  (28)
+                  :- Project (33)
+                  :  +- Filter (32)
+                  :     +- Scan parquet  (31)
+                  :- Project (36)
+                  :  +- Filter (35)
+                  :     +- Scan parquet  (34)
+                  :- Project (39)
+                  :  +- Filter (38)
+                  :     +- Scan parquet  (37)
+                  :- Project (42)
+                  :  +- Filter (41)
+                  :     +- Scan parquet  (40)
+                  :- Project (45)
+                  :  +- Filter (44)
+                  :     +- Scan parquet  (43)
+                  :- Project (48)
+                  :  +- Filter (47)
+                  :     +- Scan parquet  (46)
+                  :- Project (51)
+                  :  +- Filter (50)
+                  :     +- Scan parquet  (49)
+                  :- Project (54)
+                  :  +- Filter (53)
+                  :     +- Scan parquet  (52)
+                  :- Project (57)
+                  :  +- Filter (56)
+                  :     +- Scan parquet  (55)
+                  :- Project (60)
+                  :  +- Filter (59)
+                  :     +- Scan parquet  (58)
+                  :- Project (63)
+                  :  +- Filter (62)
+                  :     +- Scan parquet  (61)
+                  :- Project (66)
+                  :  +- Filter (65)
+                  :     +- Scan parquet  (64)
+                  :- Project (69)
+                  :  +- Filter (68)
+                  :     +- Scan parquet  (67)
+                  +- Project (72)
+                     +- Filter (71)
+                        +- Scan parquet  (70)
+
+
+(1) Scan parquet 
+Output [6]: [hvfhs_license_num#0, pickup_datetime#5, trip_time#10L, base_passenger_fare#11, tips#17, driver_pay#18]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-01.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(2) Filter
+Input [6]: [hvfhs_license_num#0, pickup_datetime#5, trip_time#10L, base_passenger_fare#11, tips#17, driver_pay#18]
+Condition : (((isnotnull(trip_time#10L) AND isnotnull(driver_pay#18)) AND (trip_time#10L > 0)) AND (driver_pay#18 >= 0.0))
+
+(3) Project
+Output [5]: [hvfhs_license_num#0 AS hvfhs_license_num#48, base_passenger_fare#11 AS base_passenger_fare#55, tips#17 AS tips#56, (driver_pay#18 / (cast(trip_time#10L as double) / 60.0)) AS pay_per_min#2052, hour(pickup_datetime#5, Some(America/New_York)) AS hour#2066]
+Input [6]: [hvfhs_license_num#0, pickup_datetime#5, trip_time#10L, base_passenger_fare#11, tips#17, driver_pay#18]
+
+(4) Scan parquet 
+Output [6]: [hvfhs_license_num#73, pickup_datetime#78, trip_time#83L, base_passenger_fare#84, tips#90, driver_pay#91]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-02.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(5) Filter
+Input [6]: [hvfhs_license_num#73, pickup_datetime#78, trip_time#83L, base_passenger_fare#84, tips#90, driver_pay#91]
+Condition : (((isnotnull(trip_time#83L) AND isnotnull(driver_pay#91)) AND (trip_time#83L > 0)) AND (driver_pay#91 >= 0.0))
+
+(6) Project
+Output [5]: [hvfhs_license_num#73, base_passenger_fare#84, tips#90, (driver_pay#91 / (cast(trip_time#83L as double) / 60.0)) AS pay_per_min#2135, hour(pickup_datetime#78, Some(America/New_York)) AS hour#2136]
+Input [6]: [hvfhs_license_num#73, pickup_datetime#78, trip_time#83L, base_passenger_fare#84, tips#90, driver_pay#91]
+
+(7) Scan parquet 
+Output [6]: [hvfhs_license_num#146, pickup_datetime#151, trip_time#156L, base_passenger_fare#157, tips#163, driver_pay#164]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-03.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(8) Filter
+Input [6]: [hvfhs_license_num#146, pickup_datetime#151, trip_time#156L, base_passenger_fare#157, tips#163, driver_pay#164]
+Condition : (((isnotnull(trip_time#156L) AND isnotnull(driver_pay#164)) AND (trip_time#156L > 0)) AND (driver_pay#164 >= 0.0))
+
+(9) Project
+Output [5]: [hvfhs_license_num#146, base_passenger_fare#157, tips#163, (driver_pay#164 / (cast(trip_time#156L as double) / 60.0)) AS pay_per_min#2137, hour(pickup_datetime#151, Some(America/New_York)) AS hour#2138]
+Input [6]: [hvfhs_license_num#146, pickup_datetime#151, trip_time#156L, base_passenger_fare#157, tips#163, driver_pay#164]
+
+(10) Scan parquet 
+Output [6]: [hvfhs_license_num#219, pickup_datetime#224, trip_time#229L, base_passenger_fare#230, tips#236, driver_pay#237]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-04.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(11) Filter
+Input [6]: [hvfhs_license_num#219, pickup_datetime#224, trip_time#229L, base_passenger_fare#230, tips#236, driver_pay#237]
+Condition : (((isnotnull(trip_time#229L) AND isnotnull(driver_pay#237)) AND (trip_time#229L > 0)) AND (driver_pay#237 >= 0.0))
+
+(12) Project
+Output [5]: [hvfhs_license_num#219, base_passenger_fare#230, tips#236, (driver_pay#237 / (cast(trip_time#229L as double) / 60.0)) AS pay_per_min#2139, hour(pickup_datetime#224, Some(America/New_York)) AS hour#2140]
+Input [6]: [hvfhs_license_num#219, pickup_datetime#224, trip_time#229L, base_passenger_fare#230, tips#236, driver_pay#237]
+
+(13) Scan parquet 
+Output [6]: [hvfhs_license_num#292, pickup_datetime#297, trip_time#302L, base_passenger_fare#303, tips#309, driver_pay#310]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-05.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(14) Filter
+Input [6]: [hvfhs_license_num#292, pickup_datetime#297, trip_time#302L, base_passenger_fare#303, tips#309, driver_pay#310]
+Condition : (((isnotnull(trip_time#302L) AND isnotnull(driver_pay#310)) AND (trip_time#302L > 0)) AND (driver_pay#310 >= 0.0))
+
+(15) Project
+Output [5]: [hvfhs_license_num#292, base_passenger_fare#303, tips#309, (driver_pay#310 / (cast(trip_time#302L as double) / 60.0)) AS pay_per_min#2141, hour(pickup_datetime#297, Some(America/New_York)) AS hour#2142]
+Input [6]: [hvfhs_license_num#292, pickup_datetime#297, trip_time#302L, base_passenger_fare#303, tips#309, driver_pay#310]
+
+(16) Scan parquet 
+Output [6]: [hvfhs_license_num#365, pickup_datetime#370, trip_time#375L, base_passenger_fare#376, tips#382, driver_pay#383]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-06.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(17) Filter
+Input [6]: [hvfhs_license_num#365, pickup_datetime#370, trip_time#375L, base_passenger_fare#376, tips#382, driver_pay#383]
+Condition : (((isnotnull(trip_time#375L) AND isnotnull(driver_pay#383)) AND (trip_time#375L > 0)) AND (driver_pay#383 >= 0.0))
+
+(18) Project
+Output [5]: [hvfhs_license_num#365, base_passenger_fare#376, tips#382, (driver_pay#383 / (cast(trip_time#375L as double) / 60.0)) AS pay_per_min#2143, hour(pickup_datetime#370, Some(America/New_York)) AS hour#2144]
+Input [6]: [hvfhs_license_num#365, pickup_datetime#370, trip_time#375L, base_passenger_fare#376, tips#382, driver_pay#383]
+
+(19) Scan parquet 
+Output [6]: [hvfhs_license_num#438, pickup_datetime#443, trip_time#448L, base_passenger_fare#449, tips#455, driver_pay#456]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-07.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(20) Filter
+Input [6]: [hvfhs_license_num#438, pickup_datetime#443, trip_time#448L, base_passenger_fare#449, tips#455, driver_pay#456]
+Condition : (((isnotnull(trip_time#448L) AND isnotnull(driver_pay#456)) AND (trip_time#448L > 0)) AND (driver_pay#456 >= 0.0))
+
+(21) Project
+Output [5]: [hvfhs_license_num#438, base_passenger_fare#449, tips#455, (driver_pay#456 / (cast(trip_time#448L as double) / 60.0)) AS pay_per_min#2145, hour(pickup_datetime#443, Some(America/New_York)) AS hour#2146]
+Input [6]: [hvfhs_license_num#438, pickup_datetime#443, trip_time#448L, base_passenger_fare#449, tips#455, driver_pay#456]
+
+(22) Scan parquet 
+Output [6]: [hvfhs_license_num#511, pickup_datetime#516, trip_time#521L, base_passenger_fare#522, tips#528, driver_pay#529]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-08.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(23) Filter
+Input [6]: [hvfhs_license_num#511, pickup_datetime#516, trip_time#521L, base_passenger_fare#522, tips#528, driver_pay#529]
+Condition : (((isnotnull(trip_time#521L) AND isnotnull(driver_pay#529)) AND (trip_time#521L > 0)) AND (driver_pay#529 >= 0.0))
+
+(24) Project
+Output [5]: [hvfhs_license_num#511, base_passenger_fare#522, tips#528, (driver_pay#529 / (cast(trip_time#521L as double) / 60.0)) AS pay_per_min#2147, hour(pickup_datetime#516, Some(America/New_York)) AS hour#2148]
+Input [6]: [hvfhs_license_num#511, pickup_datetime#516, trip_time#521L, base_passenger_fare#522, tips#528, driver_pay#529]
+
+(25) Scan parquet 
+Output [6]: [hvfhs_license_num#584, pickup_datetime#589, trip_time#594L, base_passenger_fare#595, tips#601, driver_pay#602]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-09.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(26) Filter
+Input [6]: [hvfhs_license_num#584, pickup_datetime#589, trip_time#594L, base_passenger_fare#595, tips#601, driver_pay#602]
+Condition : (((isnotnull(trip_time#594L) AND isnotnull(driver_pay#602)) AND (trip_time#594L > 0)) AND (driver_pay#602 >= 0.0))
+
+(27) Project
+Output [5]: [hvfhs_license_num#584, base_passenger_fare#595, tips#601, (driver_pay#602 / (cast(trip_time#594L as double) / 60.0)) AS pay_per_min#2149, hour(pickup_datetime#589, Some(America/New_York)) AS hour#2150]
+Input [6]: [hvfhs_license_num#584, pickup_datetime#589, trip_time#594L, base_passenger_fare#595, tips#601, driver_pay#602]
+
+(28) Scan parquet 
+Output [6]: [hvfhs_license_num#657, pickup_datetime#662, trip_time#667L, base_passenger_fare#668, tips#674, driver_pay#675]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-10.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(29) Filter
+Input [6]: [hvfhs_license_num#657, pickup_datetime#662, trip_time#667L, base_passenger_fare#668, tips#674, driver_pay#675]
+Condition : (((isnotnull(trip_time#667L) AND isnotnull(driver_pay#675)) AND (trip_time#667L > 0)) AND (driver_pay#675 >= 0.0))
+
+(30) Project
+Output [5]: [hvfhs_license_num#657, base_passenger_fare#668, tips#674, (driver_pay#675 / (cast(trip_time#667L as double) / 60.0)) AS pay_per_min#2151, hour(pickup_datetime#662, Some(America/New_York)) AS hour#2152]
+Input [6]: [hvfhs_license_num#657, pickup_datetime#662, trip_time#667L, base_passenger_fare#668, tips#674, driver_pay#675]
+
+(31) Scan parquet 
+Output [6]: [hvfhs_license_num#730, pickup_datetime#735, trip_time#740L, base_passenger_fare#741, tips#747, driver_pay#748]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-11.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(32) Filter
+Input [6]: [hvfhs_license_num#730, pickup_datetime#735, trip_time#740L, base_passenger_fare#741, tips#747, driver_pay#748]
+Condition : (((isnotnull(trip_time#740L) AND isnotnull(driver_pay#748)) AND (trip_time#740L > 0)) AND (driver_pay#748 >= 0.0))
+
+(33) Project
+Output [5]: [hvfhs_license_num#730, base_passenger_fare#741, tips#747, (driver_pay#748 / (cast(trip_time#740L as double) / 60.0)) AS pay_per_min#2153, hour(pickup_datetime#735, Some(America/New_York)) AS hour#2154]
+Input [6]: [hvfhs_license_num#730, pickup_datetime#735, trip_time#740L, base_passenger_fare#741, tips#747, driver_pay#748]
+
+(34) Scan parquet 
+Output [6]: [hvfhs_license_num#803, pickup_datetime#808, trip_time#813L, base_passenger_fare#814, tips#820, driver_pay#821]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2024-12.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(35) Filter
+Input [6]: [hvfhs_license_num#803, pickup_datetime#808, trip_time#813L, base_passenger_fare#814, tips#820, driver_pay#821]
+Condition : (((isnotnull(trip_time#813L) AND isnotnull(driver_pay#821)) AND (trip_time#813L > 0)) AND (driver_pay#821 >= 0.0))
+
+(36) Project
+Output [5]: [hvfhs_license_num#803, base_passenger_fare#814, tips#820, (driver_pay#821 / (cast(trip_time#813L as double) / 60.0)) AS pay_per_min#2155, hour(pickup_datetime#808, Some(America/New_York)) AS hour#2156]
+Input [6]: [hvfhs_license_num#803, pickup_datetime#808, trip_time#813L, base_passenger_fare#814, tips#820, driver_pay#821]
+
+(37) Scan parquet 
+Output [6]: [hvfhs_license_num#876, pickup_datetime#881, trip_time#886L, base_passenger_fare#887, tips#893, driver_pay#894]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-01.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(38) Filter
+Input [6]: [hvfhs_license_num#876, pickup_datetime#881, trip_time#886L, base_passenger_fare#887, tips#893, driver_pay#894]
+Condition : (((isnotnull(trip_time#886L) AND isnotnull(driver_pay#894)) AND (trip_time#886L > 0)) AND (driver_pay#894 >= 0.0))
+
+(39) Project
+Output [5]: [hvfhs_license_num#876, base_passenger_fare#887, tips#893, (driver_pay#894 / (cast(trip_time#886L as double) / 60.0)) AS pay_per_min#2157, hour(pickup_datetime#881, Some(America/New_York)) AS hour#2158]
+Input [6]: [hvfhs_license_num#876, pickup_datetime#881, trip_time#886L, base_passenger_fare#887, tips#893, driver_pay#894]
+
+(40) Scan parquet 
+Output [6]: [hvfhs_license_num#951, pickup_datetime#956, trip_time#961L, base_passenger_fare#962, tips#968, driver_pay#969]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-02.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(41) Filter
+Input [6]: [hvfhs_license_num#951, pickup_datetime#956, trip_time#961L, base_passenger_fare#962, tips#968, driver_pay#969]
+Condition : (((isnotnull(trip_time#961L) AND isnotnull(driver_pay#969)) AND (trip_time#961L > 0)) AND (driver_pay#969 >= 0.0))
+
+(42) Project
+Output [5]: [hvfhs_license_num#951, base_passenger_fare#962, tips#968, (driver_pay#969 / (cast(trip_time#961L as double) / 60.0)) AS pay_per_min#2159, hour(pickup_datetime#956, Some(America/New_York)) AS hour#2160]
+Input [6]: [hvfhs_license_num#951, pickup_datetime#956, trip_time#961L, base_passenger_fare#962, tips#968, driver_pay#969]
+
+(43) Scan parquet 
+Output [6]: [hvfhs_license_num#1026, pickup_datetime#1031, trip_time#1036L, base_passenger_fare#1037, tips#1043, driver_pay#1044]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-03.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(44) Filter
+Input [6]: [hvfhs_license_num#1026, pickup_datetime#1031, trip_time#1036L, base_passenger_fare#1037, tips#1043, driver_pay#1044]
+Condition : (((isnotnull(trip_time#1036L) AND isnotnull(driver_pay#1044)) AND (trip_time#1036L > 0)) AND (driver_pay#1044 >= 0.0))
+
+(45) Project
+Output [5]: [hvfhs_license_num#1026, base_passenger_fare#1037, tips#1043, (driver_pay#1044 / (cast(trip_time#1036L as double) / 60.0)) AS pay_per_min#2161, hour(pickup_datetime#1031, Some(America/New_York)) AS hour#2162]
+Input [6]: [hvfhs_license_num#1026, pickup_datetime#1031, trip_time#1036L, base_passenger_fare#1037, tips#1043, driver_pay#1044]
+
+(46) Scan parquet 
+Output [6]: [hvfhs_license_num#1101, pickup_datetime#1106, trip_time#1111L, base_passenger_fare#1112, tips#1118, driver_pay#1119]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-04.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(47) Filter
+Input [6]: [hvfhs_license_num#1101, pickup_datetime#1106, trip_time#1111L, base_passenger_fare#1112, tips#1118, driver_pay#1119]
+Condition : (((isnotnull(trip_time#1111L) AND isnotnull(driver_pay#1119)) AND (trip_time#1111L > 0)) AND (driver_pay#1119 >= 0.0))
+
+(48) Project
+Output [5]: [hvfhs_license_num#1101, base_passenger_fare#1112, tips#1118, (driver_pay#1119 / (cast(trip_time#1111L as double) / 60.0)) AS pay_per_min#2163, hour(pickup_datetime#1106, Some(America/New_York)) AS hour#2164]
+Input [6]: [hvfhs_license_num#1101, pickup_datetime#1106, trip_time#1111L, base_passenger_fare#1112, tips#1118, driver_pay#1119]
+
+(49) Scan parquet 
+Output [6]: [hvfhs_license_num#1176, pickup_datetime#1181, trip_time#1186L, base_passenger_fare#1187, tips#1193, driver_pay#1194]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-05.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(50) Filter
+Input [6]: [hvfhs_license_num#1176, pickup_datetime#1181, trip_time#1186L, base_passenger_fare#1187, tips#1193, driver_pay#1194]
+Condition : (((isnotnull(trip_time#1186L) AND isnotnull(driver_pay#1194)) AND (trip_time#1186L > 0)) AND (driver_pay#1194 >= 0.0))
+
+(51) Project
+Output [5]: [hvfhs_license_num#1176, base_passenger_fare#1187, tips#1193, (driver_pay#1194 / (cast(trip_time#1186L as double) / 60.0)) AS pay_per_min#2165, hour(pickup_datetime#1181, Some(America/New_York)) AS hour#2166]
+Input [6]: [hvfhs_license_num#1176, pickup_datetime#1181, trip_time#1186L, base_passenger_fare#1187, tips#1193, driver_pay#1194]
+
+(52) Scan parquet 
+Output [6]: [hvfhs_license_num#1251, pickup_datetime#1256, trip_time#1261L, base_passenger_fare#1262, tips#1268, driver_pay#1269]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-06.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(53) Filter
+Input [6]: [hvfhs_license_num#1251, pickup_datetime#1256, trip_time#1261L, base_passenger_fare#1262, tips#1268, driver_pay#1269]
+Condition : (((isnotnull(trip_time#1261L) AND isnotnull(driver_pay#1269)) AND (trip_time#1261L > 0)) AND (driver_pay#1269 >= 0.0))
+
+(54) Project
+Output [5]: [hvfhs_license_num#1251, base_passenger_fare#1262, tips#1268, (driver_pay#1269 / (cast(trip_time#1261L as double) / 60.0)) AS pay_per_min#2167, hour(pickup_datetime#1256, Some(America/New_York)) AS hour#2168]
+Input [6]: [hvfhs_license_num#1251, pickup_datetime#1256, trip_time#1261L, base_passenger_fare#1262, tips#1268, driver_pay#1269]
+
+(55) Scan parquet 
+Output [6]: [hvfhs_license_num#1326, pickup_datetime#1331, trip_time#1336L, base_passenger_fare#1337, tips#1343, driver_pay#1344]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-07.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(56) Filter
+Input [6]: [hvfhs_license_num#1326, pickup_datetime#1331, trip_time#1336L, base_passenger_fare#1337, tips#1343, driver_pay#1344]
+Condition : (((isnotnull(trip_time#1336L) AND isnotnull(driver_pay#1344)) AND (trip_time#1336L > 0)) AND (driver_pay#1344 >= 0.0))
+
+(57) Project
+Output [5]: [hvfhs_license_num#1326, base_passenger_fare#1337, tips#1343, (driver_pay#1344 / (cast(trip_time#1336L as double) / 60.0)) AS pay_per_min#2169, hour(pickup_datetime#1331, Some(America/New_York)) AS hour#2170]
+Input [6]: [hvfhs_license_num#1326, pickup_datetime#1331, trip_time#1336L, base_passenger_fare#1337, tips#1343, driver_pay#1344]
+
+(58) Scan parquet 
+Output [6]: [hvfhs_license_num#1401, pickup_datetime#1406, trip_time#1411L, base_passenger_fare#1412, tips#1418, driver_pay#1419]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-08.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(59) Filter
+Input [6]: [hvfhs_license_num#1401, pickup_datetime#1406, trip_time#1411L, base_passenger_fare#1412, tips#1418, driver_pay#1419]
+Condition : (((isnotnull(trip_time#1411L) AND isnotnull(driver_pay#1419)) AND (trip_time#1411L > 0)) AND (driver_pay#1419 >= 0.0))
+
+(60) Project
+Output [5]: [hvfhs_license_num#1401, base_passenger_fare#1412, tips#1418, (driver_pay#1419 / (cast(trip_time#1411L as double) / 60.0)) AS pay_per_min#2171, hour(pickup_datetime#1406, Some(America/New_York)) AS hour#2172]
+Input [6]: [hvfhs_license_num#1401, pickup_datetime#1406, trip_time#1411L, base_passenger_fare#1412, tips#1418, driver_pay#1419]
+
+(61) Scan parquet 
+Output [6]: [hvfhs_license_num#1476, pickup_datetime#1481, trip_time#1486L, base_passenger_fare#1487, tips#1493, driver_pay#1494]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-09.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(62) Filter
+Input [6]: [hvfhs_license_num#1476, pickup_datetime#1481, trip_time#1486L, base_passenger_fare#1487, tips#1493, driver_pay#1494]
+Condition : (((isnotnull(trip_time#1486L) AND isnotnull(driver_pay#1494)) AND (trip_time#1486L > 0)) AND (driver_pay#1494 >= 0.0))
+
+(63) Project
+Output [5]: [hvfhs_license_num#1476, base_passenger_fare#1487, tips#1493, (driver_pay#1494 / (cast(trip_time#1486L as double) / 60.0)) AS pay_per_min#2173, hour(pickup_datetime#1481, Some(America/New_York)) AS hour#2174]
+Input [6]: [hvfhs_license_num#1476, pickup_datetime#1481, trip_time#1486L, base_passenger_fare#1487, tips#1493, driver_pay#1494]
+
+(64) Scan parquet 
+Output [6]: [hvfhs_license_num#1551, pickup_datetime#1556, trip_time#1561L, base_passenger_fare#1562, tips#1568, driver_pay#1569]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-10.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(65) Filter
+Input [6]: [hvfhs_license_num#1551, pickup_datetime#1556, trip_time#1561L, base_passenger_fare#1562, tips#1568, driver_pay#1569]
+Condition : (((isnotnull(trip_time#1561L) AND isnotnull(driver_pay#1569)) AND (trip_time#1561L > 0)) AND (driver_pay#1569 >= 0.0))
+
+(66) Project
+Output [5]: [hvfhs_license_num#1551, base_passenger_fare#1562, tips#1568, (driver_pay#1569 / (cast(trip_time#1561L as double) / 60.0)) AS pay_per_min#2175, hour(pickup_datetime#1556, Some(America/New_York)) AS hour#2176]
+Input [6]: [hvfhs_license_num#1551, pickup_datetime#1556, trip_time#1561L, base_passenger_fare#1562, tips#1568, driver_pay#1569]
+
+(67) Scan parquet 
+Output [6]: [hvfhs_license_num#1626, pickup_datetime#1631, trip_time#1636L, base_passenger_fare#1637, tips#1643, driver_pay#1644]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-11.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(68) Filter
+Input [6]: [hvfhs_license_num#1626, pickup_datetime#1631, trip_time#1636L, base_passenger_fare#1637, tips#1643, driver_pay#1644]
+Condition : (((isnotnull(trip_time#1636L) AND isnotnull(driver_pay#1644)) AND (trip_time#1636L > 0)) AND (driver_pay#1644 >= 0.0))
+
+(69) Project
+Output [5]: [hvfhs_license_num#1626, base_passenger_fare#1637, tips#1643, (driver_pay#1644 / (cast(trip_time#1636L as double) / 60.0)) AS pay_per_min#2177, hour(pickup_datetime#1631, Some(America/New_York)) AS hour#2178]
+Input [6]: [hvfhs_license_num#1626, pickup_datetime#1631, trip_time#1636L, base_passenger_fare#1637, tips#1643, driver_pay#1644]
+
+(70) Scan parquet 
+Output [6]: [hvfhs_license_num#1701, pickup_datetime#1706, trip_time#1711L, base_passenger_fare#1712, tips#1718, driver_pay#1719]
+Batched: true
+Location: InMemoryFileIndex [file:/C:/Users/Aiden/Desktop/nyc-taxi-spark/data/raw/fhvhv/fhvhv_tripdata_2025-12.parquet]
+PushedFilters: [IsNotNull(trip_time), IsNotNull(driver_pay), GreaterThan(trip_time,0), GreaterThanOrEqual(driver_pay,0.0)]
+ReadSchema: struct<hvfhs_license_num:string,pickup_datetime:timestamp_ntz,trip_time:bigint,base_passenger_fare:double,tips:double,driver_pay:double>
+
+(71) Filter
+Input [6]: [hvfhs_license_num#1701, pickup_datetime#1706, trip_time#1711L, base_passenger_fare#1712, tips#1718, driver_pay#1719]
+Condition : (((isnotnull(trip_time#1711L) AND isnotnull(driver_pay#1719)) AND (trip_time#1711L > 0)) AND (driver_pay#1719 >= 0.0))
+
+(72) Project
+Output [5]: [hvfhs_license_num#1701, base_passenger_fare#1712, tips#1718, (driver_pay#1719 / (cast(trip_time#1711L as double) / 60.0)) AS pay_per_min#2179, hour(pickup_datetime#1706, Some(America/New_York)) AS hour#2180]
+Input [6]: [hvfhs_license_num#1701, pickup_datetime#1706, trip_time#1711L, base_passenger_fare#1712, tips#1718, driver_pay#1719]
+
+(73) Union
+
+(74) Exchange
+Input [5]: [hvfhs_license_num#48, base_passenger_fare#55, tips#56, pay_per_min#2052, hour#2066]
+Arguments: hashpartitioning(hvfhs_license_num#48, 200), ENSURE_REQUIREMENTS, [plan_id=207]
+
+(75) Sort
+Input [5]: [hvfhs_license_num#48, base_passenger_fare#55, tips#56, pay_per_min#2052, hour#2066]
+Arguments: [hvfhs_license_num#48 ASC NULLS FIRST, pay_per_min#2052 ASC NULLS FIRST], false, 0
+
+(76) Window
+Input [5]: [hvfhs_license_num#48, base_passenger_fare#55, tips#56, pay_per_min#2052, hour#2066]
+Arguments: [percent_rank(pay_per_min#2052) windowspecdefinition(hvfhs_license_num#48, pay_per_min#2052 ASC NULLS FIRST, specifiedwindowframe(RowFrame, unboundedpreceding$(), currentrow$())) AS pay_pctile#2084], [hvfhs_license_num#48], [pay_per_min#2052 ASC NULLS FIRST]
+
+(77) HashAggregate
+Input [6]: [hvfhs_license_num#48, base_passenger_fare#55, tips#56, pay_per_min#2052, hour#2066, pay_pctile#2084]
+Keys [2]: [hvfhs_license_num#48, hour#2066]
+Functions [4]: [partial_count(1), partial_avg(pay_pctile#2084), partial_avg(pay_per_min#2052), partial_avg((tips#56 / base_passenger_fare#55))]
+Aggregate Attributes [7]: [count#2181L, sum#2182, count#2183L, sum#2184, count#2185L, sum#2186, count#2187L]
+Results [9]: [hvfhs_license_num#48, hour#2066, count#2188L, sum#2189, count#2190L, sum#2191, count#2192L, sum#2193, count#2194L]
+
+(78) HashAggregate
+Input [9]: [hvfhs_license_num#48, hour#2066, count#2188L, sum#2189, count#2190L, sum#2191, count#2192L, sum#2193, count#2194L]
+Keys [2]: [hvfhs_license_num#48, hour#2066]
+Functions [4]: [count(1), avg(pay_pctile#2084), avg(pay_per_min#2052), avg((tips#56 / base_passenger_fare#55))]
+Aggregate Attributes [4]: [count(1)#2121L, avg(pay_pctile#2084)#2123, avg(pay_per_min#2052)#2125, avg((tips#56 / base_passenger_fare#55))#2127]
+Results [6]: [hvfhs_license_num#48, hour#2066, count(1)#2121L AS trips#2122L, avg(pay_pctile#2084)#2123 AS avg_pay_pctile#2124, avg(pay_per_min#2052)#2125 AS avg_pay_per_min#2126, avg((tips#56 / base_passenger_fare#55))#2127 AS avg_tip_rate#2128]
+
+(79) AdaptiveSparkPlan
+Output [6]: [hvfhs_license_num#48, hour#2066, trips#2122L, avg_pay_pctile#2124, avg_pay_per_min#2126, avg_tip_rate#2128]
+Arguments: isFinalPlan=false
+
+
