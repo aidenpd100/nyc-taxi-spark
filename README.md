@@ -34,8 +34,7 @@ partitions can receive data, whatever the partition count. See `explore/license_
   differ in case. `read_service` in `src/common.py` casts each file to a canonical
   schema and unions, so missing columns become null.
 - Timestamps are `timestamp_ntz` (local New York time, no zone conversion).
-- Weather: .
-- Zone lookup: [source].
+- Weather: Meteostat; Jan 1, 2024- Dec 31, 2025; Ref point: Central Park 
 
 ## Environment
 
