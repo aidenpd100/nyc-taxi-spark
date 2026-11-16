@@ -19,7 +19,8 @@ def build():
                   .agg(F.count("*").alias("trips"),
                        F.avg("pay_pctile").alias("avg_pay_pctile"),
                        F.avg("pay_per_min").alias("avg_pay_per_min"),
-                       F.avg(F.col("tips") / F.col("base_passenger_fare")).alias("avg_tip_rate")))
+                    #    F.avg(F.col("tips") / F.col("base_passenger_fare")).alias("avg_tip_rate")))
+                        F.avg(F.try_divide(F.col("tips"),F.col("base_passenger_fare"),)).alias("avg_tip_rate"),))
 
 def run():
     build().write.mode("overwrite").parquet(f"{OUT}/{TAG}")

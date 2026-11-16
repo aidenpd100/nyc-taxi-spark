@@ -75,9 +75,9 @@ these settings between baseline and optimized runs.
 
 ## Baselines (Seth's Computer)
 | Query | Scope | Time | Trials | Plan | UI screenshot | Notes |
-| Q1 |HVFHV, 24 months, 483,057,328 rows after filters | | | | | |
+| Q1 |HVFHV, 24 months, 483,057,328 rows after filters |1397.19s (22 mins)  |1 |`baseline/q1_all/plan` |N/A (see above)| see below |
 | Q2 |22 months,  80,892,744 rows | 81.29s|1 |`baseline/q2_feb_dec_yoy/plan.txt` |`baseline/q2_feb_dec_yoy/ui_slow_stage.png` | see below|
-| Q3 |24 months,  89,892,263 rows|39.32s | 1|`baseline/q3_all_24mo/plan.txt` |`baseline/q3_all_24mo/ui_slow_task.png` |see below |
+| Q3 |24 months,  89,892,263 rows|50.68s | 1|`baseline/q3_all_24mo/plan.txt` |`baseline/q3_all_24mo/ui_slow_task.png` |see below |
 
 
 
@@ -109,6 +109,7 @@ these settings between baseline and optimized runs.
 - once again, ended up being a lot faster than expected
 - slowdown from windowing, scanning and MSJ
 - speedup can come from allowing spark to optimize, using BHJ, and not scanning multiple times
+
 ## Division of work
 
 - Aiden: ingestion, `common.py`, Q1
